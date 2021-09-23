@@ -3,7 +3,7 @@
 //  MUXSDKKalturaTests
 //
 //  Created by Stephanie Zuñiga on 20/9/21.
-//  Copyright © 2021 CocoaPods. All rights reserved.
+//  Copyright © 2021 Mux, Inc. All rights reserved.
 //
 
 import XCTest
