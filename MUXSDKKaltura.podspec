@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Mux' => 'ios-sdk@mux.com' }
 
   s.dependency 'Mux-Stats-Core', '~>3.5'
-  s.dependency 'PlayKit'
+  s.dependency 'PlayKit', '~>3.21'
 
   s.source_files = 'MUXSDKKaltura/MUXSDKKaltura/*.swift'
 
