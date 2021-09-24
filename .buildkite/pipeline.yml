@@ -1,0 +1,24 @@
+steps:
+  - command: ".buildkite/unit-tests.sh"
+    label: "Unit Tests"
+    agents:
+      queue: "iOS"
+  - wait
+  - command: ".buildkite/build.sh"
+    label: ":hammer: Build"
+    artifact_paths:
+        - "MUXSDKKaltura.xcframework.zip"
+    agents:
+      queue: "iOS"
+  - wait
+  - command: "apps/DemoApp/run-tests.sh"
+    label: "Tests"
+    agents:
+      queue: "iOS"
+  - wait
+  - command: ".buildkite/build-static.sh"
+    label: ":hammer: Build Static"
+    artifact_paths:
+        - "MUXSDKKaltura-static.xcframework.zip"
+    agents:
+      queue: "iOS"
