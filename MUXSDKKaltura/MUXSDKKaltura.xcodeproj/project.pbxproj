@@ -11,9 +11,11 @@
 		B3D9CF3531F9AFFB478BD271 /* Pods_MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA1BFF5A2C15093426E0D66 /* Pods_MUXSDKKaltura.framework */; };
 		E987218F26F921CA0099E048 /* MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E987218626F921CA0099E048 /* MUXSDKKaltura.framework */; };
 		E987219426F921CA0099E048 /* MUXSDKKalturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */; };
-		E987219E26F924770099E048 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219D26F924770099E048 /* ReplaceMe.swift */; };
-		E98721A226FA69E70099E048 /* MUXSDKKaltura.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721A126FA69E70099E048 /* MUXSDKKaltura.h */; };
 		E98721B826FA6AD90099E048 /* MUXSDKKalturaTv.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D8302F26FE84C200389EC6 /* MUXSDKStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302B26FE84C200389EC6 /* MUXSDKStats.swift */; };
+		E9D8303026FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */; };
+		E9D8303126FE84C200389EC6 /* MUXSDKCustomerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302D26FE84C200389EC6 /* MUXSDKCustomerDataStore.swift */; };
+		E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +42,13 @@
 		E987218E26F921CA0099E048 /* MUXSDKKalturaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUXSDKKalturaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKKalturaTests.swift; sourceTree = "<group>"; };
 		E987219526F921CA0099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E987219D26F924770099E048 /* ReplaceMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
-		E98721A126FA69E70099E048 /* MUXSDKKaltura.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUXSDKKaltura.h; sourceTree = "<group>"; };
 		E98721A826FA6AD90099E048 /* MUXSDKKalturaTv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKalturaTv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUXSDKKalturaTv.h; sourceTree = "<group>"; };
 		E98721AB26FA6AD90099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9D8302B26FE84C200389EC6 /* MUXSDKStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKStats.swift; sourceTree = "<group>"; };
+		E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBindingManager.swift; sourceTree = "<group>"; };
+		E9D8302D26FE84C200389EC6 /* MUXSDKCustomerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKCustomerDataStore.swift; sourceTree = "<group>"; };
+		E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBinding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,9 +126,11 @@
 		E987218726F921CA0099E048 /* MUXSDKKaltura */ = {
 			isa = PBXGroup;
 			children = (
-				E987219D26F924770099E048 /* ReplaceMe.swift */,
+				E9D8302D26FE84C200389EC6 /* MUXSDKCustomerDataStore.swift */,
+				E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */,
+				E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */,
+				E9D8302B26FE84C200389EC6 /* MUXSDKStats.swift */,
 				E987218926F921CA0099E048 /* Info.plist */,
-				E98721A126FA69E70099E048 /* MUXSDKKaltura.h */,
 			);
 			path = MUXSDKKaltura;
 			sourceTree = "<group>";
@@ -154,7 +160,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E98721A226FA69E70099E048 /* MUXSDKKaltura.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E987219E26F924770099E048 /* ReplaceMe.swift in Sources */,
+				E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */,
+				E9D8303026FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift in Sources */,
+				E9D8302F26FE84C200389EC6 /* MUXSDKStats.swift in Sources */,
+				E9D8303126FE84C200389EC6 /* MUXSDKCustomerDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,8 +538,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MUXSDKKaltura/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -542,6 +551,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -569,8 +579,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MUXSDKKaltura/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.ios.MUXSDKKaltura;
@@ -578,6 +589,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -587,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E262884B4D4A322339BA937F /* Pods-MUXSDKKalturaTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -599,8 +612,9 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MUXSDKKalturaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.ios.MUXSDKKalturaTests;
@@ -608,6 +622,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -615,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82352BC9B9839F213B2B3BED /* Pods-MUXSDKKalturaTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -626,13 +642,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MUXSDKKalturaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.ios.MUXSDKKalturaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
