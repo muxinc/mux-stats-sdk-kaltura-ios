@@ -102,6 +102,8 @@ class ViewController: UIViewController {
                 self.durationLabel.text = duration.formattedTimeDisplay
             }
         )
+        
+        self.setupMUX()
     }
     
     func loadMedia() {
