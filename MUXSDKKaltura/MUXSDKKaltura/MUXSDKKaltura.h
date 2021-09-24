@@ -9,5 +9,6 @@
 #ifndef MUXSDKKaltura_h
 #define MUXSDKKaltura_h
 
+#import "MUXSDKKaltura-Swift.h"
 
 #endif /* MUXSDKKaltura_h */
