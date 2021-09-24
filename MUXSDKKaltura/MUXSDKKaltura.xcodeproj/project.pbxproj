@@ -12,7 +12,7 @@
 		E987218F26F921CA0099E048 /* MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E987218626F921CA0099E048 /* MUXSDKKaltura.framework */; };
 		E987219426F921CA0099E048 /* MUXSDKKalturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */; };
 		E987219E26F924770099E048 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219D26F924770099E048 /* ReplaceMe.swift */; };
-		E98721A226FA69E70099E048 /* MUXSDKKaltura.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721A126FA69E70099E048 /* MUXSDKKaltura.h */; };
+		E98721A226FA69E70099E048 /* MUXSDKKaltura.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721A126FA69E70099E048 /* MUXSDKKaltura.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E98721B826FA6AD90099E048 /* MUXSDKKalturaTv.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
