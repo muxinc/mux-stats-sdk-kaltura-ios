@@ -10,8 +10,8 @@ import UIKit
 import PlayKit
 
 class ViewController: UIViewController {
-    var player: Player?
-    let playerContainer = PlayerView()
+    var kalturaPlayer: Player?
+    let kalturaPlayerContainer = PlayerView()
     let playButton = UIButton()
     let playheadSlider = UISlider()
     let positionLabel = UILabel()
@@ -39,14 +39,14 @@ class ViewController: UIViewController {
         self.setupLayout()
         
         // Load PlayKit player
-        self.player = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
-        self.setupPlayer()
+        self.kalturaPlayer = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
+        self.setupKalturaPlayer()
     }
     
-    func setupPlayer() {
+    func setupKalturaPlayer() {
         // Set PlayerView as the container for PlayKit Player variable
-        self.player?.view = self.playerContainer
-        self.loadMedia()
+        self.kalturaPlayer?.view = self.kalturaPlayerContainer
+        self.loadMediaKalturaPlayer()
         
         
         // Handle PlayKit events
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         ]
         
         // Update player state depending on the Playkit events
-        self.player?.addObserver(self, events: events) { [weak self] (event) in
+        self.kalturaPlayer?.addObserver(self, events: events) { [weak self] (event) in
             guard let self = self else { return }
 
             switch event {
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         }
         
         // Checks media progress to update the player slider and the current position label
-        _ = self.player?.addPeriodicObserver(
+        _ = self.kalturaPlayer?.addPeriodicObserver(
             interval: 0.2,
             observeOn: DispatchQueue.main,
             using: { [weak self] currentPosition in
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         )
         
         // Observe PlayKit event durationChanged to update the maximum duration of the slider and duration label
-        self.player?.addObserver(
+        self.kalturaPlayer?.addObserver(
             self,
             events: [PlayerEvent.durationChanged],
             block: { [weak self] event in
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         )
     }
     
-    func loadMedia() {
+    func loadMediaKalturaPlayer() {
         let contentURL = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
         let entryId = "sintel"
         
@@ -116,11 +116,11 @@ class ViewController: UIViewController {
         let mediaConfig = MediaConfig(mediaEntry: mediaEntry)
         
         // Prepare PlayKit player
-        self.player!.prepare(mediaConfig)
+        self.kalturaPlayer!.prepare(mediaConfig)
     }
     
     @objc func playButtonPressed() {
-        guard let player = self.player else {
+        guard let player = self.kalturaPlayer else {
             return
         }
         
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
     }
     
     @objc func playheadValueChanged() {
-        guard let player = self.player else {
+        guard let player = self.kalturaPlayer else {
             return
         }
         
@@ -163,16 +163,16 @@ extension ViewController {
 extension ViewController {
     func setupLayout() {
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.playerContainer)
+        self.view.addSubview(self.kalturaPlayerContainer)
         
         // Constraint PlayKit player container to safe area layout guide
-        self.playerContainer.translatesAutoresizingMaskIntoConstraints = false
+        self.kalturaPlayerContainer.translatesAutoresizingMaskIntoConstraints = false
         let guide = self.view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            self.playerContainer.topAnchor.constraint(equalTo: guide.topAnchor),
-            self.playerContainer.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
-            self.playerContainer.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
-            self.playerContainer.trailingAnchor.constraint(equalTo: guide.trailingAnchor)
+            self.kalturaPlayerContainer.topAnchor.constraint(equalTo: guide.topAnchor),
+            self.kalturaPlayerContainer.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            self.kalturaPlayerContainer.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+            self.kalturaPlayerContainer.trailingAnchor.constraint(equalTo: guide.trailingAnchor)
         ])
         
         let actionsContainer = UIStackView()
@@ -181,12 +181,12 @@ extension ViewController {
         actionsContainer.isLayoutMarginsRelativeArrangement = true
         actionsContainer.layoutMargins = UIEdgeInsets(top: 0, left: 8.0, bottom: 0, right: 8.0)
         actionsContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.playerContainer.addSubview(actionsContainer)
+        self.kalturaPlayerContainer.addSubview(actionsContainer)
         NSLayoutConstraint.activate([
-            actionsContainer.bottomAnchor.constraint(equalTo: self.playerContainer.bottomAnchor),
+            actionsContainer.bottomAnchor.constraint(equalTo: self.kalturaPlayerContainer.bottomAnchor),
             actionsContainer.heightAnchor.constraint(equalToConstant: 64.0),
-            actionsContainer.leadingAnchor.constraint(equalTo: self.playerContainer.leadingAnchor),
-            actionsContainer.trailingAnchor.constraint(equalTo: self.playerContainer.trailingAnchor)
+            actionsContainer.leadingAnchor.constraint(equalTo: self.kalturaPlayerContainer.leadingAnchor),
+            actionsContainer.trailingAnchor.constraint(equalTo: self.kalturaPlayerContainer.trailingAnchor)
         ])
         
         // Add play/pause button
