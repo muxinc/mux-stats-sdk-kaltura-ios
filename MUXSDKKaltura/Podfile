@@ -1,0 +1,16 @@
+
+target 'MUXSDKKaltura' do
+  platform :ios, '9.0'
+  use_frameworks!
+  
+  # Pods for MUXSDKKaltura
+  pod 'Mux-Stats-Core', '~>3.5'
+  pod 'PlayKit'
+
+  target 'MUXSDKKalturaTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Mux-Stats-Core', '~>3.5'
+    pod 'PlayKit'
+  end
+end
