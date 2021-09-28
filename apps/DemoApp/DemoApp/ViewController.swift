@@ -152,7 +152,7 @@ class ViewController: UIViewController {
             viewerData: viewerData
         )
         
-        guard let player = self.player, let data = customerData else {
+        guard let player = self.kalturaPlayer, let data = customerData else {
             return
         }
         
