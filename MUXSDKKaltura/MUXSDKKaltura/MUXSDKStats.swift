@@ -144,7 +144,7 @@ private extension UIUserInterfaceIdiom {
         case .carPlay:
             return DeviceInfo(category: "car", osFamily: "CarPlay")
         case .mac: //TODO: validate this info
-            return DeviceInfo(category: "computer", osFamily: "macOS")
+            return DeviceInfo(category: "desktop", osFamily: "macOS")
         default:
             return DeviceInfo(category: "unknown", osFamily: "unknown")
         }
