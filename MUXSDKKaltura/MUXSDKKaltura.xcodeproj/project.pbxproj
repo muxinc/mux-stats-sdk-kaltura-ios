@@ -44,7 +44,7 @@
 		E987218E26F921CA0099E048 /* MUXSDKKalturaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUXSDKKalturaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKKalturaTests.swift; sourceTree = "<group>"; };
 		E987219526F921CA0099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E98721A826FA6AD90099E048 /* MUXSDKKalturaTv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKalturaTv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E98721A826FA6AD90099E048 /* MUXSDKKaltura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKaltura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUXSDKKalturaTv.h; sourceTree = "<group>"; };
 		E98721AB26FA6AD90099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9D8302B26FE84C200389EC6 /* MUXSDKStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKStats.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			children = (
 				E987218626F921CA0099E048 /* MUXSDKKaltura.framework */,
 				E987218E26F921CA0099E048 /* MUXSDKKalturaTests.xctest */,
-				E98721A826FA6AD90099E048 /* MUXSDKKalturaTv.framework */,
+				E98721A826FA6AD90099E048 /* MUXSDKKaltura.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			);
 			name = MUXSDKKalturaTv;
 			productName = MUXSDKKalturaTv;
-			productReference = E98721A826FA6AD90099E048 /* MUXSDKKalturaTv.framework */;
+			productReference = E98721A826FA6AD90099E048 /* MUXSDKKaltura.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -615,7 +615,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E262884B4D4A322339BA937F /* Pods-MUXSDKKalturaTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -646,7 +645,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82352BC9B9839F213B2B3BED /* Pods-MUXSDKKalturaTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -696,7 +694,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.tvos.MUXSDKKalturaTv;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MUXSDKKaltura;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -732,7 +730,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.tvos.MUXSDKKalturaTv;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MUXSDKKaltura;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
