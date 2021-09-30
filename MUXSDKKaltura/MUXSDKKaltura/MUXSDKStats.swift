@@ -119,9 +119,13 @@ extension MUXSDKStats {
             viewerData.viewerApplicationVersion = applicationVersion
         }
         
-        let deviceInfo = UIDevice.current.userInterfaceIdiom.MUXDeviceInfo
-        viewerData.viewerDeviceCategory = deviceInfo.category
-        viewerData.viewerOsFamily = deviceInfo.osFamily
+        if let deviceInfo = UIDevice.current.userInterfaceIdiom.MUXDeviceInfo {
+            // If userInterfaceIdiom is not recognized we don't want to send any data
+            // Server side device detection should fill in the values
+            viewerData.viewerDeviceCategory = deviceInfo.category
+            viewerData.viewerOsFamily = deviceInfo.osFamily
+        }
+        
         viewerData.viewerOsVersion = UIDevice.current.systemVersion
         viewerData.viewerDeviceModel = UIDevice.current.modelCode
          
@@ -133,7 +137,7 @@ extension MUXSDKStats {
 private extension UIUserInterfaceIdiom {
     typealias DeviceInfo = (category: String, osFamily: String)
     
-    var MUXDeviceInfo: DeviceInfo {
+    var MUXDeviceInfo: DeviceInfo? {
         switch self {
         case .phone:
             return DeviceInfo(category: "phone", osFamily: "iOS")
@@ -143,10 +147,10 @@ private extension UIUserInterfaceIdiom {
             return DeviceInfo(category: "tv", osFamily: "tvOS")
         case .carPlay:
             return DeviceInfo(category: "car", osFamily: "CarPlay")
-        case .mac: //TODO: validate this info
+        case .mac:
             return DeviceInfo(category: "desktop", osFamily: "macOS")
         default:
-            return DeviceInfo(category: "unknown", osFamily: "unknown")
+            return nil
         }
     }
 }
