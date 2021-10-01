@@ -67,7 +67,11 @@ class MUXSDKCustomerDataStoreTests: XCTestCase {
         // Update custom data
         let newCustomData = MUXSDKCustomData()
         newCustomData.customData1 = "New Custom Data 1"
-        dataStore.updateData(customData: newCustomData, forPlayerName: Self.playerName)
+        
+        let newCustomerData = MUXSDKCustomerData()
+        newCustomerData.customData = newCustomData
+        
+        dataStore.updateData(newCustomerData, forPlayerName: Self.playerName)
         
         // Test updated custom data
         let updatedData = dataStore.dataForPlayerName(Self.playerName)
