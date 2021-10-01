@@ -17,40 +17,35 @@ class MUXSDKCustomerDataStore {
         self.store[name] = data
     }
     
-    func updateData(
-        customerPlayerData: MUXSDKCustomerPlayerData? = nil,
-        customerVideoData: MUXSDKCustomerVideoData? = nil,
-        customerViewData: MUXSDKCustomerViewData? = nil,
-        customerViewerData: MUXSDKCustomerViewerData? = nil,
-        customData: MUXSDKCustomData? = nil,
-        forPlayerName name: String
-    ) {
+    // Update existing data for player only with non nil properties of the injected data
+    // For all properties that are nil in the injected data, pre-existing values will be preserved
+    func updateData(_ data: MUXSDKCustomerData, forPlayerName name: String) {
         // Get current data for player name
-        let data = self.store[name]
+        let currentData = self.store[name]
         
         // Update data
-        if let playerData = customerPlayerData {
-            data?.customerPlayerData = playerData
+        if let playerData = data.customerPlayerData {
+            currentData?.customerPlayerData = playerData
         }
         
-        if let videoData = customerVideoData {
-            data?.customerVideoData = videoData
+        if let videoData = data.customerVideoData {
+            currentData?.customerVideoData = videoData
         }
         
-        if let viewData = customerViewData {
-            data?.customerViewData = viewData
+        if let viewData = data.customerViewData {
+            currentData?.customerViewData = viewData
         }
         
-        if let viewerData = customerViewerData {
-            data?.customerViewerData = viewerData
+        if let viewerData = data.customerViewerData {
+            currentData?.customerViewerData = viewerData
         }
         
-        if let customData = customData {
-            data?.customData = customData
+        if let customData = data.customData {
+            currentData?.customData = customData
         }
         
         // Store updated data
-        self.store[name] = data
+        self.store[name] = currentData
     }
     
     func dataForPlayerName(_ name: String) -> MUXSDKCustomerData? {
