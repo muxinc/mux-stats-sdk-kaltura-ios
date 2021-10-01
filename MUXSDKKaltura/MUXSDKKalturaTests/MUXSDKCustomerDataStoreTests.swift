@@ -90,7 +90,7 @@ class MUXSDKCustomerDataStoreTests: XCTestCase {
 extension MUXSDKCustomerDataStoreTests {
     static let playerName = "Test Player"
     static var customerData: MUXSDKCustomerData? {
-        let playerName = playerName
+        let playerName = Self.playerName
         
         let playerData = MUXSDKCustomerPlayerData(environmentKey: "ENV_KEY")
         playerData?.playerName = playerName
