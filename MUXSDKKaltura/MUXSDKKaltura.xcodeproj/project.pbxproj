@@ -10,7 +10,7 @@
 		655628C41C9BDB12946B8B35 /* Pods_MUXSDKKalturaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F23E7189C0AE52A1B37B81F /* Pods_MUXSDKKalturaTests.framework */; };
 		B3D9CF3531F9AFFB478BD271 /* Pods_MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA1BFF5A2C15093426E0D66 /* Pods_MUXSDKKaltura.framework */; };
 		E987218F26F921CA0099E048 /* MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E987218626F921CA0099E048 /* MUXSDKKaltura.framework */; };
-		E987219426F921CA0099E048 /* MUXSDKKalturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */; };
+		E987219426F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219326F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift */; };
 		E98721B826FA6AD90099E048 /* MUXSDKKalturaTv.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D8302F26FE84C200389EC6 /* MUXSDKStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302B26FE84C200389EC6 /* MUXSDKStats.swift */; };
 		E9D8303026FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */; };
@@ -40,7 +40,7 @@
 		E987218626F921CA0099E048 /* MUXSDKKaltura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKaltura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987218926F921CA0099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E987218E26F921CA0099E048 /* MUXSDKKalturaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUXSDKKalturaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKKalturaTests.swift; sourceTree = "<group>"; };
+		E987219326F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKCustomerDataStoreTests.swift; sourceTree = "<group>"; };
 		E987219526F921CA0099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98721A826FA6AD90099E048 /* MUXSDKKaltura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKaltura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUXSDKKalturaTv.h; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		E987219226F921CA0099E048 /* MUXSDKKalturaTests */ = {
 			isa = PBXGroup;
 			children = (
-				E987219326F921CA0099E048 /* MUXSDKKalturaTests.swift */,
+				E987219326F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift */,
 				E987219526F921CA0099E048 /* Info.plist */,
 			);
 			path = MUXSDKKalturaTests;
@@ -394,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E987219426F921CA0099E048 /* MUXSDKKalturaTests.swift in Sources */,
+				E987219426F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
