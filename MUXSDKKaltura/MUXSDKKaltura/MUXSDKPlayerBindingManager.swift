@@ -14,7 +14,7 @@ class MUXSDKPlayerBindingManager {
     
     // Customer Data Store
     let customerDataStore = MUXSDKCustomerDataStore()
-    
+
     init(dispatcher: MUXSDKDispatcherType) {
         self.dispatcher = dispatcher
     }
