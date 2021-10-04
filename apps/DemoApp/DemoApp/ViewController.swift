@@ -8,6 +8,8 @@
 
 import UIKit
 import PlayKit
+import MUXSDKKaltura
+import MuxCore
 
 class ViewController: UIViewController {
     var kalturaPlayer: Player?
@@ -100,6 +102,8 @@ class ViewController: UIViewController {
                 self.durationLabel.text = duration.formattedTimeDisplay
             }
         )
+        
+        self.setupMUX()
     }
     
     func loadMediaKalturaPlayer() {
@@ -117,6 +121,46 @@ class ViewController: UIViewController {
         
         // Prepare PlayKit player
         self.kalturaPlayer!.prepare(mediaConfig)
+    }
+    
+    func setupMUX() {
+        let playerName = "iOS KalturaPlayer"
+        
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        playerData?.playerName = playerName
+        
+        let videoData = MUXSDKCustomerVideoData()
+        videoData.videoTitle = "Title Video Kaltura"
+        videoData.videoId = "sintel"
+        videoData.videoSeries = "animation"
+        
+        let viewData = MUXSDKCustomerViewData()
+        viewData.viewSessionId = "my session id"
+        
+        let customData = MUXSDKCustomData()
+        customData.customData1 = "Kaltura test"
+        customData.customData2 = "Custom Data 2"
+        
+        let viewerData = MUXSDKCustomerViewerData()
+        viewerData.viewerApplicationName = "MUX Kaltura DemoApp"
+        
+        let customerData = MUXSDKCustomerData(
+            customerPlayerData: playerData,
+            videoData: videoData,
+            viewData: viewData,
+            customData: customData,
+            viewerData: viewerData
+        )
+        
+        guard let player = self.kalturaPlayer, let data = customerData else {
+            return
+        }
+        
+        MUXSDKStats.monitorPlayer(
+            player: player,
+            playerName: playerName,
+            customerData: data
+        )
     }
     
     @objc func playButtonPressed() {
