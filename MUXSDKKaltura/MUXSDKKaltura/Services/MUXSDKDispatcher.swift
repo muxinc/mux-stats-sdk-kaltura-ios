@@ -9,12 +9,7 @@
 import Foundation
 import MuxCore
 
-class MUXSDKDispatcher: MUXSDKDispatcherType {
-    func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent) {
-        MUXSDKCore.dispatchGlobalDataEvent(event)
-    }
-    
-    func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String) {
-        MUXSDKCore.dispatchEvent(event, forPlayer: playerId)
-    }
+protocol MUXSDKDispatcher {
+    func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent)
+    func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String)
 }

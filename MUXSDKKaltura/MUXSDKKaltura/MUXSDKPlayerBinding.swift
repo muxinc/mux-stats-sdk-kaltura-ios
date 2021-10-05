@@ -20,7 +20,7 @@ public class MUXSDKPlayerBinding: NSObject {
     private var software: String
     private var player: Player?
     private var automaticErrorTracking: Bool
-    private let dispatcher: MUXSDKDispatcherType
+    private let dispatcher: MUXSDKDispatcher
     
     // Binding is considered initialized once it has dispatched the viewInit, customer player & video data, & playerReady events to MUXCore
     private (set) var initialized: Bool
@@ -32,7 +32,7 @@ public class MUXSDKPlayerBinding: NSObject {
         software: String,
         player: Player,
         automaticErrorTracking: Bool,
-        dispatcher: MUXSDKDispatcherType
+        dispatcher: MUXSDKDispatcher
     ) {
         self.name = name
         self.software = software
