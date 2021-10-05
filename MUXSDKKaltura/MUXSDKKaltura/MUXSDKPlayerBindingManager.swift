@@ -10,12 +10,12 @@ import Foundation
 
 class MUXSDKPlayerBindingManager {
     var bindings: [String: MUXSDKPlayerBinding] = [:]
-    let dispatcher: MUXSDKDispatcherType
+    let dispatcher: MUXSDKDispatcher
     
     // Customer Data Store
     let customerDataStore = MUXSDKCustomerDataStore()
 
-    init(dispatcher: MUXSDKDispatcherType) {
+    init(dispatcher: MUXSDKDispatcher) {
         self.dispatcher = dispatcher
     }
     

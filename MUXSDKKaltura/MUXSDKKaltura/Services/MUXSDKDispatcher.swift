@@ -1,5 +1,5 @@
 //
-//  MUXSDKDispatcher.swift
+//  MUXSDKDispatcherType.swift
 //  MUXSDKKaltura
 //
 //  Created by Stephanie Zuñiga on 27/9/21.
@@ -9,8 +9,6 @@
 import Foundation
 import MuxCore
 
-class MUXSDKDispatcher: MUXSDKDispatcherType {
-    func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent) {
-        MUXSDKCore.dispatchGlobalDataEvent(event)
-    }
+protocol MUXSDKDispatcher {
+    func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent)
 }

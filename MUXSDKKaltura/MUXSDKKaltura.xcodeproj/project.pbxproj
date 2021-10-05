@@ -16,8 +16,8 @@
 		E9D8303026FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */; };
 		E9D8303126FE84C200389EC6 /* MUXSDKCustomerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302D26FE84C200389EC6 /* MUXSDKCustomerDataStore.swift */; };
 		E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */; };
-		E9D8303F270268A000389EC6 /* MUXSDKDispatcherType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303D270268A000389EC6 /* MUXSDKDispatcherType.swift */; };
-		E9D83040270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303E270268A000389EC6 /* MUXSDKDispatcher.swift */; };
+		E9D8303F270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */; };
+		E9D83040270268A000389EC6 /* MUXSDKMainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,8 @@
 		E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBindingManager.swift; sourceTree = "<group>"; };
 		E9D8302D26FE84C200389EC6 /* MUXSDKCustomerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKCustomerDataStore.swift; sourceTree = "<group>"; };
 		E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBinding.swift; sourceTree = "<group>"; };
-		E9D8303D270268A000389EC6 /* MUXSDKDispatcherType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKDispatcherType.swift; sourceTree = "<group>"; };
-		E9D8303E270268A000389EC6 /* MUXSDKDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKDispatcher.swift; sourceTree = "<group>"; };
+		E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKDispatcher.swift; sourceTree = "<group>"; };
+		E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKMainDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +161,8 @@
 		E9D8303C270268A000389EC6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E9D8303D270268A000389EC6 /* MUXSDKDispatcherType.swift */,
-				E9D8303E270268A000389EC6 /* MUXSDKDispatcher.swift */,
+				E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */,
+				E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -398,8 +398,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */,
-				E9D8303F270268A000389EC6 /* MUXSDKDispatcherType.swift in Sources */,
-				E9D83040270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */,
+				E9D8303F270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */,
+				E9D83040270268A000389EC6 /* MUXSDKMainDispatcher.swift in Sources */,
 				E9D8303026FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift in Sources */,
 				E9D8302F26FE84C200389EC6 /* MUXSDKStats.swift in Sources */,
 				E9D8303126FE84C200389EC6 /* MUXSDKCustomerDataStore.swift in Sources */,

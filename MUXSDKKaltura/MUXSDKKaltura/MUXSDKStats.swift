@@ -13,7 +13,7 @@ import MuxCore
 @objc
 public class MUXSDKStats: NSObject {
     private static let MuxPlayerSoftwareKalturaPlayer = "KalturaPlayer"
-    private static let dispatcher: MUXSDKDispatcherType = MUXSDKDispatcher()
+    private static let dispatcher: MUXSDKDispatcher = MUXSDKMainDispatcher()
     private static let bindingsManager = MUXSDKPlayerBindingManager(dispatcher: dispatcher)
     private static var customerViewerData: MUXSDKCustomerViewerData?
     
