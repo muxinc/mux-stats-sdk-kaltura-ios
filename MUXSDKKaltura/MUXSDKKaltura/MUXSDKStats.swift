@@ -72,7 +72,8 @@ public class MUXSDKStats: NSObject {
             name: playerName,
             software: MuxPlayerSoftwareKalturaPlayer,
             player: player,
-            automaticErrorTracking: automaticErrorTracking
+            automaticErrorTracking: automaticErrorTracking,
+            dispatcher: self.dispatcher
         )
         newBinding.attachPlayer(player)
         

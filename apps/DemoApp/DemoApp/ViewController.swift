@@ -43,6 +43,9 @@ class ViewController: UIViewController {
         // Load PlayKit player
         self.kalturaPlayer = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
         self.setupKalturaPlayer()
+        
+        // Setup MUX
+        self.setupMUX()
     }
     
     func setupKalturaPlayer() {
@@ -88,7 +91,7 @@ class ViewController: UIViewController {
         // Observe PlayKit event durationChanged to update the maximum duration of the slider and duration label
         self.kalturaPlayer?.addObserver(
             self,
-            events: [PlayerEvent.durationChanged],
+            event: PlayerEvent.durationChanged,
             block: { [weak self] event in
                 guard
                     let self = self,
@@ -102,8 +105,6 @@ class ViewController: UIViewController {
                 self.durationLabel.text = duration.formattedTimeDisplay
             }
         )
-        
-        self.setupMUX()
     }
     
     func loadMediaKalturaPlayer() {

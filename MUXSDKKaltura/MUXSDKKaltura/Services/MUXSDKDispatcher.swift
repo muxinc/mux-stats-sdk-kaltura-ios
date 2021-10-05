@@ -13,4 +13,8 @@ class MUXSDKDispatcher: MUXSDKDispatcherType {
     func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent) {
         MUXSDKCore.dispatchGlobalDataEvent(event)
     }
+    
+    func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String) {
+        MUXSDKCore.dispatchEvent(event, forPlayer: playerId)
+    }
 }
