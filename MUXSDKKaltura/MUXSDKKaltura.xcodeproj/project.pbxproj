@@ -414,8 +414,6 @@
 				E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */,
 				E9D8303F270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */,
 				E9D83040270268A000389EC6 /* MUXSDKMainDispatcher.swift in Sources */,
-				E9D8303F270268A000389EC6 /* MUXSDKDispatcherType.swift in Sources */,
-				E9D83040270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */,
 				E917C7CE270CF4BB00BE9EFB /* VideoData.swift in Sources */,
 				E9D8303026FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift in Sources */,
 				E9D8302F26FE84C200389EC6 /* MUXSDKStats.swift in Sources */,
