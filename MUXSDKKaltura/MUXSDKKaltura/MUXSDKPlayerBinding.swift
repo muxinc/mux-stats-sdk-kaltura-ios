@@ -191,11 +191,37 @@ public class MUXSDKPlayerBinding: NSObject {
                 return false
             }
             
-            let screenBounds = UIScreen.main.bounds
+            var equalToScreenBounds: Bool {
+                let screenBounds = UIScreen.main.bounds
+                return
+                    viewBounds.size.equalTo(screenBounds.size) ||
+                    (viewBounds.size.width == screenBounds.size.height && viewBounds.size.height == screenBounds.size.width)
+            }
             
-            return
-                viewBounds.size.equalTo(screenBounds.size) ||
-                (viewBounds.size.width == screenBounds.size.height && viewBounds.size.height == screenBounds.size.width)
+            var equalToSafeArea: Bool {
+                guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else {
+                    return false
+                }
+                
+                var safeAreaBounds = CGSize.zero
+                // Remove conditional when we drop support for iOS < 11.0
+                if #available(iOS 11.0, *) {
+                    safeAreaBounds = rootViewController.view.safeAreaLayoutGuide.layoutFrame.size
+                } else {
+                    // Fallback on earlier versions
+                    let topSafeArea = rootViewController.topLayoutGuide.length
+                    let bottomSafeArea = rootViewController.bottomLayoutGuide.length
+                    let fullViewSize = rootViewController.view.frame.size
+                    safeAreaBounds = CGSize(width: fullViewSize.width, height: fullViewSize.height - topSafeArea - bottomSafeArea)
+                }
+                
+                return
+                    viewBounds.size.equalTo(safeAreaBounds) ||
+                    (viewBounds.size.width == safeAreaBounds.height && viewBounds.size.height == safeAreaBounds.width)
+            }
+            
+            
+            return equalToScreenBounds || equalToSafeArea
         }
 
         playerData.playerIsFullscreen = isFullScreen ? "true" : "false"
