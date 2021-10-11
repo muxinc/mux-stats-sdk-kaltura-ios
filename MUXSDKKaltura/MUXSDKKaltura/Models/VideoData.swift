@@ -11,7 +11,7 @@ import CoreMedia
 
 struct VideoData {
     var size = CGSize.zero
-    var duration = CMTime.zero
+    var duration = TimeInterval.zero
     var isLive = false
     var url: String? = nil
     var seeking = false
@@ -21,4 +21,9 @@ struct VideoData {
     var sourceDimensionsHaveChanged = false
     var lastDispatchedVideoSize = CGSize.zero
     var playerErrors = [Error]()
+    var lastPlayheadTimeUpdated: TimeInterval = .zero
+    var lastPlayheadTimeMs: Double = 0.0
+    var lastPlayheadTimeOnPauseUpdated: TimeInterval = .zero
+    var lastPlayheadTimeMsOnPause: Double = 0.0
+    var hasUpdates = false
 }
