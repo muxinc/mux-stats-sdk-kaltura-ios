@@ -32,6 +32,7 @@ public class MUXSDKPlayerBinding: NSObject {
     
     private var lastTimeUpdate: TimeInterval = .zero
     private var timeObserver: UUID? = nil
+    private var timeUpdateTimer: Timer? = nil
     
     private var currentPlayheadTimeMs: Double {
         return self.player?.currentTime ?? 0.0 * 1000
@@ -94,11 +95,43 @@ public class MUXSDKPlayerBinding: NSObject {
             }
         )
         
-
+        self.timeUpdateTimer = Timer.scheduledTimer(
+            timeInterval: 0.05,
+            target: self,
+            selector: #selector(self.timeUpdateFromTimer),
+            userInfo: nil,
+            repeats: true
+        )
     }
     
     func detachPlayer() {
+        if let periodicObserver = self.timeObserver {
+            self.player?.removePeriodicObserver(periodicObserver)
+        }
+        
+        self.player?.removeObserver(
+            self,
+            events: [
+                PlayerEvent.sourceSelected,
+                PlayerEvent.durationChanged,
+                PlayerEvent.videoTrackChanged,
+                PlayerEvent.error,
+                PlayerEvent.errorLog
+            ]
+        )
+        
+        self.timeUpdateTimer?.invalidate()
+        self.timeUpdateTimer = nil
         self.player = nil
+    }
+    
+    @objc
+    func timeUpdateFromTimer() {
+        guard self.state == .buffering || self.state == .play, let player = self.player else {
+            return
+        }
+        
+        self.dispatchTimeUpdate(player.currentTime)
     }
     
     func registerToPlayerEvents() {
