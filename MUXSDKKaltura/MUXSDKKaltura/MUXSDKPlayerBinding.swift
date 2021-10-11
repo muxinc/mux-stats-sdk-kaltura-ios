@@ -13,7 +13,7 @@ import AVFoundation
 
 @objc
 public class MUXSDKPlayerBinding: NSObject {
-    private let MUXSDKPluginName = "apple-mux"
+    private let MUXSDKPluginName = "apple-kaltura-mux"
     private let MUXSDKPluginVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     
     private var name: String
