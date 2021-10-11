@@ -307,7 +307,7 @@ public class MUXSDKPlayerBinding: NSObject {
             let playerData = self.getPlayerData()
             
             if UIDevice.current.userInterfaceIdiom == .tv {
-                playerData.playerPlayheadTime = NSNumber(value: Int64(self.videoData.lastPlayheadTimeMsOnPause * 1000))
+                playerData.playerPlayheadTime = NSNumber(value: Int64(self.videoData.lastPlayheadTimeMsOnPause))
             }
             
             event.playerData = playerData
