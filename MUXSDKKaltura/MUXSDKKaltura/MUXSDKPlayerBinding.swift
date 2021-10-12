@@ -89,9 +89,6 @@ public class MUXSDKPlayerBinding: NSObject {
                 default:
                     self.dispatchTimeUpdate(timeInterval)
                 }
-                
-                self.computeDrift()
-                self.updateLastPlayheadTime()
             }
         )
         
@@ -141,6 +138,7 @@ public class MUXSDKPlayerBinding: NSObject {
                 PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
                 PlayerEvent.videoTrackChanged,
+                PlayerEvent.seeking,
                 PlayerEvent.error,
                 PlayerEvent.errorLog
             ]
@@ -178,6 +176,8 @@ public class MUXSDKPlayerBinding: NSObject {
                     self.videoData.hasUpdates = true
                     self.dispatchRenditionChange()
                 }
+            case is PlayerEvent.Seeking:
+                self.dispatchSeekingEvent()
             case is PlayerEvent.Error, is PlayerEvent.ErrorLog:
                 if let error = event.error {
                     self.videoData.playerErrors.append(
@@ -282,47 +282,8 @@ public class MUXSDKPlayerBinding: NSObject {
         return playerData
     }
     
-    func computeDrift() {
-        guard videoData.started else {
-            // Avoid computing drift until playback has started (meaning play has been called).
-            return
-        }
-
-        // Determing if we are seeking by infering that we went into the pause state and the playhead moved a lot.
-        let playheadTimeElapsed = (self.currentPlayheadTimeMs - self.videoData.lastPlayheadTimeMs)/1000
-        let wallTimeElapsed = Date.timeIntervalSinceReferenceDate - self.videoData.lastPlayheadTimeUpdated
-        let drift = playheadTimeElapsed - wallTimeElapsed
-        
-        // The playhead has to have moved > 500ms and we have to have signifigantly drifted in comparision to wall time.
-        // We check both positive and negative to account for seeking forward and backward respectively.
-        // Unbuffered seeks seem to update the playhead time when transitioning into play where as buffered seeks update the playhead time when paused.
-        
-        if
-            abs(playheadTimeElapsed) > MUXSDKMaxSecsSeekPlayheadShift,
-            abs(drift) > MUXSDKMaxSecsSeekClockDrift,
-            self.state == .paused || self.state == .play
-        {
-            videoData.seeking = true
-            let event = MUXSDKInternalSeekingEvent()
-            let playerData = self.getPlayerData()
-            
-            if UIDevice.current.userInterfaceIdiom == .tv {
-                playerData.playerPlayheadTime = NSNumber(value: Int64(self.videoData.lastPlayheadTimeMsOnPause))
-            }
-            
-            event.playerData = playerData
-            self.dispatcher.dispatchEvent(event, forPlayer: self.name)
-        }
-    }
-    
-    func updateLastPlayheadTime() {
-        self.videoData.lastPlayheadTimeMs = self.currentPlayheadTimeMs
-        self.videoData.lastPlayheadTimeUpdated = Date.timeIntervalSinceReferenceDate
-    }
-    
     func updateLastPlayheadTimeOnPause() {
         self.videoData.lastPlayheadTimeMsOnPause = self.currentPlayheadTimeMs
-        self.videoData.lastPlayheadTimeOnPauseUpdated = Date.timeIntervalSinceReferenceDate
     }
     
     func checkVideoData(player: Player) {
@@ -460,8 +421,8 @@ extension MUXSDKPlayerBinding {
         self.checkVideoData(player: player)
         let playerData = self.getPlayerData()
         
-        if videoData.seeking {
-            videoData.seeking = false
+        if self.videoData.seeking {
+            self.videoData.seeking = false
             let seekedEvent = MUXSDKSeekedEvent()
             seekedEvent.playerData = playerData
             self.dispatcher.dispatchEvent(seekedEvent, forPlayer: self.name)
@@ -495,6 +456,31 @@ extension MUXSDKPlayerBinding {
         let playerData = self.getPlayerData()
         
         let event = MUXSDKTimeUpdateEvent()
+        event.playerData = playerData
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+    }
+    
+    func dispatchSeekingEvent() {
+        guard self.videoData.started else {
+            // Avoid computing drift until playback has started (meaning play has been called).
+            return
+        }
+        
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.videoData.seeking = true
+        
+        self.checkVideoData(player: player)
+        let playerData = self.getPlayerData()
+        
+        if UIDevice.current.userInterfaceIdiom == .tv {
+            playerData.playerPlayheadTime = NSNumber(value: Int64(self.videoData.lastPlayheadTimeMsOnPause))
+        }
+        
+        let event = MUXSDKInternalSeekingEvent()
         event.playerData = playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
     }
