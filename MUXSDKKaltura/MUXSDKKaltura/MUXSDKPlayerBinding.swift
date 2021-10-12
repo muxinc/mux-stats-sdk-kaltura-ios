@@ -13,7 +13,7 @@ import AVFoundation
 
 @objc
 public class MUXSDKPlayerBinding: NSObject {
-    private let MUXSDKPluginName = "apple-mux"
+    private let MUXSDKPluginName = "apple-kaltura-mux"
     private let MUXSDKPluginVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     
     // Min number of seconds between timeupdate events. (100ms)
@@ -274,7 +274,6 @@ public class MUXSDKPlayerBinding: NSObject {
                 playerData.playeriOSErrorData = jsonString
             }
         } else {
-            // FIXME: Confirm if we just want to set playerIsPaused and playerPlayheadTime in case that is not in error state
             playerData.playerIsPaused = NSNumber(value: player.rate == 0.0)
             playerData.playerPlayheadTime = NSNumber(value: Int64(player.currentTime * 1000))
         }
