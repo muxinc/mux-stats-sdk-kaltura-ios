@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MuxCore
 
 class MUXSDKPlayerBindingManager {
     var bindings: [String: MUXSDKPlayerBinding] = [:]
@@ -24,6 +25,45 @@ class MUXSDKPlayerBindingManager {
     }
     
     func createNewViewForPlayer(name: String) {
+        guard let binding = bindings[name], !binding.initialized else {
+            return // binding doesn't exist
+        }
         
+        binding.dispatchViewInit()
+        
+        if let customerData = self.customerDataStore.dataForPlayerName(name) {
+            self.dispatchDataEventForPlayer(
+                name: name,
+                customerData: customerData,
+                videoChange: false
+            )
+        }
+        
+        binding.dispatchPlayerReady()
+        binding.initialize()
+    }
+    
+    func dispatchDataEventForPlayer(
+        name: String,
+        customerData: MUXSDKCustomerData,
+        videoChange: Bool
+    ) {
+        guard
+            customerData.customerPlayerData != nil ||
+            customerData.customerVideoData  != nil ||
+            customerData.customerViewData != nil ||
+            customerData.customData != nil
+        else {
+            return
+        }
+        
+        let dataEvent = MUXSDKDataEvent()
+        dataEvent.customerPlayerData = customerData.customerPlayerData
+        dataEvent.customerVideoData = customerData.customerVideoData
+        dataEvent.customerViewData = customerData.customerViewData
+        dataEvent.customData = customerData.customData
+        dataEvent.videoChange = videoChange
+        
+        self.dispatcher.dispatchEvent(dataEvent, forPlayer: name)
     }
 }

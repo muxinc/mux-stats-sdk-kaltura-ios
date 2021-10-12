@@ -1,5 +1,5 @@
 //
-//  MUXSDKDispatcher.swift
+//  MUXSDKMainDispatcher.swift
 //  MUXSDKKaltura
 //
 //  Created by Stephanie Zuñiga on 27/9/21.
@@ -12,5 +12,9 @@ import MuxCore
 class MUXSDKMainDispatcher: MUXSDKDispatcher {
     func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent) {
         MUXSDKCore.dispatchGlobalDataEvent(event)
+    }
+    
+    func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String) {
+        MUXSDKCore.dispatchEvent(event, forPlayer: playerId)
     }
 }
