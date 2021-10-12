@@ -17,12 +17,7 @@ public class MUXSDKPlayerBinding: NSObject {
     private let MUXSDKPluginVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     
     // Min number of seconds between timeupdate events. (100ms)
-    private let MUXSDKMaxSecsBetweenTimeUpdate = 0.1
-    // Number of seconds of difference between wall/play time signaling the beginning of a seek. (200ms)
-    private let MUXSDKMaxSecsSeekClockDrift = 0.2;
-    // Number of seconds the playhead has to move from the last known playhead position when
-    // restarting play to consider the transition to play a seek. (500ms)
-    private let MUXSDKMaxSecsSeekPlayheadShift = 0.5;
+    private let MUXSDKMinSecsBetweenTimeUpdate = 0.1
     
     private var name: String
     private var software: String
@@ -71,11 +66,11 @@ public class MUXSDKPlayerBinding: NSObject {
         
         self.player = player
         
-        self.registerToPlayerEvents()
+        self.registerForPlayerEvents()
         
-        self.lastTimeUpdate = Date.timeIntervalSinceReferenceDate - MUXSDKMaxSecsBetweenTimeUpdate
+        self.lastTimeUpdate = Date.timeIntervalSinceReferenceDate - MUXSDKMinSecsBetweenTimeUpdate
         self.timeObserver = self.player?.addPeriodicObserver(
-            interval: MUXSDKMaxSecsBetweenTimeUpdate,
+            interval: MUXSDKMinSecsBetweenTimeUpdate,
             observeOn: nil,
             using: { [weak self] timeInterval in
                 guard let self = self else { return }
@@ -95,7 +90,7 @@ public class MUXSDKPlayerBinding: NSObject {
         self.timeUpdateTimer = Timer.scheduledTimer(
             timeInterval: 0.05,
             target: self,
-            selector: #selector(self.timeUpdateFromTimer),
+            selector: #selector(self.dispatchTimeUpdateFromTimer),
             userInfo: nil,
             repeats: true
         )
@@ -123,7 +118,7 @@ public class MUXSDKPlayerBinding: NSObject {
     }
     
     @objc
-    func timeUpdateFromTimer() {
+    func dispatchTimeUpdateFromTimer() {
         guard self.state == .buffering || self.state == .play, let player = self.player else {
             return
         }
@@ -131,7 +126,7 @@ public class MUXSDKPlayerBinding: NSObject {
         self.dispatchTimeUpdate(player.currentTime)
     }
     
-    func registerToPlayerEvents() {
+    func registerForPlayerEvents() {
         self.player?.addObserver(
             self,
             events: [
@@ -257,7 +252,7 @@ public class MUXSDKPlayerBinding: NSObject {
             return equalToScreenBounds || equalToSafeArea
         }
 
-        playerData.playerIsFullscreen = isFullScreen ? "true" : "false"
+        playerData.playerIsFullscreen = String(isFullScreen)
 
         // Derived from the player.
         let errors = videoData.playerErrors
@@ -285,7 +280,7 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.lastPlayheadTimeMsOnPause = self.currentPlayheadTimeMs
     }
     
-    func checkVideoData(player: Player) {
+    func updateVideoData(player: Player) {
         let currentVideoIsLive = player.isLive()
         let liveUpdates = videoData.isLive != currentVideoIsLive
         
@@ -314,14 +309,11 @@ public class MUXSDKPlayerBinding: NSObject {
             self.videoData.lastDispatchedVideoSize = self.videoData.size
         }
         
-        if currentVideoIsLive {
-            self.videoData.isLive = true
-            eventVideoData.videoSourceIsLive = "true"
-        } else {
-            eventVideoData.videoSourceIsLive = "false"
-            if self.videoData.duration > 0 {
-                eventVideoData.videoSourceDuration = NSNumber(value: Int64(self.videoData.duration * 1000))
-            }
+        self.videoData.isLive = currentVideoIsLive
+        eventVideoData.videoSourceIsLive = String(self.videoData.isLive)
+        
+        if !currentVideoIsLive, self.videoData.duration > 0 {
+            eventVideoData.videoSourceDuration = NSNumber(value: Int64(self.videoData.duration * 1000))
         }
         
         eventVideoData.videoSourceUrl = videoData.url
@@ -417,7 +409,7 @@ extension MUXSDKPlayerBinding {
             return
         }
         
-        self.checkVideoData(player: player)
+        self.updateVideoData(player: player)
         let playerData = self.getPlayerData()
         
         if self.videoData.seeking {
@@ -446,12 +438,12 @@ extension MUXSDKPlayerBinding {
         
         // Check to make sure we don't over work.
         let currentTime = Date.timeIntervalSinceReferenceDate
-        guard (currentTime - self.lastTimeUpdate >= MUXSDKMaxSecsBetweenTimeUpdate) else {
+        guard (currentTime - self.lastTimeUpdate >= MUXSDKMinSecsBetweenTimeUpdate) else {
             return
         }
         self.lastTimeUpdate = currentTime
         
-        self.checkVideoData(player: player)
+        self.updateVideoData(player: player)
         let playerData = self.getPlayerData()
         
         let event = MUXSDKTimeUpdateEvent()
@@ -472,7 +464,7 @@ extension MUXSDKPlayerBinding {
         
         self.videoData.seeking = true
         
-        self.checkVideoData(player: player)
+        self.updateVideoData(player: player)
         let playerData = self.getPlayerData()
         
         if UIDevice.current.userInterfaceIdiom == .tv {
