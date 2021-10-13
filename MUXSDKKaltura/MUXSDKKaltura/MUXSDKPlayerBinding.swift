@@ -118,7 +118,7 @@ public class MUXSDKPlayerBinding: NSObject {
     }
     
     @objc
-    func dispatchTimeUpdateFromTimer() {
+    private func dispatchTimeUpdateFromTimer() {
         guard self.state == .buffering || self.state == .play, let player = self.player else {
             return
         }
@@ -126,7 +126,7 @@ public class MUXSDKPlayerBinding: NSObject {
         self.dispatchTimeUpdate(player.currentTime)
     }
     
-    func registerForPlayerEvents() {
+    private func registerForPlayerEvents() {
         self.player?.addObserver(
             self,
             events: [
@@ -190,7 +190,7 @@ public class MUXSDKPlayerBinding: NSObject {
         }
     }
     
-    func getPlayerData() -> MUXSDKPlayerData {
+    private func getPlayerData() -> MUXSDKPlayerData {
         let playerData = MUXSDKPlayerData()
         
         playerData.playerMuxPluginName = MUXSDKPluginName
@@ -276,11 +276,11 @@ public class MUXSDKPlayerBinding: NSObject {
         return playerData
     }
     
-    func updateLastPlayheadTimeOnPause() {
+    private func updateLastPlayheadTimeOnPause() {
         self.videoData.lastPlayheadTimeMsOnPause = self.currentPlayheadTimeMs
     }
     
-    func updateVideoData(player: Player) {
+    private func updateVideoData(player: Player) {
         let currentVideoIsLive = player.isLive()
         let liveUpdates = videoData.isLive != currentVideoIsLive
         
@@ -330,7 +330,7 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.hasUpdates = false
     }
     
-    func getSourceDimensions() -> CGSize {
+    private func getSourceDimensions() -> CGSize {
         guard
             let playerLayer = player?.view?.layer as? AVPlayerLayer,
             let currentItem = playerLayer.player?.currentItem
@@ -403,7 +403,7 @@ extension MUXSDKPlayerBinding {
         self.state = .ready
     }
     
-    func dispatchPlaying() {
+    private func dispatchPlaying() {
         guard let player = self.player else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
@@ -426,7 +426,7 @@ extension MUXSDKPlayerBinding {
         self.state = .playing
     }
     
-    func dispatchTimeUpdate(_ time: TimeInterval) {
+    private func dispatchTimeUpdate(_ time: TimeInterval) {
         guard let player = self.player else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
@@ -451,7 +451,7 @@ extension MUXSDKPlayerBinding {
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
     }
     
-    func dispatchSeekingEvent() {
+    private func dispatchSeekingEvent() {
         guard self.videoData.started else {
             // Avoid computing drift until playback has started (meaning play has been called).
             return
@@ -476,7 +476,7 @@ extension MUXSDKPlayerBinding {
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
     }
     
-    func dispatchRenditionChange() {
+    private func dispatchRenditionChange() {
         // Dispatch MUXSDKRenditionChangeEvent
     }
 }
