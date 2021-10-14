@@ -67,3 +67,28 @@ class MUXSDKPlayerBindingManager {
         self.dispatcher.dispatchEvent(dataEvent, forPlayer: name)
     }
 }
+
+extension MUXSDKPlayerBindingManager: PlayDispatchDelegate {
+    func playbackStartedForPlayer(name: String) {
+        // Confirm binding has been initialized
+        guard let binding = self.bindings[name], binding.initialized else {
+            print("MUXSDK-WARNING - Detected SDK initialized after playback has started.")
+            self.createNewViewForPlayer(name: name)
+            return
+        }
+    }
+    
+    func videoChangedForPlayer(name: String) {
+        guard let binding = self.bindings[name] else {
+            return
+        }
+        
+        binding.dispatchViewInit()
+        
+        guard let customerData = self.customerDataStore.dataForPlayerName(name) else {
+            return
+        }
+        self.dispatchDataEventForPlayer(name: name, customerData: customerData, videoChange: true)
+    }
+}
+

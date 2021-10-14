@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     let positionLabel = UILabel()
     let durationLabel = UILabel()
     
+    // MUX
+    let playerName = "iOS KalturaPlayer"
+    
     private var playerState: PlayerState = .idle {
         didSet {
             // Update player button icon depending on the state
@@ -59,7 +62,8 @@ class ViewController: UIViewController {
         let events = [
             PlayerEvent.pause,
             PlayerEvent.playing,
-            PlayerEvent.ended
+            PlayerEvent.ended,
+            PlayerEvent.durationChanged
         ]
         
         // Update player state depending on the Playkit events
@@ -73,6 +77,16 @@ class ViewController: UIViewController {
                 self.playerState = .paused
             case is PlayerEvent.Ended:
                 self.playerState = .ended
+                // Test video change
+                self.changeMediaKalturaPlayer()
+            case is PlayerEvent.DurationChanged:
+                // Observe PlayKit event durationChanged to update the maximum duration of the slider and duration label
+                guard let duration = event.duration as? TimeInterval else {
+                    return
+                }
+                
+                self.playheadSlider.maximumValue = Float(duration)
+                self.durationLabel.text = duration.formattedTimeDisplay
             default:
                 break
             }
@@ -87,30 +101,40 @@ class ViewController: UIViewController {
                 self?.positionLabel.text = currentPosition.formattedTimeDisplay
             }
         )
-        
-        // Observe PlayKit event durationChanged to update the maximum duration of the slider and duration label
-        self.kalturaPlayer?.addObserver(
-            self,
-            event: PlayerEvent.durationChanged,
-            block: { [weak self] event in
-                guard
-                    let self = self,
-                    let durationEvent = event as? PlayerEvent.DurationChanged,
-                    let duration = durationEvent.duration as? TimeInterval
-                else {
-                    return
-                }
-                
-                self.playheadSlider.maximumValue = Float(duration)
-                self.durationLabel.text = duration.formattedTimeDisplay
-            }
-        )
     }
     
     func loadMediaKalturaPlayer() {
-        let contentURL = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
-        let entryId = "sintel"
+        let mediaConfig = createKalturaMediaConfig(
+            contentURL: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+            entryId: "sintel"
+        )
         
+        // Prepare PlayKit player
+        self.kalturaPlayer?.prepare(mediaConfig)
+    }
+    
+    func changeMediaKalturaPlayer() {
+        let mediaConfig = createKalturaMediaConfig(
+            contentURL: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8",
+            entryId: "bipbop_16x9"
+        )
+        
+        // Call MUX videoChange before stop, because playkit stop will replace current item for nil
+        self.MUXVideoChange()
+        
+        // Resets The Player And Prepares for Change Media
+        self.kalturaPlayer?.stop()
+        
+        // Prepare PlayKit player
+        self.kalturaPlayer?.prepare(mediaConfig)
+        
+        // Wait for `canPlay` event to play
+        self.kalturaPlayer?.addObserver(self, events: [PlayerEvent.canPlay]) { event in
+            self.kalturaPlayer?.play()
+        }
+    }
+    
+    func createKalturaMediaConfig(contentURL: String, entryId: String) -> MediaConfig {
         // Create PlayKit media source
         let source = PKMediaSource(entryId, contentUrl: URL(string: contentURL), drmData: nil, mediaFormat: .hls)
         
@@ -118,17 +142,12 @@ class ViewController: UIViewController {
         let mediaEntry = PKMediaEntry(entryId, sources: [source])
         
         // Create PlayKit media config
-        let mediaConfig = MediaConfig(mediaEntry: mediaEntry)
-        
-        // Prepare PlayKit player
-        self.kalturaPlayer!.prepare(mediaConfig)
+        return MediaConfig(mediaEntry: mediaEntry)
     }
     
     func setupMUX() {
-        let playerName = "iOS KalturaPlayer"
-        
         let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
-        playerData?.playerName = playerName
+        playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
         videoData.videoTitle = "Title Video Kaltura"
@@ -159,9 +178,40 @@ class ViewController: UIViewController {
         
         MUXSDKStats.monitorPlayer(
             player: player,
-            playerName: playerName,
+            playerName: self.playerName,
             customerData: data
         )
+    }
+    
+    func MUXVideoChange() {
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        playerData?.playerName = self.playerName
+        
+        let videoData = MUXSDKCustomerVideoData()
+        videoData.videoTitle = "Apple Video Kaltura"
+        videoData.videoId = "apple"
+        videoData.videoSeries = "conference"
+        
+        let viewData = MUXSDKCustomerViewData()
+        viewData.viewSessionId = "my second session id"
+        
+        let customData = MUXSDKCustomData()
+        customData.customData1 = "Kaltura test video change"
+        
+        let viewerData = MUXSDKCustomerViewerData()
+        viewerData.viewerApplicationName = "MUX Kaltura DemoApp"
+        
+        guard let customerData = MUXSDKCustomerData(
+            customerPlayerData: playerData,
+            videoData: videoData,
+            viewData: viewData,
+            customData: customData,
+            viewerData: viewerData
+        ) else {
+            return
+        }
+        
+        MUXSDKStats.videoChangeForPlayer(name: self.playerName, customerData: customerData)
     }
     
     @objc func playButtonPressed() {

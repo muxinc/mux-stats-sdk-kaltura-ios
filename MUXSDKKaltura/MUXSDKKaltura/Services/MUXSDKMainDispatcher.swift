@@ -17,4 +17,8 @@ class MUXSDKMainDispatcher: MUXSDKDispatcher {
     func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String) {
         MUXSDKCore.dispatchEvent(event, forPlayer: playerId)
     }
+    
+    func destroyPlayer(_ playerId: String) {
+        MUXSDKCore.destroyPlayer(playerId)
+    }
 }

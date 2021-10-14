@@ -12,4 +12,5 @@ import MuxCore
 protocol MUXSDKDispatcher {
     func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent)
     func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String)
+    func destroyPlayer(_ playerId: String)
 }

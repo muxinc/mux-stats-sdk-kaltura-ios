@@ -73,6 +73,7 @@ public class MUXSDKStats: NSObject {
             software: MuxPlayerSoftwareKalturaPlayer,
             player: player,
             automaticErrorTracking: automaticErrorTracking,
+            playDispatchDelegate: bindingsManager,
             dispatcher: self.dispatcher
         )
         newBinding.attachPlayer(player)
@@ -94,6 +95,24 @@ public class MUXSDKStats: NSObject {
         dataEvent.viewerData = viewerData
         
         dispatcher.dispatchGlobalDataEvent(dataEvent)
+    }
+    
+    /**
+     Signals that a player is now playing a different video.
+     
+     Use this method to signal that the player is now playing a new video. The player name provided must been passed as the name in a monitorPlayer:withPlayerName:andConfig: call. The config provided should match the specifications in the Mux docs at https://docs.mux.com and should include all desired keys, not just those keys that are specific to this video. If the name of the player provided was not previously initialized, an exception will be raised.
+     
+     - Parameters:
+        - name: The name of the player to update
+        - customerData: A MUXSDKCustomerData object with player, video, and view metadata
+     */
+    public static func videoChangeForPlayer(name: String, customerData: MUXSDKCustomerData) {
+        // TODO: add video change logic
+        guard let binding = bindingsManager.bindings[name] else {
+            return
+        }
+        
+        binding.manualVideoChangeTriggered = true
     }
 }
 
