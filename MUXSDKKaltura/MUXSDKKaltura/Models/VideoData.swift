@@ -18,6 +18,7 @@ struct VideoData {
     var started = false
     var lastAdvertisedBitrate: Double = 0.0
     var lastDispatchedAdvertisedBitrate: Double = 0.0
+    var lastSeekingPlayheadTimeMs: Double = 0.0
     var sourceDimensionsHaveChanged = false
     var lastDispatchedVideoSize = CGSize.zero
     var playerErrors = [Error]()
