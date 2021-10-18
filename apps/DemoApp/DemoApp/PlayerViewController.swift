@@ -11,10 +11,11 @@ import PlayKit
 import MUXSDKKaltura
 import MuxCore
 
-class ViewController: UIViewController {
+class PlayerViewController: UIViewController {
     var kalturaPlayer: Player?
     let kalturaPlayerContainer = PlayerView()
     let playButton = UIButton()
+    let closeButton = UIButton()
     let playheadSlider = UISlider()
     let positionLabel = UILabel()
     let durationLabel = UILabel()
@@ -49,6 +50,13 @@ class ViewController: UIViewController {
         
         // Setup MUX
         self.setupMUX()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        MUXSDKStats.destroyPlayer(name: self.playerName)
+        self.kalturaPlayer?.destroy()
     }
     
     func setupKalturaPlayer() {
@@ -233,6 +241,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func closeButtonPressed() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     @objc func playheadValueChanged() {
         guard let player = self.kalturaPlayer else {
             return
@@ -246,7 +258,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension PlayerViewController {
     enum PlayerState {
         case idle
         case playing
@@ -255,9 +267,9 @@ extension ViewController {
     }
 }
 
-extension ViewController {
+extension PlayerViewController {
     func setupLayout() {
-        self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.backgroundColor = .black
         self.view.addSubview(self.kalturaPlayerContainer)
         
         // Constraint PlayKit player container to safe area layout guide
@@ -304,5 +316,19 @@ extension ViewController {
         self.durationLabel.textColor = .lightText
         self.durationLabel.text = TimeInterval.zero.formattedTimeDisplay
         actionsContainer.addArrangedSubview(self.durationLabel)
+        
+        // Add close button
+        self.closeButton.translatesAutoresizingMaskIntoConstraints = false
+        self.closeButton.addTarget(self, action: #selector(self.closeButtonPressed), for: .touchUpInside)
+        self.closeButton.setImage(UIImage(systemName: "xmark.square"), for: .normal)
+        self.closeButton.contentVerticalAlignment = .fill
+        self.closeButton.contentHorizontalAlignment = .fill
+        self.kalturaPlayerContainer.addSubview(self.closeButton)
+        NSLayoutConstraint.activate([
+            self.closeButton.heightAnchor.constraint(equalToConstant: 32.0),
+            self.closeButton.widthAnchor.constraint(equalToConstant: 32.0),
+            self.closeButton.trailingAnchor.constraint(equalTo: self.kalturaPlayerContainer.trailingAnchor, constant: -24.0),
+            self.closeButton.topAnchor.constraint(equalTo: self.kalturaPlayerContainer.topAnchor, constant: 24.0)
+        ])
     }
 }

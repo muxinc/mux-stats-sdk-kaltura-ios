@@ -114,6 +114,18 @@ public class MUXSDKStats: NSObject {
         
         binding.manualVideoChangeTriggered = true
     }
+    
+    /**
+     Removes any player observers on the associated player.
+     
+     When you are done with a player, call destroyPlayer: to remove all observers that were set up when monitorPlayer was called and to ensure that any remaining tracking pings are sent to complete the view. If the name of the player provided was not previously initialized, an exception will be raised.
+     
+     - Parameters:
+        - name: The name of the player to destroy
+     */
+    public static func destroyPlayer(name: String) {
+        self.bindingsManager.destroyPlayer(name: name)
+    }
 }
 
 // MARK: Viewer Data
