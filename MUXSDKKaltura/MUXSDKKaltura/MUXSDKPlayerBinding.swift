@@ -23,7 +23,10 @@ public class MUXSDKPlayerBinding: NSObject {
     private var software: String
     private var player: Player?
     private var automaticErrorTracking: Bool
+    private var automaticVideoChange: Bool
+    var manualVideoChangeTriggered: Bool
     private let dispatcher: MUXSDKDispatcher
+    private let playDispatchDelegate: PlayDispatchDelegate
     
     private var lastTimeUpdate: TimeInterval = .zero
     private var timeObserver: UUID? = nil
@@ -43,12 +46,16 @@ public class MUXSDKPlayerBinding: NSObject {
         software: String,
         player: Player,
         automaticErrorTracking: Bool,
+        playDispatchDelegate: PlayDispatchDelegate,
         dispatcher: MUXSDKDispatcher
     ) {
         self.name = name
         self.software = software
         self.player = player
         self.automaticErrorTracking = automaticErrorTracking
+        self.manualVideoChangeTriggered = false
+        self.automaticVideoChange = true
+        self.playDispatchDelegate = playDispatchDelegate
         self.dispatcher = dispatcher
         self.initialized = false
         self.state = .unknown
@@ -107,14 +114,19 @@ public class MUXSDKPlayerBinding: NSObject {
                 PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
                 PlayerEvent.videoTrackChanged,
+                PlayerEvent.seeking,
+                PlayerEvent.playbackRate,
+                PlayerEvent.pause,
                 PlayerEvent.error,
                 PlayerEvent.errorLog
             ]
         )
         
+        self.dispatcher.destroyPlayer(self.name)
+        self.player = nil
+        
         self.timeUpdateTimer?.invalidate()
         self.timeUpdateTimer = nil
-        self.player = nil
     }
     
     @objc
@@ -134,6 +146,9 @@ public class MUXSDKPlayerBinding: NSObject {
                 PlayerEvent.durationChanged,
                 PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
+                PlayerEvent.playbackRate,
+                PlayerEvent.pause,
+                PlayerEvent.stateChanged,
                 PlayerEvent.error,
                 PlayerEvent.errorLog
             ]
@@ -173,7 +188,30 @@ public class MUXSDKPlayerBinding: NSObject {
                 }
             case is PlayerEvent.Seeking:
                 self.dispatchSeekingEvent()
+            case is PlayerEvent.PlaybackRate:
+                guard self.state != .play, self.state != .playing else {
+                    return
+                }
+                
+                self.dispatchPlay()
+            case is PlayerEvent.Pause:
+                guard self.state == .play || self.state == .playing else {
+                    return
+                }
+                
+                self.dispatchPause()
+            case is PlayerEvent.StateChanged:
+                switch event.newState {
+                case .idle:
+                    // Internally Kaltura emits a state change and sets new state to idle on handleItemChange
+                    self.monitorPlayerItem()
+                case .buffering:
+                    self.handleRebufferingInAirplayMode()
+                default:
+                    return
+                }
             case is PlayerEvent.Error, is PlayerEvent.ErrorLog:
+                // Gather errors for player data
                 if let error = event.error {
                     self.videoData.playerErrors.append(
                         Error(
@@ -184,6 +222,13 @@ public class MUXSDKPlayerBinding: NSObject {
                         )
                     )
                 }
+                
+                // Dispatch error event for automatic tracking
+                guard self.player?.currentState == .error else {
+                   return
+                }
+                
+                self.dispatchError()
             default:
                 break
             }
@@ -287,7 +332,7 @@ public class MUXSDKPlayerBinding: NSObject {
         let videoDataUpdated = videoData.hasUpdates || liveUpdates
 
         if self.videoData.sourceDimensionsHaveChanged, self.videoData.size.equalTo(self.videoData.lastDispatchedVideoSize) {
-            let sourceDimensions = self.getSourceDimensions()
+            let sourceDimensions = player.sourceDimensions
             if !self.videoData.size.equalTo(sourceDimensions) {
                 self.videoData.size = sourceDimensions
                 
@@ -330,45 +375,22 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.hasUpdates = false
     }
     
-    private func getSourceDimensions() -> CGSize {
+    // FIXME: test if needed and if it works as expected
+    func handleRebufferingInAirplayMode() {
         guard
+            #available(iOS 10.0, *),
             let playerLayer = player?.view?.layer as? AVPlayerLayer,
-            let currentItem = playerLayer.player?.currentItem
+            let player = playerLayer.player,
+            player.timeControlStatus != .playing,
+            player.isExternalPlaybackActive,
+            self.state == .paused
         else {
-            return .zero
+            return
         }
         
-        for track in currentItem.tracks {
-            // loop until first track with video description
-            if let formatDescriptions = track.assetTrack?.formatDescriptions as? [CMFormatDescription] {
-                for description in formatDescriptions {
-                    var isVideoDescription: Bool {
-                        // Remove the conditional if we drop support for iOS < 13.0
-                        if #available(iOS 13.0, *) {
-                            return description.mediaType == .video
-                        } else {
-                            return CMFormatDescriptionGetMediaType(description) == kCMMediaType_Video
-                        }
-                    }
-                    
-                    if isVideoDescription {
-                        // Map video dimensions in pixels
-                        var dimensions: CMVideoDimensions {
-                            // Remove the conditional if we drop support for iOS < 13.0
-                            if #available(iOS 13.0, *) {
-                                return description.dimensions
-                            } else {
-                                return CMVideoFormatDescriptionGetDimensions(description)
-                            }
-                        }
-                        
-                        return CGSize(width: Int(dimensions.width), height: Int(dimensions.height))
-                    }
-                }
-            }
-        }
-        
-        return .zero
+        // We erroneously detected a pause when in fact we are rebuffering. This *only* happens in AirPlay mode
+        self.dispatchPlay()
+        self.dispatchPlaying()
     }
 }
 
@@ -479,6 +501,95 @@ extension MUXSDKPlayerBinding {
     private func dispatchRenditionChange() {
         // Dispatch MUXSDKRenditionChangeEvent
     }
+    
+    private func dispatchPlay() {
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.playDispatchDelegate.playbackStartedForPlayer(name: name)
+        
+        self.videoData.started = true
+        
+        self.updateVideoData(player: player)
+        let playerData = self.getPlayerData()
+        
+        let event = MUXSDKPlayEvent()
+        event.playerData = playerData
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+        
+        self.state = .play
+    }
+    
+    private func dispatchPause() {
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.updateVideoData(player: player)
+        self.updateLastPlayheadTimeOnPause()
+        
+        let playerData = self.getPlayerData()
+        let event = MUXSDKPauseEvent()
+        event.playerData = playerData
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+        
+        self.state = .paused
+    }
+    
+    private func dispatchError() {
+        guard automaticErrorTracking else {
+            return
+        }
+        
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.updateVideoData(player: player)
+        let playerData = self.getPlayerData()
+        
+        let event = MUXSDKErrorEvent()
+        event.playerData = playerData
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+        
+        self.state = .error
+    }
+    
+    private func monitorPlayerItem() {
+        guard
+            manualVideoChangeTriggered,
+            let playerLayer = player?.view?.layer as? AVPlayerLayer,
+            playerLayer.player?.currentItem != nil
+        else {
+            return
+        }
+        
+        manualVideoChangeTriggered = false
+        self.dispatcher.destroyPlayer(self.name)
+        self.playDispatchDelegate.videoChangedForPlayer(name: self.name)
+    }
+    
+    public func dispatchError(code: String, message: String) {
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.updateVideoData(player: player)
+        let playerData = self.getPlayerData()
+        playerData.playerErrorCode = code
+        playerData.playerErrorMessage = message
+        
+        let event = MUXSDKErrorEvent()
+        event.playerData = playerData
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+        
+        self.state = .error
+    }
 }
 
 extension MUXSDKPlayerBinding {
@@ -493,4 +604,9 @@ extension MUXSDKPlayerBinding {
         case viewEnd
         case unknown
     }
+}
+
+protocol PlayDispatchDelegate {
+    func playbackStartedForPlayer(name: String)
+    func videoChangedForPlayer(name: String)
 }
