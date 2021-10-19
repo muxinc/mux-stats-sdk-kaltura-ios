@@ -115,6 +115,7 @@ public class MUXSDKPlayerBinding: NSObject {
                 PlayerEvent.durationChanged,
                 PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
+                PlayerEvent.seeked,
                 PlayerEvent.playbackRate,
                 PlayerEvent.pause,
                 PlayerEvent.error,
@@ -146,6 +147,7 @@ public class MUXSDKPlayerBinding: NSObject {
                 PlayerEvent.durationChanged,
                 PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
+                PlayerEvent.seeked,
                 PlayerEvent.playbackRate,
                 PlayerEvent.pause,
                 PlayerEvent.stateChanged,
@@ -188,6 +190,8 @@ public class MUXSDKPlayerBinding: NSObject {
                 }
             case is PlayerEvent.Seeking:
                 self.dispatchSeekingEvent()
+            case is PlayerEvent.Seeked:
+                self.dispatchSeekedEvent()
             case is PlayerEvent.PlaybackRate:
                 guard self.state != .play, self.state != .playing else {
                     return
@@ -434,13 +438,6 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
         let playerData = self.getPlayerData()
         
-        if self.videoData.seeking {
-            self.videoData.seeking = false
-            let seekedEvent = MUXSDKSeekedEvent()
-            seekedEvent.playerData = playerData
-            self.dispatcher.dispatchEvent(seekedEvent, forPlayer: self.name)
-        }
-        
         let event = MUXSDKPlayingEvent()
         event.playerData = playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
@@ -474,7 +471,7 @@ extension MUXSDKPlayerBinding {
     }
     
     private func dispatchSeekingEvent() {
-        guard self.videoData.started else {
+        guard self.videoData.started, !self.videoData.seeking else {
             // Avoid computing drift until playback has started (meaning play has been called).
             return
         }
@@ -484,6 +481,7 @@ extension MUXSDKPlayerBinding {
             return
         }
         
+        self.videoData.lastSeekingPlayheadTimeMs = self.currentPlayheadTimeMs
         self.videoData.seeking = true
         
         self.updateVideoData(player: player)
@@ -496,6 +494,23 @@ extension MUXSDKPlayerBinding {
         let event = MUXSDKInternalSeekingEvent()
         event.playerData = playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+    }
+    
+    private func dispatchSeekedEvent() {
+        guard
+            self.videoData.seeking,
+            let player = self.player,
+            self.currentPlayheadTimeMs != self.videoData.lastSeekingPlayheadTimeMs
+        else {
+            return
+        }
+        
+        self.videoData.seeking = false
+        self.updateVideoData(player: player)
+
+        let seekedEvent = MUXSDKSeekedEvent()
+        seekedEvent.playerData = self.getPlayerData()
+        self.dispatcher.dispatchEvent(seekedEvent, forPlayer: self.name)
     }
     
     private func dispatchRenditionChange() {
