@@ -22,6 +22,7 @@ class MUXSDKPlayerBindingManager {
     
     func destroyPlayer(name: String) {
         guard let binding = bindings[name] else {
+            print("MUXSDK-WARNING - Player binding not found for player name: \(name).")
             return
         }
         

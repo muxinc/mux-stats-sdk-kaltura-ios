@@ -403,6 +403,7 @@ public class MUXSDKPlayerBinding: NSObject {
             let playerLayer = player?.view?.layer as? AVPlayerLayer,
             playerLayer.player?.currentItem != nil
         else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \(self.name)")
             return
         }
         
