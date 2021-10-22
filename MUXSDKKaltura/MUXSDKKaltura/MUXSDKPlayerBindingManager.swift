@@ -21,7 +21,16 @@ class MUXSDKPlayerBindingManager {
     }
     
     func destroyPlayer(name: String) {
-        // Remove from bindings with key name and call viewEnd and detachPlayer
+        guard let binding = bindings[name] else {
+            print("MUXSDK-WARNING - Player binding not found for player name: \(name).")
+            return
+        }
+        
+        binding.dispatchViewEnd()
+        binding.detachPlayer()
+        
+        // Remove from bindings dictionary
+        bindings.removeValue(forKey: name)
     }
     
     func createNewViewForPlayer(name: String) {

@@ -396,6 +396,21 @@ public class MUXSDKPlayerBinding: NSObject {
         self.dispatchPlay()
         self.dispatchPlaying()
     }
+    
+    private func monitorPlayerItem() {
+        guard
+            manualVideoChangeTriggered,
+            let playerLayer = player?.view?.layer as? AVPlayerLayer,
+            playerLayer.player?.currentItem != nil
+        else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \(self.name)")
+            return
+        }
+        
+        manualVideoChangeTriggered = false
+        self.dispatcher.destroyPlayer(self.name)
+        self.playDispatchDelegate.videoChangedForPlayer(name: self.name)
+    }
 }
 
 // MARK: Dispatch Events
@@ -574,20 +589,6 @@ extension MUXSDKPlayerBinding {
         self.state = .error
     }
     
-    private func monitorPlayerItem() {
-        guard
-            manualVideoChangeTriggered,
-            let playerLayer = player?.view?.layer as? AVPlayerLayer,
-            playerLayer.player?.currentItem != nil
-        else {
-            return
-        }
-        
-        manualVideoChangeTriggered = false
-        self.dispatcher.destroyPlayer(self.name)
-        self.playDispatchDelegate.videoChangedForPlayer(name: self.name)
-    }
-    
     public func dispatchError(code: String, message: String) {
         guard let player = self.player else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
@@ -604,6 +605,20 @@ extension MUXSDKPlayerBinding {
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .error
+    }
+    
+    func dispatchViewEnd() {
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.updateVideoData(player: player)
+        let event = MUXSDKViewEndEvent()
+        event.playerData = self.getPlayerData()
+        
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+        self.state = .viewEnd
     }
 }
 
