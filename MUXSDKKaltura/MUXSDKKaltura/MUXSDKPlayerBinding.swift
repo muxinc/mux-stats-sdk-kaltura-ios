@@ -44,14 +44,12 @@ public class MUXSDKPlayerBinding: NSObject {
     init(
         name: String,
         software: String,
-        player: Player,
         automaticErrorTracking: Bool,
         playDispatchDelegate: PlayDispatchDelegate,
         dispatcher: MUXSDKDispatcher
     ) {
         self.name = name
         self.software = software
-        self.player = player
         self.automaticErrorTracking = automaticErrorTracking
         self.manualVideoChangeTriggered = false
         self.automaticVideoChange = true
@@ -247,7 +245,7 @@ public class MUXSDKPlayerBinding: NSObject {
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemNewErrorLogEntry, object: self.player?.currentItem)
     }
     
-    private func getPlayerData() -> MUXSDKPlayerData {
+    private var playerData: MUXSDKPlayerData {
         let playerData = MUXSDKPlayerData()
         
         playerData.playerMuxPluginName = MUXSDKPluginName
@@ -284,7 +282,7 @@ public class MUXSDKPlayerBinding: NSObject {
             }
             
             var equalToSafeArea: Bool {
-                guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else {
+                guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
                     return false
                 }
                 
@@ -514,7 +512,7 @@ extension MUXSDKPlayerBinding {
         self.videoData = VideoData()
         
         let event = MUXSDKViewInitEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .viewInit
@@ -527,7 +525,7 @@ extension MUXSDKPlayerBinding {
         }
         
         let event = MUXSDKPlayerReadyEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .ready
@@ -542,7 +540,7 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
         
         let event = MUXSDKPlayingEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .playing
@@ -568,7 +566,7 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
         
         let event = MUXSDKTimeUpdateEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
     }
     
@@ -587,7 +585,7 @@ extension MUXSDKPlayerBinding {
         self.videoData.seeking = true
         
         self.updateVideoData(player: player)
-        let playerData = self.getPlayerData()
+        let playerData = self.playerData
         
         if UIDevice.current.userInterfaceIdiom == .tv {
             playerData.playerPlayheadTime = NSNumber(value: Int64(self.videoData.lastPlayheadTimeMsOnPause))
@@ -611,7 +609,7 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
 
         let seekedEvent = MUXSDKSeekedEvent()
-        seekedEvent.playerData = self.getPlayerData()
+        seekedEvent.playerData = self.playerData
         self.dispatcher.dispatchEvent(seekedEvent, forPlayer: self.name)
     }
     
@@ -624,7 +622,7 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
         
         let event = MUXSDKRenditionChangeEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
     }
@@ -642,7 +640,7 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
         
         let event = MUXSDKPlayEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .play
@@ -658,7 +656,7 @@ extension MUXSDKPlayerBinding {
         self.updateLastPlayheadTimeOnPause()
         
         let event = MUXSDKPauseEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .paused
@@ -674,7 +672,7 @@ extension MUXSDKPlayerBinding {
         
         let event = MUXSDKRequestBandwidthEvent()
         event.type = type
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         event.bandwidthMetricData = data
         
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
@@ -693,7 +691,7 @@ extension MUXSDKPlayerBinding {
         self.updateVideoData(player: player)
         
         let event = MUXSDKErrorEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .error
@@ -706,7 +704,7 @@ extension MUXSDKPlayerBinding {
         }
         
         self.updateVideoData(player: player)
-        let playerData = self.getPlayerData()
+        let playerData = self.playerData
         playerData.playerErrorCode = code
         playerData.playerErrorMessage = message
         
@@ -725,7 +723,7 @@ extension MUXSDKPlayerBinding {
         
         self.updateVideoData(player: player)
         let event = MUXSDKViewEndEvent()
-        event.playerData = self.getPlayerData()
+        event.playerData = self.playerData
         
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         self.state = .viewEnd

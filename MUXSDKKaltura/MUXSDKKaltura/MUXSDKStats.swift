@@ -71,7 +71,6 @@ public class MUXSDKStats: NSObject {
         let newBinding = MUXSDKPlayerBinding(
             name: playerName,
             software: MuxPlayerSoftwareKalturaPlayer,
-            player: player,
             automaticErrorTracking: automaticErrorTracking,
             playDispatchDelegate: bindingsManager,
             dispatcher: self.dispatcher
