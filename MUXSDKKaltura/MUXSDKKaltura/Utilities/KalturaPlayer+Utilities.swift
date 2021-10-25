@@ -16,6 +16,7 @@ extension PlayKit.Player {
             let playerLayer = self.view?.layer as? AVPlayerLayer,
             let currentItem = playerLayer.player?.currentItem
         else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item.")
             return nil
         }
         
