@@ -427,6 +427,7 @@ public class MUXSDKPlayerBinding: NSObject {
             manualVideoChangeTriggered,
             self.player?.currentItem != nil
         else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \(self.name)")
             return
         }
         
