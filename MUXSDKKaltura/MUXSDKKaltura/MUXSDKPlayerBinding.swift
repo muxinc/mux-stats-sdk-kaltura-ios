@@ -100,7 +100,9 @@ public class MUXSDKPlayerBinding: NSObject {
             repeats: true
         )
         
-        self.addAVPlayerObservers()
+        self.addObservers()
+        
+        MUXSDKConnection.detectConnectionType()
         
         // Reset bitrate and bandwidth properties for updatePlayer
         self.videoData.lastTransferEventCount = 0
@@ -131,7 +133,7 @@ public class MUXSDKPlayerBinding: NSObject {
             ]
         )
         
-        self.removeAVPlayerObservers()
+        self.removeObservers()
         
         self.dispatcher.destroyPlayer(self.name)
         self.player = nil
@@ -234,15 +236,23 @@ public class MUXSDKPlayerBinding: NSObject {
         }
     }
     
-    private func addAVPlayerObservers() {
+    private func addObservers() {
+        // AVPlayer custom notifications
         // Kaltura posts a playback info event for this notification, but it doesn't contain the data we require so we need to implement our own listener to get the full access log
         NotificationCenter.default.addObserver(self, selector: #selector(self.getBandwidthMetric), name: .AVPlayerItemNewAccessLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAVPlayerErrorLog), name: .AVPlayerItemNewErrorLogEntry, object: nil)
+        
+        // Connection notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleConnectionTypeDetected), name: MUXSDKConnection.ConnectionTypeDetectedNotification, object: nil)
     }
     
-    private func removeAVPlayerObservers() {
+    private func removeObservers() {
+        // AVPlayer custom notifications
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemNewAccessLogEntry, object: nil)
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemNewErrorLogEntry, object: nil)
+        
+        // Connection notification
+        NotificationCenter.default.removeObserver(self, name: MUXSDKConnection.ConnectionTypeDetectedNotification, object: nil)
     }
     
     private var playerData: MUXSDKPlayerData {
@@ -497,6 +507,24 @@ public class MUXSDKPlayerBinding: NSObject {
         data.requestErrorText = errorEvent.errorComment
         
         self.dispatchBandwidthMetric(data: data, type: MUXSDKPlaybackEventRequestBandwidthEventErrorType)
+    }
+    
+    @objc
+    private func handleConnectionTypeDetected(notification: Notification) {
+        // Network detection was running on a background thread
+        DispatchQueue.main.async {
+            guard let connectionType = notification.object as? String else {
+                return
+            }
+            
+            let viewerData = MUXSDKViewerData()
+            viewerData.viewerConnectionType = connectionType
+            
+            let event = MUXSDKDataEvent()
+            event.viewerData = viewerData
+            
+            self.dispatcher.dispatchGlobalDataEvent(event)
+        }
     }
 }
 
