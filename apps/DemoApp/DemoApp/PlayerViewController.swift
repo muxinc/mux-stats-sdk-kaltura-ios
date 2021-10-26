@@ -10,6 +10,7 @@ import UIKit
 import PlayKit
 import MUXSDKKaltura
 import MuxCore
+import MediaPlayer
 
 class PlayerViewController: UIViewController {
     var kalturaPlayer: Player?
@@ -19,6 +20,7 @@ class PlayerViewController: UIViewController {
     let playheadSlider = UISlider()
     let positionLabel = UILabel()
     let durationLabel = UILabel()
+    let airplayButton = MPVolumeView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
     
     // MUX
     let playerName = "iOS KalturaPlayer"
@@ -283,39 +285,58 @@ extension PlayerViewController {
         ])
         
         let actionsContainer = UIStackView()
-        actionsContainer.axis = .horizontal
-        actionsContainer.spacing = 6.0
+        actionsContainer.axis = .vertical
         actionsContainer.isLayoutMarginsRelativeArrangement = true
         actionsContainer.layoutMargins = UIEdgeInsets(top: 0, left: 8.0, bottom: 0, right: 8.0)
         actionsContainer.translatesAutoresizingMaskIntoConstraints = false
         self.kalturaPlayerContainer.addSubview(actionsContainer)
         NSLayoutConstraint.activate([
             actionsContainer.bottomAnchor.constraint(equalTo: self.kalturaPlayerContainer.bottomAnchor),
-            actionsContainer.heightAnchor.constraint(equalToConstant: 64.0),
             actionsContainer.leadingAnchor.constraint(equalTo: self.kalturaPlayerContainer.leadingAnchor),
             actionsContainer.trailingAnchor.constraint(equalTo: self.kalturaPlayerContainer.trailingAnchor)
         ])
         
+        // Add airplay button
+        self.airplayButton.showsVolumeSlider = false
+        NSLayoutConstraint.activate([
+            self.airplayButton.widthAnchor.constraint(equalToConstant: 44.0),
+            self.airplayButton.heightAnchor.constraint(equalToConstant: 44.0)
+        ])
+        
+        let airplayRowStack = UIStackView()
+        airplayRowStack.axis = .horizontal
+        airplayRowStack.addArrangedSubview(UIView())
+        airplayRowStack.addArrangedSubview(airplayButton)
+        actionsContainer.addArrangedSubview(airplayRowStack)
+        
+        let actionsRowStack = UIStackView()
+        actionsRowStack.axis = .horizontal
+        actionsRowStack.spacing = 6.0
+        actionsContainer.addArrangedSubview(actionsRowStack)
+        NSLayoutConstraint.activate([
+            actionsRowStack.heightAnchor.constraint(equalToConstant: 44.0)
+        ])
+        
         // Add play/pause button
         self.playButton.addTarget(self, action: #selector(self.playButtonPressed), for: .touchUpInside)
-        self.playButton.contentEdgeInsets = UIEdgeInsets(top: 20, left: 4, bottom: 20, right: 4)
+        self.playButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 4, bottom: 10, right: 4)
         self.playButton.contentHorizontalAlignment = .fill
         self.playButton.contentVerticalAlignment = .fill
-        actionsContainer.addArrangedSubview(self.playButton)
+        actionsRowStack.addArrangedSubview(self.playButton)
         NSLayoutConstraint.activate([
             self.playButton.widthAnchor.constraint(equalToConstant: 28.0)
         ])
         
         self.positionLabel.textColor = .lightText
         self.positionLabel.text = TimeInterval.zero.formattedTimeDisplay
-        actionsContainer.addArrangedSubview(self.positionLabel)
+        actionsRowStack.addArrangedSubview(self.positionLabel)
         
         self.playheadSlider.addTarget(self, action: #selector(self.playheadValueChanged), for: .valueChanged)
-        actionsContainer.addArrangedSubview(self.playheadSlider)
+        actionsRowStack.addArrangedSubview(self.playheadSlider)
         
         self.durationLabel.textColor = .lightText
         self.durationLabel.text = TimeInterval.zero.formattedTimeDisplay
-        actionsContainer.addArrangedSubview(self.durationLabel)
+        actionsRowStack.addArrangedSubview(self.durationLabel)
         
         // Add close button
         self.closeButton.translatesAutoresizingMaskIntoConstraints = false
