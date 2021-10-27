@@ -11,10 +11,21 @@ import PlayKit
 import AVFoundation
 
 extension PlayKit.Player {
-    var sourceDimensions: CGSize {
+    var currentItem: AVPlayerItem? {
         guard
             let playerLayer = self.view?.layer as? AVPlayerLayer,
             let currentItem = playerLayer.player?.currentItem
+        else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item.")
+            return nil
+        }
+        
+        return currentItem
+    }
+    
+    var sourceDimensions: CGSize {
+        guard
+            let currentItem = self.currentItem
         else {
             return .zero
         }
