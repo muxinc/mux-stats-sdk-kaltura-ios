@@ -22,6 +22,8 @@
 		E9D8303F270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */; };
 		E9D83040270268A000389EC6 /* MUXSDKMainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */; };
 		E9FC030C272785E300E1DE7E /* MUXSDKConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030B272785E300E1DE7E /* MUXSDKConnection.swift */; };
+		E9FC030E2729C7DB00E1DE7E /* MockedDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030D2729C7DB00E1DE7E /* MockedDispatcher.swift */; };
+		E9FC03102729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030F2729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKDispatcher.swift; sourceTree = "<group>"; };
 		E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKMainDispatcher.swift; sourceTree = "<group>"; };
 		E9FC030B272785E300E1DE7E /* MUXSDKConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKConnection.swift; sourceTree = "<group>"; };
+		E9FC030D2729C7DB00E1DE7E /* MockedDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDispatcher.swift; sourceTree = "<group>"; };
+		E9FC030F2729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBindingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +175,9 @@
 		E987219226F921CA0099E048 /* MUXSDKKalturaTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9FC030F2729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift */,
 				E987219326F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift */,
+				E9FC030D2729C7DB00E1DE7E /* MockedDispatcher.swift */,
 				E987219526F921CA0099E048 /* Info.plist */,
 			);
 			path = MUXSDKKalturaTests;
@@ -442,6 +448,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FC03102729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift in Sources */,
+				E9FC030E2729C7DB00E1DE7E /* MockedDispatcher.swift in Sources */,
 				E987219426F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
