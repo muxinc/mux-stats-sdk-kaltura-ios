@@ -465,17 +465,33 @@ public class MUXSDKPlayerBinding: NSObject {
         let requestCompletedTime = Date().timeIntervalSince1970
         let requestStartSecs = requestCompletedTime - (event.transferDuration - self.videoData.lastTransferDuration)
         
-        let data = MUXSDKBandwidthMetricData()
-        data.requestType = "media"
-        data.requestStart = NSNumber(value: requestStartSecs * 1000)
-        data.requestResponseEnd = NSNumber(value: Int(requestCompletedTime * 1000))
-        data.requestBytesLoaded = NSNumber(value: event.numberOfBytesTransferred - self.videoData.lastTransferredBytes)
-        data.requestHostName = self.getHost(urlString: event.uri)
+        let data = self.buildBandwidthMetricData(
+            requestCompletedTime: requestCompletedTime,
+            requestStartSecs: requestStartSecs,
+            numberOfBytesTransferred: event.numberOfBytesTransferred,
+            url: event.uri
+        )
         
         self.dispatchBandwidthMetric(data: data, type: MUXSDKPlaybackEventRequestBandwidthEventCompleteType)
 
         self.videoData.lastTransferredBytes = event.numberOfBytesTransferred
         self.videoData.lastTransferDuration = event.transferDuration
+    }
+    
+    func buildBandwidthMetricData(
+        requestCompletedTime: TimeInterval,
+        requestStartSecs: Double,
+        numberOfBytesTransferred: Int64,
+        url: String?
+    ) -> MUXSDKBandwidthMetricData {
+        let data = MUXSDKBandwidthMetricData()
+        data.requestType = "media"
+        data.requestStart = NSNumber(value: requestStartSecs * 1000)
+        data.requestResponseEnd = NSNumber(value: Int(requestCompletedTime * 1000))
+        data.requestBytesLoaded = NSNumber(value: numberOfBytesTransferred - self.videoData.lastTransferredBytes)
+        data.requestHostName = self.getHost(urlString: url)
+        
+        return data
     }
     
     @objc
