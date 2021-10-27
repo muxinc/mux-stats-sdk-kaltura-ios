@@ -33,7 +33,7 @@ enum MUXSDKConnection {
                 } else if path.usesInterfaceType(.cellular) {
                     connectionType = "cellular"
                 } else if path.usesInterfaceType(.wiredEthernet) {
-                    connectionType = "ethernet"
+                    connectionType = "wired"
                 }
                 
                 NotificationCenter.default.post(name: ConnectionTypeDetectedNotification, object: connectionType)
