@@ -21,6 +21,7 @@
 		E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */; };
 		E9D8303F270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */; };
 		E9D83040270268A000389EC6 /* MUXSDKMainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */; };
+		E9FC030C272785E300E1DE7E /* MUXSDKConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030B272785E300E1DE7E /* MUXSDKConnection.swift */; };
 		E9FC030E2729C7DB00E1DE7E /* MockedDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030D2729C7DB00E1DE7E /* MockedDispatcher.swift */; };
 		E9FC03102729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030F2729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBinding.swift; sourceTree = "<group>"; };
 		E9D8303D270268A000389EC6 /* MUXSDKDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKDispatcher.swift; sourceTree = "<group>"; };
 		E9D8303E270268A000389EC6 /* MUXSDKMainDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKMainDispatcher.swift; sourceTree = "<group>"; };
+		E9FC030B272785E300E1DE7E /* MUXSDKConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKConnection.swift; sourceTree = "<group>"; };
 		E9FC030D2729C7DB00E1DE7E /* MockedDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDispatcher.swift; sourceTree = "<group>"; };
 		E9FC030F2729C80100E1DE7E /* MUXSDKPlayerBindingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKPlayerBindingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				E917C7CA270CF4BB00BE9EFB /* Models */,
 				E9D8303C270268A000389EC6 /* Services */,
 				E9D8302D26FE84C200389EC6 /* MUXSDKCustomerDataStore.swift */,
+				E9FC030B272785E300E1DE7E /* MUXSDKConnection.swift */,
 				E9D8302E26FE84C200389EC6 /* MUXSDKPlayerBinding.swift */,
 				E9D8302C26FE84C200389EC6 /* MUXSDKPlayerBindingManager.swift */,
 				E9D8302B26FE84C200389EC6 /* MUXSDKStats.swift */,
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E94138C02718B2FB00B3EFB8 /* KalturaPlayer+Utilities.swift in Sources */,
+				E9FC030C272785E300E1DE7E /* MUXSDKConnection.swift in Sources */,
 				E9D8303226FE84C200389EC6 /* MUXSDKPlayerBinding.swift in Sources */,
 				E9D8303F270268A000389EC6 /* MUXSDKDispatcher.swift in Sources */,
 				E9D83040270268A000389EC6 /* MUXSDKMainDispatcher.swift in Sources */,
