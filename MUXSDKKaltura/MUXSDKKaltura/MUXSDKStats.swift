@@ -106,12 +106,15 @@ public class MUXSDKStats: NSObject {
         - customerData: A MUXSDKCustomerData object with player, video, and view metadata
      */
     public static func videoChangeForPlayer(name: String, customerData: MUXSDKCustomerData) {
-        // TODO: add video change logic
         guard let binding = bindingsManager.bindings[name] else {
             return
         }
         
         binding.manualVideoChangeTriggered = true
+        binding.dispatchViewEnd() // FIXME: do we want to keep calling view end here or should we relocate it??
+        
+        // Update existing data for player only with non nil properties of the injected customerData
+        bindingsManager.customerDataStore.updateData(customerData, forPlayerName: name)
     }
     
     /**
