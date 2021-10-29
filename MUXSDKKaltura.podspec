@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
   s.dependency 'Mux-Stats-Core', '~>3.5'
   s.dependency 'PlayKit', '~>3.21'
 
+  s.frameworks = 'AVFoundation', 'Network', 'SystemConfiguration', 'UIKit'
+
   s.ios.deployment_target = '9.0'
   s.ios.vendored_frameworks = 'XCFramework/MUXSDKKaltura.xcframework'
 
