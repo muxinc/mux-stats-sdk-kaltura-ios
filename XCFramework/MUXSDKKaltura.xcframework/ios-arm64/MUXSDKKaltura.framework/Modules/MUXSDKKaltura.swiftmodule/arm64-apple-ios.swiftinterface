@@ -1,0 +1,27 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MUXSDKKaltura
+import AVFoundation
+import CoreMedia
+import Foundation
+import MuxCore
+import Network
+import PlayKit
+import Swift
+import SystemConfiguration
+import UIKit
+@_hasMissingDesignatedInitializers @objc public class MUXSDKPlayerBinding : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension MUXSDKPlayerBinding {
+  public func dispatchError(code: Swift.String, message: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc public class MUXSDKStats : ObjectiveC.NSObject {
+  @discardableResult
+  @objc public static func monitorPlayer(player: PlayKit.Player, playerName: Swift.String, customerData: MuxCore.MUXSDKCustomerData, automaticErrorTracking: Swift.Bool = true, beaconDomain: Swift.String? = nil) -> MUXSDKKaltura.MUXSDKPlayerBinding
+  public static func videoChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
+  public static func destroyPlayer(name: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
