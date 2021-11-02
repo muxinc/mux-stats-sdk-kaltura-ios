@@ -111,7 +111,7 @@ public class MUXSDKStats: NSObject {
         }
         
         binding.manualVideoChangeTriggered = true
-        binding.dispatchViewEnd() // FIXME: do we want to keep calling view end here or should we relocate it??
+        binding.dispatchViewEnd()
         
         // Update existing data for player only with non nil properties of the injected customerData
         bindingsManager.customerDataStore.updateData(customerData, forPlayerName: name)
