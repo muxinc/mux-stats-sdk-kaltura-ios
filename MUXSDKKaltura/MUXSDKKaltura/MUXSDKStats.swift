@@ -115,6 +115,21 @@ public class MUXSDKStats: NSObject {
     }
     
     /**
+     Notifies the Mux SDK that the view's orientation has changed.
+     
+     - Parameters:
+        - name: The name of the player to update
+        - orientation: A MUXSDKViewOrientation enum value representing if the view has changed to portrait or landscape
+     */
+    public static func orientationChangeForPlayer(name: String, orientation: MUXSDKViewOrientation) {
+        guard let binding = bindingsManager.bindings[name] else {
+            return
+        }
+        
+        binding.dispatchOrientationChange(orientation: orientation)
+    }
+    
+    /**
      Removes any player observers on the associated player.
      
      When you are done with a player, call destroyPlayer: to remove all observers that were set up when monitorPlayer was called and to ensure that any remaining tracking pings are sent to complete the view.

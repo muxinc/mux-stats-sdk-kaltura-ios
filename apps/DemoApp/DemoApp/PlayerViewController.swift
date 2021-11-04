@@ -192,7 +192,7 @@ class PlayerViewController: UIViewController {
     }
     
     func MUXVideoChange() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: "YOUR_ENV_KEY_HERE")
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
@@ -255,6 +255,14 @@ class PlayerViewController: UIViewController {
         }
         
         player.currentTime = TimeInterval(self.playheadSlider.value)
+    }
+    
+    // MARK: Orientation Changes
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        let orientation = UIDevice.current.orientation.isLandscape ? MUXSDKViewOrientation.landscape : MUXSDKViewOrientation.portrait
+        MUXSDKStats.orientationChangeForPlayer(name: self.playerName, orientation: orientation)
     }
 }
 
