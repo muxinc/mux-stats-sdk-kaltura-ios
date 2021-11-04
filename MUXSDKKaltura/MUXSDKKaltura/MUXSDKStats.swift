@@ -118,6 +118,24 @@ public class MUXSDKStats: NSObject {
     }
     
     /**
+     Signals that a player is now playing a different video of a playlist; or a different program of a live stream.
+     
+     Use this method to signal that the player is now playing a different video of a playlist, or a different program of a live stream. The player name provided must have been passed as the name in a monitorPlayer:withPlayerName:andConfig: call. The config provided should match the specifications in the Mux docs at https://docs.mux.com and should include all desired keys, not just those keys that are specific to this video. If the name of the player provided was not previously initialized, an exception will be raised.
+     
+     - Parameters:
+        - name: The name of the player to update
+        - customerData: A MUXSDKCustomerData object with player, video, and view metadata
+     */
+    public static func programChangeForPlayer(name: String, customerData: MUXSDKCustomerData) {
+        guard let binding = bindingsManager.bindings[name] else {
+            return
+        }
+        
+        self.videoChangeForPlayer(name: name, customerData: customerData)
+        binding.programChanged()
+    }
+    
+    /**
      Removes any player observers on the associated player.
      
      When you are done with a player, call destroyPlayer: to remove all observers that were set up when monitorPlayer was called and to ensure that any remaining tracking pings are sent to complete the view.
