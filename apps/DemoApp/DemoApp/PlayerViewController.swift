@@ -22,6 +22,7 @@ class PlayerViewController: UIViewController {
     
     // MUX
     let playerName = "iOS KalturaPlayer"
+    let environmentKey = "YOUR_ENV_KEY_HERE"
     
     private var playerState: PlayerState = .idle {
         didSet {
@@ -164,7 +165,7 @@ class PlayerViewController: UIViewController {
     }
     
     func setupMUX() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
@@ -202,7 +203,7 @@ class PlayerViewController: UIViewController {
     }
     
     func MUXVideoChange() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "YOUR_ENV_KEY_HERE")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
@@ -233,7 +234,7 @@ class PlayerViewController: UIViewController {
     }
     
     @objc func MUXProgramChange() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
