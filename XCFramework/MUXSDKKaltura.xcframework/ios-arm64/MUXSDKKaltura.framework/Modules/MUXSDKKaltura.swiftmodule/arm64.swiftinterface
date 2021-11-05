@@ -23,6 +23,7 @@ extension MUXSDKPlayerBinding {
   public static func videoChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   public static func programChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   public static func destroyPlayer(name: Swift.String)
+  public static func dispatchErrorForPlayer(name: Swift.String, code: Swift.String, message: Swift.String)
   @objc override dynamic public init()
   @objc deinit
 }

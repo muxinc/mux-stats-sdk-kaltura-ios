@@ -146,6 +146,22 @@ public class MUXSDKStats: NSObject {
     public static func destroyPlayer(name: String) {
         self.bindingsManager.destroyPlayer(name: name)
     }
+    
+    /**
+     Dispatches an error with the specified error code and message for the given player
+     
+     - Parameters:
+        - name: The name of the player
+        - code The error code in string format
+        - message: The error message in string format
+     */
+    public static func dispatchErrorForPlayer(name: String, code: String, message: String) {
+        guard let binding = bindingsManager.bindings[name] else {
+            return
+        }
+        
+        binding.dispatchError(code: code, message: message)
+    }
 }
 
 // MARK: Viewer Data
