@@ -192,7 +192,7 @@ class PlayerViewController: UIViewController {
     }
     
     func MUXVideoChange() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: "YOUR_ENV_KEY_HERE")
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()

@@ -26,6 +26,5 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.tvos.vendored_frameworks = 'XCFramework/MUXSDKKaltura.xcframework'
 
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.pod_target_xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 end
