@@ -23,5 +23,8 @@ struct VideoData {
     var lastDispatchedVideoSize = CGSize.zero
     var playerErrors = [Error]()
     var lastPlayheadTimeMsOnPause: Double = 0.0
-    var hasUpdates = false
+    var lastTransferEventCount: Int = 0
+    var lastTransferDuration: Double = 0.0
+    var lastTransferredBytes: Int64 = 0
+    var hasUpdates = false // Only to keep track of manual updates for check in updateVideoData
 }
