@@ -779,6 +779,33 @@ extension MUXSDKPlayerBinding {
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         self.state = .viewEnd
     }
+    
+    func dispatchOrientationChange(orientation: MUXSDKViewOrientation) {
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.updateVideoData(player: player)
+        
+        var orientationData: MUXSDKViewDeviceOrientationData? = nil
+        
+        switch orientation {
+        case.landscape:
+            orientationData = MUXSDKViewDeviceOrientationData(z: 0.0)
+        case .portrait:
+            orientationData = MUXSDKViewDeviceOrientationData(z: 90.0)
+        }
+        
+        let viewData = MUXSDKViewData()
+        viewData.viewDeviceOrientationData = orientationData
+        
+        let event = MUXSDKOrientationChangeEvent()
+        event.playerData = self.playerData
+        event.viewData = viewData
+        
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+    }
 }
 
 extension MUXSDKPlayerBinding {

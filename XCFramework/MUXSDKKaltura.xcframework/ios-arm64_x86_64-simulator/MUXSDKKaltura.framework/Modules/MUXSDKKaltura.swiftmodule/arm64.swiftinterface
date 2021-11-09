@@ -17,13 +17,25 @@ import UIKit
 extension MUXSDKPlayerBinding {
   public func dispatchError(code: Swift.String, message: Swift.String)
 }
+public enum MUXSDKViewOrientation {
+  case portrait
+  case landscape
+  public static func == (a: MUXSDKKaltura.MUXSDKViewOrientation, b: MUXSDKKaltura.MUXSDKViewOrientation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc public class MUXSDKStats : ObjectiveC.NSObject {
   @discardableResult
   @objc public static func monitorPlayer(player: PlayKit.Player, playerName: Swift.String, customerData: MuxCore.MUXSDKCustomerData, automaticErrorTracking: Swift.Bool = true, beaconDomain: Swift.String? = nil) -> MUXSDKKaltura.MUXSDKPlayerBinding
   public static func videoChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
+  public static func orientationChangeForPlayer(name: Swift.String, orientation: MUXSDKKaltura.MUXSDKViewOrientation)
   public static func programChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   public static func destroyPlayer(name: Swift.String)
   public static func dispatchErrorForPlayer(name: Swift.String, code: Swift.String, message: Swift.String)
   @objc override dynamic public init()
   @objc deinit
 }
+extension MUXSDKKaltura.MUXSDKViewOrientation : Swift.Equatable {}
+extension MUXSDKKaltura.MUXSDKViewOrientation : Swift.Hashable {}

@@ -301,6 +301,14 @@ class PlayerViewController: UIViewController {
         
         player.currentTime = TimeInterval(self.playheadSlider.value)
     }
+    
+    // MARK: Orientation Changes
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        let orientation = UIDevice.current.orientation.isLandscape ? MUXSDKViewOrientation.landscape : MUXSDKViewOrientation.portrait
+        MUXSDKStats.orientationChangeForPlayer(name: self.playerName, orientation: orientation)
+    }
 }
 
 extension PlayerViewController {

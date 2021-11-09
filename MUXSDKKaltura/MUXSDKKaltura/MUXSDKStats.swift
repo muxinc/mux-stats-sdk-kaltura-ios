@@ -118,6 +118,21 @@ public class MUXSDKStats: NSObject {
     }
     
     /**
+     Notifies the Mux SDK that the view's orientation has changed.
+     
+     - Parameters:
+        - name: The name of the player to update
+        - orientation: A MUXSDKViewOrientation enum value representing if the view has changed to portrait or landscape
+     */
+    public static func orientationChangeForPlayer(name: String, orientation: MUXSDKViewOrientation) {
+        guard let binding = bindingsManager.bindings[name] else {
+            return
+        }
+        
+        binding.dispatchOrientationChange(orientation: orientation)
+    }
+    
+    /**
      Signals that a player is now playing a different video of a playlist; or a different program of a live stream.
      
      Use this method to signal that the player is now playing a different video of a playlist, or a different program of a live stream. The player name provided must have been passed as the name in a monitorPlayer:withPlayerName:andConfig: call. The config provided should match the specifications in the Mux docs at https://docs.mux.com and should include all desired keys, not just those keys that are specific to this video. If the name of the player provided was not previously initialized, a warning will be logged and this call will have no effect.
