@@ -9,6 +9,7 @@
 import XCTest
 @testable import MUXSDKKaltura
 import MuxCore
+import PlayKit
 
 class MUXSDKPlayerBindingTests: XCTestCase {
     
@@ -30,9 +31,63 @@ class MUXSDKPlayerBindingTests: XCTestCase {
         
         XCTAssertTrue(NSDictionary(dictionary: data.toQuery()).isEqual(to: expectedData))
     }
+    
+    func testDispatchPortraitOrientationChange() {
+        Self.binding.attachPlayer(Self.player)
+        
+        Self.binding.dispatchOrientationChange(orientation: .portrait)
+        
+        let expectedData: [String : Any] = [
+            "xdvor": [
+                "x": 0,
+                "y": 0,
+                "z": 90
+            ]
+        ]
+        
+        guard let lastDispatchedEvent = Self.dispatcher.dispatchedEvents.last(where: { $0.playerId == Self.playerName })?.event as? MUXSDKOrientationChangeEvent else {
+            XCTFail("MUXSDKOrientationChangeEvent not found")
+            return
+        }
+        
+        guard let viewData = lastDispatchedEvent.viewData else {
+            XCTFail("View data for MUXSDKOrientationChangeEvent not found")
+            return
+        }
+                                                             
+        XCTAssertTrue(NSDictionary(dictionary: viewData.toQuery()).isEqual(to: expectedData))
+    }
+    
+    func testDispatchLandscapeOrientationChange() {
+        Self.binding.attachPlayer(Self.player)
+        
+        Self.binding.dispatchOrientationChange(orientation: .landscape)
+        
+        let expectedData: [String : Any] = [
+            "xdvor": [
+                "x": 0,
+                "y": 0,
+                "z": 0
+            ]
+        ]
+        
+        guard let lastDispatchedEvent = Self.dispatcher.dispatchedEvents.last(where: { $0.playerId == Self.playerName })?.event as? MUXSDKOrientationChangeEvent else {
+            XCTFail("MUXSDKOrientationChangeEvent not found")
+            return
+        }
+        
+        guard let viewData = lastDispatchedEvent.viewData else {
+            XCTFail("View data for MUXSDKOrientationChangeEvent not found")
+            return
+        }
+                                                             
+        XCTAssertTrue(NSDictionary(dictionary: viewData.toQuery()).isEqual(to: expectedData))
+    }
 }
 
 extension MUXSDKPlayerBindingTests {
+    static let player = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
+    
     static let playerName = "Test Player"
     
     static let dispatcher = MockedDispatcher()

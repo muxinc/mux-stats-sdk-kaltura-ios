@@ -18,7 +18,6 @@ extension MUXSDKPlayerBinding {
   public func dispatchError(code: Swift.String, message: Swift.String)
 }
 public enum MUXSDKViewOrientation {
-  case unknown
   case portrait
   case landscape
   public static func == (a: MUXSDKKaltura.MUXSDKViewOrientation, b: MUXSDKKaltura.MUXSDKViewOrientation) -> Swift.Bool
@@ -33,6 +32,7 @@ public enum MUXSDKViewOrientation {
   public static func videoChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   public static func orientationChangeForPlayer(name: Swift.String, orientation: MUXSDKKaltura.MUXSDKViewOrientation)
   public static func destroyPlayer(name: Swift.String)
+  public static func dispatchErrorForPlayer(name: Swift.String, code: Swift.String, message: Swift.String)
   @objc override dynamic public init()
   @objc deinit
 }

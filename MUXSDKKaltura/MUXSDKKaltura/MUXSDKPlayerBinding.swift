@@ -789,8 +789,6 @@ extension MUXSDKPlayerBinding {
             orientationData = MUXSDKViewDeviceOrientationData(z: 0.0)
         case .portrait:
             orientationData = MUXSDKViewDeviceOrientationData(z: 90.0)
-        case .unknown:
-            return
         }
         
         let viewData = MUXSDKViewData()

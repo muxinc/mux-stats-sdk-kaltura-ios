@@ -106,12 +106,15 @@ public class MUXSDKStats: NSObject {
         - customerData: A MUXSDKCustomerData object with player, video, and view metadata
      */
     public static func videoChangeForPlayer(name: String, customerData: MUXSDKCustomerData) {
-        // TODO: add video change logic
         guard let binding = bindingsManager.bindings[name] else {
             return
         }
         
         binding.manualVideoChangeTriggered = true
+        binding.dispatchViewEnd()
+        
+        // Update existing data for player only with non nil properties of the injected customerData
+        bindingsManager.customerDataStore.updateData(customerData, forPlayerName: name)
     }
     
     /**
@@ -139,6 +142,22 @@ public class MUXSDKStats: NSObject {
      */
     public static func destroyPlayer(name: String) {
         self.bindingsManager.destroyPlayer(name: name)
+    }
+    
+    /**
+     Dispatches an error with the specified error code and message for the given player
+     
+     - Parameters:
+        - name: The name of the player
+        - code The error code in string format
+        - message: The error message in string format
+     */
+    public static func dispatchErrorForPlayer(name: String, code: String, message: String) {
+        guard let binding = bindingsManager.bindings[name] else {
+            return
+        }
+        
+        binding.dispatchError(code: code, message: message)
     }
 }
 

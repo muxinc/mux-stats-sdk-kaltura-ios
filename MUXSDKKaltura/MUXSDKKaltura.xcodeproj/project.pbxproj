@@ -48,7 +48,7 @@
 		E262884B4D4A322339BA937F /* Pods-MUXSDKKalturaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MUXSDKKalturaTests.debug.xcconfig"; path = "Target Support Files/Pods-MUXSDKKalturaTests/Pods-MUXSDKKalturaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E917C7CB270CF4BB00BE9EFB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		E917C7CC270CF4BB00BE9EFB /* VideoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
-		E91E074627349211009E5117 /* MUXSDKViewOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MUXSDKViewOrientation.swift; path = Models/MUXSDKViewOrientation.swift; sourceTree = "<group>"; };
+		E91E074627349211009E5117 /* MUXSDKViewOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUXSDKViewOrientation.swift; sourceTree = "<group>"; };
 		E94138BF2718B2FB00B3EFB8 /* KalturaPlayer+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KalturaPlayer+Utilities.swift"; sourceTree = "<group>"; };
 		E987218626F921CA0099E048 /* MUXSDKKaltura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKaltura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987218926F921CA0099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +144,7 @@
 		E917C7CA270CF4BB00BE9EFB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E91E074627349211009E5117 /* MUXSDKViewOrientation.swift */,
 				E917C7CB270CF4BB00BE9EFB /* Error.swift */,
 				E917C7CC270CF4BB00BE9EFB /* VideoData.swift */,
 			);
@@ -161,7 +162,6 @@
 		E987218726F921CA0099E048 /* MUXSDKKaltura */ = {
 			isa = PBXGroup;
 			children = (
-				E91E074627349211009E5117 /* MUXSDKViewOrientation.swift */,
 				E94138BE2718B2FB00B3EFB8 /* Utilities */,
 				E917C7CA270CF4BB00BE9EFB /* Models */,
 				E9D8303C270268A000389EC6 /* Services */,

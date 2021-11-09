@@ -9,7 +9,6 @@
 import Foundation
 
 public enum MUXSDKViewOrientation {
-    case unknown
     case portrait
     case landscape
 }
