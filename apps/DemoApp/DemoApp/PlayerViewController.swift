@@ -54,7 +54,7 @@ class PlayerViewController: UIViewController {
         // Setup MUX
         self.setupMUX()
 //        self.testProgramChange()
-        self.testUpdateCustomerData()
+//        self.testUpdateCustomerData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -163,9 +163,8 @@ class PlayerViewController: UIViewController {
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
-//        videoData.videoTitle = "Title Video Kaltura"
+        videoData.videoTitle = "Title Video Kaltura"
         videoData.videoId = "sintel"
-        videoData.videoSeries = "animation"
         
         let viewData = MUXSDKCustomerViewData()
         viewData.viewSessionId = "my session id"
@@ -273,19 +272,14 @@ class PlayerViewController: UIViewController {
     
     @objc func MUXSetCustomerData() {
         let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Data Update Title Video Kaltura"
-        videoData.videoId = "Data Update sintel"
         videoData.videoSeries = "Data Update animation"
-        
-        let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "Data Update MUX Kaltura DemoApp"
         
         guard let customerData = MUXSDKCustomerData(
             customerPlayerData: nil,
             videoData: videoData,
             viewData: nil,
             customData: nil,
-            viewerData: viewerData
+            viewerData: nil
         ) else {
             return
         }
