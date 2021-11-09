@@ -13,7 +13,7 @@ import MuxCore
 @objc
 public class MUXSDKStats: NSObject {
     private static let MuxPlayerSoftwareKalturaPlayer = "KalturaPlayer"
-    private static let dispatcher: MUXSDKDispatcher = MUXSDKMainDispatcher()
+    private static let dispatcher: MUXSDKDispatcher = isTesting ? MockedDispatcher.shared : MUXSDKMainDispatcher()
     private static let bindingsManager = MUXSDKPlayerBindingManager(dispatcher: dispatcher)
     private static var customerViewerData: MUXSDKCustomerViewerData?
     
@@ -173,10 +173,36 @@ public class MUXSDKStats: NSObject {
      */
     public static func dispatchErrorForPlayer(name: String, code: String, message: String) {
         guard let binding = bindingsManager.bindings[name] else {
+            print("MUXSDK-WARNING - Player binding not found for player name: \(name).")
             return
         }
         
         binding.dispatchError(code: code, message: message)
+    }
+    
+    /**
+     Allows customerData to be set or updated for the player
+     
+     Use this method after you have already initialized the Mux SDK at any time before the player has been destroyed.
+     
+     - Parameters:
+     - name: The name of the player to update
+     - customerData: A MUXSDKCustomerData object with player, video, and view metadata
+     */
+    public static func setCustomerDataForPlayer(name: String, customerData: MUXSDKCustomerData) {
+        bindingsManager.customerDataStore.updateData(customerData, forPlayerName: name)
+        bindingsManager.dispatchDataEventForPlayer(name: name, customerData: customerData, videoChange: false)
+        
+        // Dispatch global data event if viewer data provided
+        guard let customerViewerData = customerData.customerViewerData else {
+            return
+        }
+        
+        Self.customerViewerData = customerViewerData
+        let dataEvent = MUXSDKDataEvent()
+        dataEvent.viewerData = viewerData
+        
+        self.dispatcher.dispatchGlobalDataEvent(dataEvent)
     }
 }
 
@@ -214,6 +240,13 @@ extension MUXSDKStats {
         viewerData.viewerDeviceModel = UIDevice.current.modelCode
          
         return viewerData
+    }
+}
+
+// MARK: Test Utilities
+private extension MUXSDKStats {
+    static var isTesting: Bool {
+        return ProcessInfo.processInfo.arguments.contains("TEST")
     }
 }
 

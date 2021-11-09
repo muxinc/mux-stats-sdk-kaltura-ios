@@ -14,7 +14,7 @@ import PlayKit
 class MUXSDKPlayerBindingTests: XCTestCase {
     
     func testBuildBandwidthMetricData() {
-        let data = Self.binding.buildBandwidthMetricData(
+        let data = MockedData.binding.buildBandwidthMetricData(
             requestCompletedTime: 1635368919.595179,
             requestStartSecs: 1635368918.7956688,
             numberOfBytesTransferred: 54896,
@@ -33,9 +33,9 @@ class MUXSDKPlayerBindingTests: XCTestCase {
     }
     
     func testDispatchPortraitOrientationChange() {
-        Self.binding.attachPlayer(Self.player)
+        MockedData.binding.attachPlayer(MockedData.player)
         
-        Self.binding.dispatchOrientationChange(orientation: .portrait)
+        MockedData.binding.dispatchOrientationChange(orientation: .portrait)
         
         let expectedData: [String : Any] = [
             "xdvor": [
@@ -45,7 +45,7 @@ class MUXSDKPlayerBindingTests: XCTestCase {
             ]
         ]
         
-        guard let lastDispatchedEvent = Self.dispatcher.dispatchedEvents.last(where: { $0.playerId == Self.playerName })?.event as? MUXSDKOrientationChangeEvent else {
+        guard let lastDispatchedEvent = MockedData.dispatcher.dispatchedEvents.last(where: { $0.playerId == MockedData.playerName })?.event as? MUXSDKOrientationChangeEvent else {
             XCTFail("MUXSDKOrientationChangeEvent not found")
             return
         }
@@ -59,9 +59,9 @@ class MUXSDKPlayerBindingTests: XCTestCase {
     }
     
     func testDispatchLandscapeOrientationChange() {
-        Self.binding.attachPlayer(Self.player)
+        MockedData.binding.attachPlayer(MockedData.player)
         
-        Self.binding.dispatchOrientationChange(orientation: .landscape)
+        MockedData.binding.dispatchOrientationChange(orientation: .landscape)
         
         let expectedData: [String : Any] = [
             "xdvor": [
@@ -71,7 +71,7 @@ class MUXSDKPlayerBindingTests: XCTestCase {
             ]
         ]
         
-        guard let lastDispatchedEvent = Self.dispatcher.dispatchedEvents.last(where: { $0.playerId == Self.playerName })?.event as? MUXSDKOrientationChangeEvent else {
+        guard let lastDispatchedEvent = MockedData.dispatcher.dispatchedEvents.last(where: { $0.playerId == MockedData.playerName })?.event as? MUXSDKOrientationChangeEvent else {
             XCTFail("MUXSDKOrientationChangeEvent not found")
             return
         }
@@ -83,22 +83,4 @@ class MUXSDKPlayerBindingTests: XCTestCase {
                                                              
         XCTAssertTrue(NSDictionary(dictionary: viewData.toQuery()).isEqual(to: expectedData))
     }
-}
-
-extension MUXSDKPlayerBindingTests {
-    static let player = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
-    
-    static let playerName = "Test Player"
-    
-    static let dispatcher = MockedDispatcher()
-    
-    static let bindingManager = MUXSDKPlayerBindingManager(dispatcher: dispatcher)
-    
-    static let binding = MUXSDKPlayerBinding(
-        name: playerName,
-        software: "KalturaPlayer",
-        automaticErrorTracking: true,
-        playDispatchDelegate: bindingManager,
-        dispatcher: dispatcher
-    )
 }

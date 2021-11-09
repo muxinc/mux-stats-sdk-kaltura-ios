@@ -36,10 +36,6 @@ class MUXSDKCustomerDataStore {
             currentData?.customerViewData = viewData
         }
         
-        if let viewerData = data.customerViewerData {
-            currentData?.customerViewerData = viewerData
-        }
-        
         if let customData = data.customData {
             currentData?.customData = customData
         }
