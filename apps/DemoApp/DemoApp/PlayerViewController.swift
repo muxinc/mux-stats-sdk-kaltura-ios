@@ -53,16 +53,8 @@ class PlayerViewController: UIViewController {
         
         // Setup MUX
         self.setupMUX()
-        
-        // Test MUX Program Change
-        // Schedule program change event at 30s
-//        Timer.scheduledTimer(
-//            timeInterval: 30.0,
-//            target: self,
-//            selector: #selector(self.MUXProgramChange),
-//            userInfo: nil,
-//            repeats: false
-//        )
+//        self.testProgramChange()
+        self.testUpdateCustomerData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -171,7 +163,7 @@ class PlayerViewController: UIViewController {
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Title Video Kaltura"
+//        videoData.videoTitle = "Title Video Kaltura"
         videoData.videoId = "sintel"
         videoData.videoSeries = "animation"
         
@@ -265,6 +257,52 @@ class PlayerViewController: UIViewController {
         }
         
         MUXSDKStats.programChangeForPlayer(name: self.playerName, customerData: customerData)
+    }
+    
+    func testProgramChange() {
+        // Test MUX Program Change
+        // Schedule program change event at 30s
+        Timer.scheduledTimer(
+            timeInterval: 30.0,
+            target: self,
+            selector: #selector(self.MUXProgramChange),
+            userInfo: nil,
+            repeats: false
+        )
+    }
+    
+    @objc func MUXSetCustomerData() {
+        let videoData = MUXSDKCustomerVideoData()
+        videoData.videoTitle = "Data Update Title Video Kaltura"
+        videoData.videoId = "Data Update sintel"
+        videoData.videoSeries = "Data Update animation"
+        
+        let viewerData = MUXSDKCustomerViewerData()
+        viewerData.viewerApplicationName = "Data Update MUX Kaltura DemoApp"
+        
+        guard let customerData = MUXSDKCustomerData(
+            customerPlayerData: nil,
+            videoData: videoData,
+            viewData: nil,
+            customData: nil,
+            viewerData: viewerData
+        ) else {
+            return
+        }
+        
+        MUXSDKStats.setCustomerDataForPlayer(name: self.playerName, customerData: customerData)
+    }
+    
+    func testUpdateCustomerData() {
+        // Test MUX Data Update
+        // Schedule data update at 15s
+        Timer.scheduledTimer(
+            timeInterval: 15.0,
+            target: self,
+            selector: #selector(self.MUXSetCustomerData),
+            userInfo: nil,
+            repeats: false
+        )
     }
     
     @objc func playButtonPressed() {

@@ -34,6 +34,7 @@ public enum MUXSDKViewOrientation {
   public static func programChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   public static func destroyPlayer(name: Swift.String)
   public static func dispatchErrorForPlayer(name: Swift.String, code: Swift.String, message: Swift.String)
+  public static func setCustomerDataForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   @objc override dynamic public init()
   @objc deinit
 }
