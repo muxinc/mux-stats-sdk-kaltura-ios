@@ -24,6 +24,7 @@ class PlayerViewController: UIViewController {
     
     // MUX
     let playerName = "iOS KalturaPlayer"
+    let environmentKey = "YOUR_ENV_KEY_HERE"
     
     private var playerState: PlayerState = .idle {
         didSet {
@@ -52,6 +53,16 @@ class PlayerViewController: UIViewController {
         
         // Setup MUX
         self.setupMUX()
+        
+        // Test MUX Program Change
+        // Schedule program change event at 30s
+//        Timer.scheduledTimer(
+//            timeInterval: 30.0,
+//            target: self,
+//            selector: #selector(self.MUXProgramChange),
+//            userInfo: nil,
+//            repeats: false
+//        )
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -156,7 +167,7 @@ class PlayerViewController: UIViewController {
     }
     
     func setupMUX() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "shqcbkagevf0r4jh9joir48kp")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
@@ -194,7 +205,7 @@ class PlayerViewController: UIViewController {
     }
     
     func MUXVideoChange() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "YOUR_ENV_KEY_HERE")
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
@@ -222,6 +233,38 @@ class PlayerViewController: UIViewController {
         }
         
         MUXSDKStats.videoChangeForPlayer(name: self.playerName, customerData: customerData)
+    }
+    
+    @objc func MUXProgramChange() {
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
+        playerData?.playerName = self.playerName
+        
+        let videoData = MUXSDKCustomerVideoData()
+        videoData.videoTitle = "Program Change Title Video Kaltura"
+        videoData.videoId = "Program Change sintel"
+        videoData.videoSeries = "Program Change animation"
+        
+        let viewData = MUXSDKCustomerViewData()
+        viewData.viewSessionId = "Program Change my session id"
+        
+        let customData = MUXSDKCustomData()
+        customData.customData1 = "Program Change Kaltura test"
+        customData.customData2 = "Program Change Custom Data 2"
+        
+        let viewerData = MUXSDKCustomerViewerData()
+        viewerData.viewerApplicationName = "Program Change MUX Kaltura DemoApp"
+        
+        guard let customerData = MUXSDKCustomerData(
+            customerPlayerData: playerData,
+            videoData: videoData,
+            viewData: viewData,
+            customData: customData,
+            viewerData: viewerData
+        ) else {
+            return
+        }
+        
+        MUXSDKStats.programChangeForPlayer(name: self.playerName, customerData: customerData)
     }
     
     @objc func playButtonPressed() {
