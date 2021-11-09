@@ -446,6 +446,12 @@ public class MUXSDKPlayerBinding: NSObject {
         self.playDispatchDelegate.videoChangedForPlayer(name: self.name)
     }
     
+    func programChanged() {
+        self.monitorPlayerItem()
+        self.dispatchPlay()
+        self.dispatchPlaying()
+    }
+    
     private func getHost(urlString: String?) -> String? {
         guard let urlString = urlString else {
             return nil

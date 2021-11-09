@@ -14,51 +14,51 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		0SOc/Vnm1SZjP06HMz9xD4hmKiE=
+		WH0x46eDWUJL4YIFDzSL9gbtq/I=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		p/D22FjFbS2Qx54oyyUtUHTkZfI=
+		QQfXcg8mDjcT4DPuMeTHgbgYejs=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		dqV++/kTIFIp+zYu1kh86x3kOoQ=
+		Kx4SK+oDcuiWNx4FIAM/bfC/q6A=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		0SOc/Vnm1SZjP06HMz9xD4hmKiE=
+		WH0x46eDWUJL4YIFDzSL9gbtq/I=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		p/D22FjFbS2Qx54oyyUtUHTkZfI=
+		QQfXcg8mDjcT4DPuMeTHgbgYejs=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		dqV++/kTIFIp+zYu1kh86x3kOoQ=
+		Kx4SK+oDcuiWNx4FIAM/bfC/q6A=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		08GzQBIeCguDtdi7fgDmdg7m0Yw=
+		n9ZK8os0tjJd5xiZ8dEUA/FMj2M=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		W3/s7u7fkxDDPfuBx63ABPNVeHg=
+		Ke7ocJyif3KFlt7M86CHht6QWLE=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+KKT/Q331blT+un+Yo56Mb6uhx0=
+		HDkB3GIbeeiMb2XjkZ35xxaMZxw=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		08GzQBIeCguDtdi7fgDmdg7m0Yw=
+		n9ZK8os0tjJd5xiZ8dEUA/FMj2M=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		W3/s7u7fkxDDPfuBx63ABPNVeHg=
+		Ke7ocJyif3KFlt7M86CHht6QWLE=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		+KKT/Q331blT+un+Yo56Mb6uhx0=
+		HDkB3GIbeeiMb2XjkZ35xxaMZxw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,84 +78,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3oKjLvAxgP2NkinVhvubVIUlxntHxJKZYe8HZa8skf8=
+			TQ/IalOEoqKDL8qXDtr0+WBVMCVVoqC26nXBFiAzo3A=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UoE/iUPtDYR6ypeCWjvY0Xj73Vhwn1Df9wRxlDl/B1U=
+			VavP2cV+vDSyo8SPuWBiIsb/9ax9elcnzCtWV+AJ1EY=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IE7dK79vep+A3KhQyZPO0yLqDVnaDE11biZ5uH2zLew=
+			5l1/X/yl/HhdSyuQF+YRDxmx9a996gfjOGadesgGY/s=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3oKjLvAxgP2NkinVhvubVIUlxntHxJKZYe8HZa8skf8=
+			TQ/IalOEoqKDL8qXDtr0+WBVMCVVoqC26nXBFiAzo3A=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UoE/iUPtDYR6ypeCWjvY0Xj73Vhwn1Df9wRxlDl/B1U=
+			VavP2cV+vDSyo8SPuWBiIsb/9ax9elcnzCtWV+AJ1EY=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IE7dK79vep+A3KhQyZPO0yLqDVnaDE11biZ5uH2zLew=
+			5l1/X/yl/HhdSyuQF+YRDxmx9a996gfjOGadesgGY/s=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rVwBZA5jwszJcYSCpe+kS9DjXTpzQOZMO4EvnETy8w8=
+			nTtKERNdf9ukWg+0POQs0xRCCk2QEmcAds49C83LQZw=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DcDgm4NXwTpnXupmEuu69wiA/0WJ1dMwVAew6PQd8QE=
+			BUw/xa5iHWDRPDI3SKMBTE3KYNgcANfRxLZPSg8pM7s=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SX7+risvsHE4e0qEyPydfz8Ib5Et7BYSfBEDMjecKqU=
+			f8qsnKiJIPAx9ILhywBJdQIZZJvl6vpa+6bv0Dg0LoA=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rVwBZA5jwszJcYSCpe+kS9DjXTpzQOZMO4EvnETy8w8=
+			nTtKERNdf9ukWg+0POQs0xRCCk2QEmcAds49C83LQZw=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DcDgm4NXwTpnXupmEuu69wiA/0WJ1dMwVAew6PQd8QE=
+			BUw/xa5iHWDRPDI3SKMBTE3KYNgcANfRxLZPSg8pM7s=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SX7+risvsHE4e0qEyPydfz8Ib5Et7BYSfBEDMjecKqU=
+			f8qsnKiJIPAx9ILhywBJdQIZZJvl6vpa+6bv0Dg0LoA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
