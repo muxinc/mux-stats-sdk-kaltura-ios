@@ -1,20 +1,24 @@
 //
 //  MockedDispatcher.swift
-//  MUXSDKKalturaTests
+//  MUXSDKKaltura
 //
 //  Created by Stephanie Zuñiga on 27/10/21.
 //  Copyright © 2021 Mux, Inc. All rights reserved.
 //
 
 import Foundation
-@testable import MUXSDKKaltura
 import MuxCore
 
-class MockedDispatcher: MUXSDKKaltura.MUXSDKDispatcher {
+class MockedDispatcher: MUXSDKDispatcher {
+    static let shared = MockedDispatcher()
+    
     typealias PlayerEvent = (playerId: String, event: MUXSDKEventTyping)
     var dispatchedEvents = [PlayerEvent]()
+    var dispatchedGlobalDataEvents = [MUXSDKDataEvent]()
+    
     func dispatchGlobalDataEvent(_ event: MUXSDKDataEvent) {
         print("dispatch global data event: \(event)")
+        self.dispatchedGlobalDataEvents.append(event)
     }
     
     func dispatchEvent(_ event: MUXSDKEventTyping, forPlayer playerId: String) {

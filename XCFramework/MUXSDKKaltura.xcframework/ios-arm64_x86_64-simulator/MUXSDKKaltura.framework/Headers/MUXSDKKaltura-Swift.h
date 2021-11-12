@@ -245,6 +245,7 @@ SWIFT_CLASS("_TtC13MUXSDKKaltura11MUXSDKStats")
 
 
 
+
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif
@@ -494,6 +495,7 @@ SWIFT_CLASS("_TtC13MUXSDKKaltura11MUXSDKStats")
 + (MUXSDKPlayerBinding * _Nonnull)monitorPlayerWithPlayer:(id <Player> _Nonnull)player playerName:(NSString * _Nonnull)playerName customerData:(MUXSDKCustomerData * _Nonnull)customerData automaticErrorTracking:(BOOL)automaticErrorTracking beaconDomain:(NSString * _Nullable)beaconDomain;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 

@@ -15,14 +15,14 @@ class MUXSDKCustomerDataStoreTests: XCTestCase {
     func testSetCustomerDataStore() {
         let dataStore = MUXSDKCustomerDataStore()
         
-        guard let customerData = Self.customerData else {
+        guard let customerData = MockedData.customerData else {
             XCTFail("Customer data not found")
             return
         }
         
-        dataStore.setData(customerData, forPlayerName: Self.playerName)
+        dataStore.setData(customerData, forPlayerName: MockedData.playerName)
         
-        let expectedData = dataStore.dataForPlayerName(Self.playerName)
+        let expectedData = dataStore.dataForPlayerName(MockedData.playerName)
         
         // Test customer player data
         let expectedPlayerData = expectedData?.customerPlayerData
@@ -51,16 +51,16 @@ class MUXSDKCustomerDataStoreTests: XCTestCase {
     func testUpdateCustomerDataStore() {
         let dataStore = MUXSDKCustomerDataStore()
         
-        guard let customerData = Self.customerData else {
+        guard let customerData = MockedData.customerData else {
             XCTFail("Customer data not found")
             return
         }
         
         // Set initial data
-        dataStore.setData(customerData, forPlayerName: Self.playerName)
+        dataStore.setData(customerData, forPlayerName: MockedData.playerName)
         
         // Test initial custom data
-        let expectedCustomData = dataStore.dataForPlayerName(Self.playerName)?.customData
+        let expectedCustomData = dataStore.dataForPlayerName(MockedData.playerName)?.customData
         XCTAssertEqual(expectedCustomData?.customData1, "Custom Data 1")
         XCTAssertEqual(expectedCustomData?.customData2, "Custom Data 2")
         
@@ -71,10 +71,10 @@ class MUXSDKCustomerDataStoreTests: XCTestCase {
         let newCustomerData = MUXSDKCustomerData()
         newCustomerData.customData = newCustomData
         
-        dataStore.updateData(newCustomerData, forPlayerName: Self.playerName)
+        dataStore.updateData(newCustomerData, forPlayerName: MockedData.playerName)
         
         // Test updated custom data
-        let updatedData = dataStore.dataForPlayerName(Self.playerName)
+        let updatedData = dataStore.dataForPlayerName(MockedData.playerName)
         let updatedCustomData = updatedData?.customData
         XCTAssertEqual(updatedCustomData?.customData1, "New Custom Data 1")
         
@@ -89,37 +89,4 @@ class MUXSDKCustomerDataStoreTests: XCTestCase {
         XCTAssertEqual(expectedVideoData?.videoSeries, "series")
     }
 
-}
-
-extension MUXSDKCustomerDataStoreTests {
-    static let playerName = "Test Player"
-    static var customerData: MUXSDKCustomerData? {
-        let playerName = Self.playerName
-        
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "ENV_KEY")
-        playerData?.playerName = playerName
-        
-        let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Video Title"
-        videoData.videoId = "videoId"
-        videoData.videoSeries = "series"
-        
-        let viewData = MUXSDKCustomerViewData()
-        viewData.viewSessionId = "session id"
-        
-        let customData = MUXSDKCustomData()
-        customData.customData1 = "Custom Data 1"
-        customData.customData2 = "Custom Data 2"
-        
-        let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "MUX Kaltura Tests"
-        
-        return MUXSDKCustomerData(
-            customerPlayerData: playerData,
-            videoData: videoData,
-            viewData: viewData,
-            customData: customData,
-            viewerData: viewerData
-        )
-    }
 }
