@@ -30,8 +30,6 @@ class MUXSDKStatsTests: XCTestCase {
             "vsr" : "series Version 2"
         ]
         
-        // revisar que customer player, customer view y custom data van vacíos en el event
-        
         guard let lastDispatchedEvent = MockedData.dispatcher.dispatchedEvents.last(where: { $0.playerId == MockedData.playerName })?.event as? MUXSDKDataEvent else {
             XCTFail("MUXSDKDataEvent not found")
             return
