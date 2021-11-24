@@ -11,6 +11,13 @@ import XCTest
 import MuxCore
 
 extension MUXSDKStatsTests {
+    enum EventType{
+        case customerVideoData
+        case customerPlayerData
+        case customerData
+        case customData
+    }
+    
     func assertDispatchedEventTypesForPlayer(id: String, expectedEventTypes: [String]) {
         let dispatchedEventsType = MockedDispatcher.shared.dispatchedEvents
             .filter { $0.playerId == id }
@@ -19,34 +26,55 @@ extension MUXSDKStatsTests {
         XCTAssertEqual(expectedEventTypes, dispatchedEventsType)
     }
     
-    func assertDispatchedCustomerVideoDataEventsAtIndex(index: Int, expectedCustomerVideoData: [String : Any]) {
+    func assertDispatchedCustomerDataEventsAtIndex(
+        index: Int,
+        expectedCustomerVideoData: [String : Any]? = nil,
+        expectedCustomerPlayerData: [String : Any]? = nil,
+        expectedCustomerViewData: [String : Any]? = nil,
+        expectedCustomData: [String : Any]? = nil
+    )  {
         let dispatchedEvent = MockedData.dispatcher.dispatchedEvents[index].event as? MUXSDKDataEvent
-        guard let customerVideoData = dispatchedEvent?.customerVideoData  else {
-            XCTAssertNil(dispatchedEvent?.customerVideoData)
-            return
+        if let expectedCustomerVideoData = expectedCustomerVideoData {
+            assertCustomerData(type: .customerVideoData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerVideoData)
         }
-        
-        XCTAssertTrue(NSDictionary(dictionary: customerVideoData.toQuery()).isEqual(to: expectedCustomerVideoData))
+        if let expectedCustomerPlayerData = expectedCustomerPlayerData {
+            assertCustomerData(type: .customerPlayerData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerPlayerData)
+        }
+        if let expectedCustomerViewData = expectedCustomerViewData {
+            assertCustomerData(type: .customerData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerViewData)
+        }
+        if let expectedCustomData = expectedCustomData {
+            assertCustomerData(type: .customData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomData)
+        }
     }
     
-    func assertDispatchedCustomerPlayerDataEventsAtIndex(index: Int, expectedCustomerPlayerData: [String : Any]) {
-        let dispatchedEvent = MockedData.dispatcher.dispatchedEvents[index].event as? MUXSDKDataEvent
-        guard let customerPlayerData = dispatchedEvent?.customerPlayerData else {
-            XCTAssertNil(dispatchedEvent?.customerPlayerData)
-            return
+    func assertCustomerData(type: EventType, dispatchedEvent: MUXSDKDataEvent?, expectedData: [String : Any]) {
+        switch type {
+        case .customerVideoData:
+            guard let customerVideoData = dispatchedEvent?.customerVideoData else {
+                XCTAssertNil(dispatchedEvent?.customerVideoData)
+                return
+            }
+            XCTAssertTrue(NSDictionary(dictionary: customerVideoData.toQuery()).isEqual(to: expectedData))
+        case .customerPlayerData:
+            guard let customerPlayerData = dispatchedEvent?.customerPlayerData else {
+                XCTAssertNil(dispatchedEvent?.customerPlayerData)
+                return
+            }
+            XCTAssertTrue(NSDictionary(dictionary: customerPlayerData.toQuery()).isEqual(to: expectedData))
+        case .customerData:
+            guard let customerData = dispatchedEvent?.customerViewData else {
+                XCTAssertNil(dispatchedEvent?.customerViewData)
+                return
+            }
+            XCTAssertTrue(NSDictionary(dictionary: customerData.toQuery()).isEqual(to: expectedData))
+        case .customData:
+            guard let customData = dispatchedEvent?.customData else {
+                XCTAssertNil(dispatchedEvent?.customData)
+                return
+            }
+            XCTAssertTrue(NSDictionary(dictionary: customData.toQuery()).isEqual(to: expectedData))
         }
-        
-        XCTAssertTrue(NSDictionary(dictionary: customerPlayerData.toQuery()).isEqual(to: expectedCustomerPlayerData))
-    }
-    
-    func assertDispatchedCustomerViewDataEventsAtIndex(index: Int, expectedCustomerViewData: [String : Any]) {
-        let dispatchedEvent = MockedData.dispatcher.dispatchedEvents[index].event as? MUXSDKDataEvent
-        guard let customerViewData = dispatchedEvent?.customerViewData else {
-            XCTAssertNil(dispatchedEvent?.customerViewData)
-            return
-        }
-        
-        XCTAssertTrue(NSDictionary(dictionary: customerViewData.toQuery()).isEqual(to: expectedCustomerViewData))
     }
     
     func assertDispatchedCustomerViewerDataEventsAtIndex(index: Int, expectedCustomerViewerData: String) {
@@ -55,17 +83,6 @@ extension MUXSDKStatsTests {
             XCTAssertNil(dispatchedGlobalEvent.viewerData)
             return
         }
-        
         XCTAssertEqual(viewerData.viewerApplicationName, expectedCustomerViewerData)
-    }
-    
-    func assertDispatchedCustomDataEventsAtIndex(index: Int, expectedCustomData: [String : Any]) {
-        let dispatchedEvent = MockedData.dispatcher.dispatchedEvents[index].event as? MUXSDKDataEvent
-        guard let customData = dispatchedEvent?.customData else {
-            XCTAssertNil(dispatchedEvent?.customData)
-            return
-        }
-        
-        XCTAssertTrue(NSDictionary(dictionary: customData.toQuery()).isEqual(to: expectedCustomData))
     }
 }
