@@ -37,22 +37,22 @@ extension MUXSDKStatsTests {
         if let expectedCustomerVideoData = expectedCustomerVideoData {
             assertCustomerData(type: .customerVideoData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerVideoData)
         } else {
-            XCTAssertNil(expectedCustomerVideoData)
+            XCTAssertNil(dispatchedEvent?.customerVideoData)
         }
         if let expectedCustomerPlayerData = expectedCustomerPlayerData {
             assertCustomerData(type: .customerPlayerData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerPlayerData)
         } else {
-            XCTAssertNil(expectedCustomerPlayerData)
+            XCTAssertNil(dispatchedEvent?.customerPlayerData)
         }
         if let expectedCustomerViewData = expectedCustomerViewData {
             assertCustomerData(type: .customerData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerViewData)
         } else {
-            XCTAssertNil(expectedCustomerViewData)
+            XCTAssertNil(dispatchedEvent?.customerViewData)
         }
         if let expectedCustomData = expectedCustomData {
             assertCustomerData(type: .customData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomData)
         } else {
-            XCTAssertNil(expectedCustomData)
+            XCTAssertNil(dispatchedEvent?.customData)
         }
     }
     

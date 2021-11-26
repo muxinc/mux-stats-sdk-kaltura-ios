@@ -29,4 +29,9 @@ class MockedDispatcher: MUXSDKDispatcher {
     func destroyPlayer(_ playerId: String) {
         print("destroy player \(playerId)")
     }
+    
+    func resetDispatchedEvents() {
+        dispatchedEvents = [PlayerEvent]()
+        dispatchedGlobalDataEvents = [MUXSDKDataEvent]()
+    }
 }
