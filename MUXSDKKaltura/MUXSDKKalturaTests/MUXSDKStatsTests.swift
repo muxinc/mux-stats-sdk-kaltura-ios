@@ -104,7 +104,8 @@ class MUXSDKStatsTests: XCTestCase {
             expectedCustomerVideoData: expectedCustomerVideoData,
             expectedCustomerPlayerData: expectedCustomerPlayerData,
             expectedCustomerViewData: expectedCustomerViewData,
-            expectedCustomData: expectedCustomData)
+            expectedCustomData: expectedCustomData
+        )
         self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 0, expectedCustomerViewerData: expectedViewerData)
     }
 }
