@@ -11,7 +11,7 @@ import XCTest
 import MuxCore
 
 extension MUXSDKStatsTests {
-    enum EventType{
+    private enum EventType{
         case customerVideoData
         case customerPlayerData
         case customerData
@@ -36,41 +36,49 @@ extension MUXSDKStatsTests {
         let dispatchedEvent = MockedData.dispatcher.dispatchedEvents[index].event as? MUXSDKDataEvent
         if let expectedCustomerVideoData = expectedCustomerVideoData {
             assertCustomerData(type: .customerVideoData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerVideoData)
+        } else {
+            XCTAssertNil(expectedCustomerVideoData)
         }
         if let expectedCustomerPlayerData = expectedCustomerPlayerData {
             assertCustomerData(type: .customerPlayerData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerPlayerData)
+        } else {
+            XCTAssertNil(expectedCustomerPlayerData)
         }
         if let expectedCustomerViewData = expectedCustomerViewData {
             assertCustomerData(type: .customerData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomerViewData)
+        } else {
+            XCTAssertNil(expectedCustomerViewData)
         }
         if let expectedCustomData = expectedCustomData {
             assertCustomerData(type: .customData, dispatchedEvent: dispatchedEvent, expectedData: expectedCustomData)
+        } else {
+            XCTAssertNil(expectedCustomData)
         }
     }
     
-    func assertCustomerData(type: EventType, dispatchedEvent: MUXSDKDataEvent?, expectedData: [String : Any]) {
+    private func assertCustomerData(type: EventType, dispatchedEvent: MUXSDKDataEvent?, expectedData: [String : Any]) {
         switch type {
         case .customerVideoData:
             guard let customerVideoData = dispatchedEvent?.customerVideoData else {
-                XCTAssertNil(dispatchedEvent?.customerVideoData)
+                XCTFail("Customer video data for dispatched event not found")
                 return
             }
             XCTAssertTrue(NSDictionary(dictionary: customerVideoData.toQuery()).isEqual(to: expectedData))
         case .customerPlayerData:
             guard let customerPlayerData = dispatchedEvent?.customerPlayerData else {
-                XCTAssertNil(dispatchedEvent?.customerPlayerData)
+                XCTFail("Customer player data for dispatched event not found")
                 return
             }
             XCTAssertTrue(NSDictionary(dictionary: customerPlayerData.toQuery()).isEqual(to: expectedData))
         case .customerData:
             guard let customerData = dispatchedEvent?.customerViewData else {
-                XCTAssertNil(dispatchedEvent?.customerViewData)
+                XCTFail("Customer data for dispatched event not found")
                 return
             }
             XCTAssertTrue(NSDictionary(dictionary: customerData.toQuery()).isEqual(to: expectedData))
         case .customData:
             guard let customData = dispatchedEvent?.customData else {
-                XCTAssertNil(dispatchedEvent?.customData)
+                XCTFail("Custom data for dispatched event not found")
                 return
             }
             XCTAssertTrue(NSDictionary(dictionary: customData.toQuery()).isEqual(to: expectedData))
