@@ -12,6 +12,12 @@ import MuxCore
 import PlayKit
 
 class MUXSDKStatsTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        
+        MockedData.dispatcher.resetDispatchedEvents()
+    }
+
     func testSetCustomerData() {
         guard
             let customerData = MockedData.customerData,
