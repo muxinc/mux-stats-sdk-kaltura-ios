@@ -14,3 +14,12 @@ target 'MUXSDKKaltura' do
     pod 'PlayKit'
   end
 end
+
+target 'MUXSDKKalturaTv' do
+  platform :tvos, '9.0'
+  use_frameworks!
+  
+  # Pods for MUXSDKKalturaTv
+  pod 'Mux-Stats-Core', '~>3.5'
+  pod 'PlayKit'
+end

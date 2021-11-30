@@ -1,7 +1,5 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
-
 target 'DemoApp' do
+  platform :ios, '9.0'
   use_frameworks!
 
   # Pods for DemoApp
@@ -10,5 +8,11 @@ target 'DemoApp' do
   target 'DemoAppUITests' do
     # Pods for testing
   end
+end
 
+target 'DemoAppTvOS' do
+  platform :tvos, '9.0'
+  use_frameworks!
+  
+  pod 'Mux-Stats-Kaltura', :path => '../../'
 end
