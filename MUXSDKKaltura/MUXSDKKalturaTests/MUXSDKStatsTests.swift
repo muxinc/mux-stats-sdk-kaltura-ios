@@ -16,7 +16,6 @@ class MUXSDKStatsTests: XCTestCase {
         super.setUp()
         
         MockedData.dispatcher.resetDispatchedEvents()
-        MUXSDKStats.destroyPlayer(name: MockedData.playerName)
     }
 
     func testSetCustomerData() {

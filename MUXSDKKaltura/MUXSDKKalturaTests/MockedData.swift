@@ -96,16 +96,6 @@ enum MockedData {
         )
     }
     
-    static var customerData5: MUXSDKCustomerData? {
-        return MUXSDKCustomerData(
-            customerPlayerData: nil,
-            videoData: nil,
-            viewData: nil,
-            customData: nil,
-            viewerData: nil
-        )
-    }
-    
     static let player = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
     
     static let dispatcher = MockedDispatcher.shared
