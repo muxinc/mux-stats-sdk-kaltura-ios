@@ -78,9 +78,9 @@ class MUXSDKStatsTests: XCTestCase {
             MUXSDKPlaybackEventPlayerReadyEventType
         ]
         
-        self.assertDispatchedEventTypesForPlayer(
-            id: MockedData.playerName,
-            expectedEventTypes: expectedEvents
+        self.assertDispatchedEventTypesMatch(
+            expectedEventTypes: expectedEvents,
+            for: MockedData.playerName
         )
         
         let expectedCustomerVideoData: [String : Any] = [
@@ -105,12 +105,12 @@ class MUXSDKStatsTests: XCTestCase {
         
         let expectedViewerData = "MUX Kaltura Tests"
         
-        self.assertDispatchedCustomerDataEventsAtIndex(
-            index: 1,
+        self.assertDispatchedCustomerDataEventsMatch(
             expectedCustomerVideoData: expectedCustomerVideoData,
             expectedCustomerPlayerData: expectedCustomerPlayerData,
             expectedCustomerViewData: expectedCustomerViewData,
-            expectedCustomData: expectedCustomData
+            expectedCustomData: expectedCustomData,
+            at: 1
         )
         self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 0, expectedCustomerViewerData: expectedViewerData)
     }
