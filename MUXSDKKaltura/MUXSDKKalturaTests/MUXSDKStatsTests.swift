@@ -27,6 +27,7 @@ class MUXSDKStatsTests: XCTestCase {
             XCTFail("Customer data not found")
             return
         }
+        MockedData.dispatcher.resetDispatchedEvents()
         
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData2)
@@ -51,6 +52,7 @@ class MUXSDKStatsTests: XCTestCase {
             XCTFail("Customer data not found")
             return
         }
+        MockedData.dispatcher.resetDispatchedEvents()
         
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData3)
@@ -82,6 +84,7 @@ class MUXSDKStatsTests: XCTestCase {
             XCTFail("Customer data not found")
             return
         }
+        MockedData.dispatcher.resetDispatchedEvents()
         
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData4)
