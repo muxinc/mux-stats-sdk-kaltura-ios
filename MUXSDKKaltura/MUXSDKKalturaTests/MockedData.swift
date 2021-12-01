@@ -62,6 +62,50 @@ enum MockedData {
         )
     }
     
+    static var customerData3: MUXSDKCustomerData? {
+        let playerName = Self.playerName
+        
+        let playerData = MUXSDKCustomerPlayerData(environmentKey: "ENV_KEY_3")
+        playerData?.playerName = playerName
+        
+        let viewData = MUXSDKCustomerViewData()
+        viewData.viewSessionId = "session id 3"
+        
+        let viewerData = MUXSDKCustomerViewerData()
+        viewerData.viewerApplicationName = "MUX Kaltura Tests Version 3"
+        
+        return MUXSDKCustomerData(
+            customerPlayerData: playerData,
+            videoData: nil,
+            viewData: viewData,
+            customData: nil,
+            viewerData: viewerData
+        )
+    }
+    
+    static var customerData4: MUXSDKCustomerData? {
+        let viewerData = MUXSDKCustomerViewerData()
+        viewerData.viewerApplicationName = "MUX Kaltura Tests Version 4"
+        
+        return MUXSDKCustomerData(
+            customerPlayerData: nil,
+            videoData: nil,
+            viewData: nil,
+            customData: nil,
+            viewerData: viewerData
+        )
+    }
+    
+    static var customerData5: MUXSDKCustomerData? {
+        return MUXSDKCustomerData(
+            customerPlayerData: nil,
+            videoData: nil,
+            viewData: nil,
+            customData: nil,
+            viewerData: nil
+        )
+    }
+    
     static let player = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
     
     static let dispatcher = MockedDispatcher.shared

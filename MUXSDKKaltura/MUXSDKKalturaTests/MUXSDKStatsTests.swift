@@ -16,6 +16,7 @@ class MUXSDKStatsTests: XCTestCase {
         super.setUp()
         
         MockedData.dispatcher.resetDispatchedEvents()
+        MUXSDKStats.destroyPlayer(name: MockedData.playerName)
     }
 
     func testSetCustomerData() {
@@ -36,32 +37,57 @@ class MUXSDKStatsTests: XCTestCase {
             "vsr" : "series Version 2"
         ]
         
-        guard let lastDispatchedEvent = MockedData.dispatcher.dispatchedEvents.last(where: { $0.playerId == MockedData.playerName })?.event as? MUXSDKDataEvent else {
-            XCTFail("MUXSDKDataEvent not found")
+        let expectedCustomerViewerData = "MUX Kaltura Tests Version 2"
+        
+        self.assertDispatchedCustomerDataEventsAtIndex(index: 3, expectedCustomerVideoData: expectedCustomerVideoData)
+        self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 1, expectedCustomerViewerData: expectedCustomerViewerData)
+    }
+    
+    func testSetCustomerDataWithPlayerDataViewDataAndNilVideoData() {
+        guard
+            let customerData = MockedData.customerData,
+            let customerData3 = MockedData.customerData3
+        else {
+            XCTFail("Customer data not found")
             return
         }
         
-        XCTAssertNil(lastDispatchedEvent.customerViewData)
-        XCTAssertNil(lastDispatchedEvent.customerPlayerData)
-        XCTAssertNil(lastDispatchedEvent.customData)
+        MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
+        MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData3)
         
-        guard let customerVideoData = lastDispatchedEvent.customerVideoData else {
-            XCTFail("Customer video data for MUXSDKDataEvent not found")
-            return
-        }
-                                                             
-        XCTAssertTrue(NSDictionary(dictionary: customerVideoData.toQuery()).isEqual(to: expectedCustomerVideoData))
-        
-        guard let lastGlobalDispatchedEvent = MockedData.dispatcher.dispatchedGlobalDataEvents.last else {
-            XCTFail("MUXSDKDataEvent not found")
-            return
-        }
-        
-        guard let viewerData = lastGlobalDispatchedEvent.viewerData else {
-            XCTFail("Viewer data for MUXSDKDataEvent not found")
-            return
-        }
+        let expectedCustomerPlayerData: [String : Any] = [
+            "ake" : "ENV_KEY_3",
+            "pnm" : "Test Player"
+        ]
 
-        XCTAssertEqual(viewerData.viewerApplicationName, "MUX Kaltura Tests Version 2")
+        let expectedCustomerViewData: [String : Any] = [
+            "xseid" : "session id 3"
+        ]
+        
+        let expectedCustomerViewerData = "MUX Kaltura Tests Version 3"
+        
+        self.assertDispatchedCustomerDataEventsAtIndex(
+            index: 3,
+            expectedCustomerPlayerData: expectedCustomerPlayerData,
+            expectedCustomerViewData: expectedCustomerViewData
+        )
+        self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 1, expectedCustomerViewerData: expectedCustomerViewerData)
+    }
+    
+    func testSetCustomerDataWithViewerData() {
+        guard
+            let customerData = MockedData.customerData,
+            let customerData4 = MockedData.customerData4
+        else {
+            XCTFail("Customer data not found")
+            return
+        }
+        
+        MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
+        MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData4)
+        
+        let expectedCustomerViewerData = "MUX Kaltura Tests Version 4"
+    
+        self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 1, expectedCustomerViewerData: expectedCustomerViewerData)
     }
 }
