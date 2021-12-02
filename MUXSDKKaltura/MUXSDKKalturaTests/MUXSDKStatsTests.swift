@@ -16,6 +16,7 @@ class MUXSDKStatsTests: XCTestCase {
         super.setUp()
         
         MockedData.dispatcher.resetDispatchedEvents()
+        MockedData.dispatcher.destroyPlayer(MockedData.playerName)
     }
 
     func testSetCustomerData() {
@@ -26,7 +27,6 @@ class MUXSDKStatsTests: XCTestCase {
             XCTFail("Customer data not found")
             return
         }
-        MockedData.dispatcher.resetDispatchedEvents()
         
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData2)
@@ -39,7 +39,7 @@ class MUXSDKStatsTests: XCTestCase {
         
         let expectedCustomerViewerData = "MUX Kaltura Tests Version 2"
         
-        self.assertDispatchedCustomerDataEventsAtIndex(index: 3, expectedCustomerVideoData: expectedCustomerVideoData)
+        self.assertDispatchedCustomerDataEventsMatch(expectedCustomerVideoData: expectedCustomerVideoData, at: 3)
         self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 1, expectedCustomerViewerData: expectedCustomerViewerData)
     }
     
@@ -51,7 +51,6 @@ class MUXSDKStatsTests: XCTestCase {
             XCTFail("Customer data not found")
             return
         }
-        MockedData.dispatcher.resetDispatchedEvents()
         
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData3)
@@ -67,10 +66,10 @@ class MUXSDKStatsTests: XCTestCase {
         
         let expectedCustomerViewerData = "MUX Kaltura Tests Version 3"
         
-        self.assertDispatchedCustomerDataEventsAtIndex(
-            index: 3,
+        self.assertDispatchedCustomerDataEventsMatch(
             expectedCustomerPlayerData: expectedCustomerPlayerData,
-            expectedCustomerViewData: expectedCustomerViewData
+            expectedCustomerViewData: expectedCustomerViewData,
+            at: 4
         )
         self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 1, expectedCustomerViewerData: expectedCustomerViewerData)
     }
@@ -83,7 +82,6 @@ class MUXSDKStatsTests: XCTestCase {
             XCTFail("Customer data not found")
             return
         }
-        MockedData.dispatcher.resetDispatchedEvents()
         
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerData4)
