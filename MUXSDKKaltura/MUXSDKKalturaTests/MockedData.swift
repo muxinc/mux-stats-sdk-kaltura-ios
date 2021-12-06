@@ -44,54 +44,18 @@ enum MockedData {
         )
     }
     
-    static var customerData2: MUXSDKCustomerData? {
-        let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Video Title Version 2"
-        videoData.videoId = "videoId Version 2"
-        videoData.videoSeries = "series Version 2"
-        
-        let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "MUX Kaltura Tests Version 2"
-        
-        return MUXSDKCustomerData(
-            customerPlayerData: nil,
-            videoData: videoData,
-            viewData: nil,
-            customData: nil,
-            viewerData: viewerData
-        )
-    }
-    
-    static var customerData3: MUXSDKCustomerData? {
-        let playerName = Self.playerName
-        
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: "ENV_KEY_3")
-        playerData?.playerName = playerName
-        
-        let viewData = MUXSDKCustomerViewData()
-        viewData.viewSessionId = "session id 3"
-        
-        let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "MUX Kaltura Tests Version 3"
-        
+    static func buildCustomerData(
+        playerData: MUXSDKCustomerPlayerData? = nil,
+        videoData: MUXSDKCustomerVideoData? = nil,
+        viewData: MUXSDKCustomerViewData? = nil,
+        customData: MUXSDKCustomData? = nil,
+        viewerData: MUXSDKCustomerViewerData? = nil
+    ) -> MUXSDKCustomerData? {
         return MUXSDKCustomerData(
             customerPlayerData: playerData,
-            videoData: nil,
+            videoData: videoData,
             viewData: viewData,
-            customData: nil,
-            viewerData: viewerData
-        )
-    }
-    
-    static var customerData4: MUXSDKCustomerData? {
-        let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "MUX Kaltura Tests Version 4"
-        
-        return MUXSDKCustomerData(
-            customerPlayerData: nil,
-            videoData: nil,
-            viewData: nil,
-            customData: nil,
+            customData: customData ,
             viewerData: viewerData
         )
     }
