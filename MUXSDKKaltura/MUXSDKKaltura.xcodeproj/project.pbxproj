@@ -17,6 +17,7 @@
 		E91E074B273B1DA8009E5117 /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E074A273B1DA8009E5117 /* MockedData.swift */; };
 		E91E074C273B24B1009E5117 /* MockedDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC030D2729C7DB00E1DE7E /* MockedDispatcher.swift */; };
 		E94138C02718B2FB00B3EFB8 /* KalturaPlayer+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94138BF2718B2FB00B3EFB8 /* KalturaPlayer+Utilities.swift */; };
+		E97D37932767B37E000A390F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E97D37922767B37E000A390F /* README.md */; };
 		E987218F26F921CA0099E048 /* MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E987218626F921CA0099E048 /* MUXSDKKaltura.framework */; };
 		E987219426F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987219326F921CA0099E048 /* MUXSDKCustomerDataStoreTests.swift */; };
 		E98721B826FA6AD90099E048 /* MUXSDKKalturaTv.h in Headers */ = {isa = PBXBuildFile; fileRef = E98721AA26FA6AD90099E048 /* MUXSDKKalturaTv.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,6 +71,7 @@
 		E91E0748273B1D16009E5117 /* MUXSDKStatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUXSDKStatsTests.swift; sourceTree = "<group>"; };
 		E91E074A273B1DA8009E5117 /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		E94138BF2718B2FB00B3EFB8 /* KalturaPlayer+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KalturaPlayer+Utilities.swift"; sourceTree = "<group>"; };
+		E97D37922767B37E000A390F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		E987218626F921CA0099E048 /* MUXSDKKaltura.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MUXSDKKaltura.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987218926F921CA0099E048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E987218E26F921CA0099E048 /* MUXSDKKalturaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUXSDKKalturaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 		E987218726F921CA0099E048 /* MUXSDKKaltura */ = {
 			isa = PBXGroup;
 			children = (
+				E97D37922767B37E000A390F /* README.md */,
 				E94138BE2718B2FB00B3EFB8 /* Utilities */,
 				E917C7CA270CF4BB00BE9EFB /* Models */,
 				E9D8303C270268A000389EC6 /* Services */,
@@ -360,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97D37932767B37E000A390F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
