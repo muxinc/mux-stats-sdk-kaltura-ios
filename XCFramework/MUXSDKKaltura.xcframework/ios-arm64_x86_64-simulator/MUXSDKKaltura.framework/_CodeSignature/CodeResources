@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		35WQjn2ZdhQ1jR/tRb58fqjLnTA=
+		x996UNjsgg1PWylUPo4dyfEKw9g=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -63,6 +63,10 @@
 		<key>Modules/module.modulemap</key>
 		<data>
 		hpiC804aLOCVQDS4Hlq5jl45S04=
+		</data>
+		<key>README.md</key>
+		<data>
+		XG8Qrq4LdZ+PRnw6Thw/u6WzgqE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -163,6 +167,13 @@
 			<key>hash2</key>
 			<data>
 			BIr+8ElWeP41wodMFwhzLZ8qBCTgtPPd4G1jzey5YOU=
+			</data>
+		</dict>
+		<key>README.md</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			SpZdfYzyfk/sz5IUuFBonnpJEFntFF6U9l8EWEdXs+0=
 			</data>
 		</dict>
 	</dict>
