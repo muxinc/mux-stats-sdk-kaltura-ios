@@ -7,9 +7,9 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - PlayKit (3.22.0):
-    - PlayKit/Core (= 3.22.0)
-  - PlayKit/Core (3.22.0):
+  - PlayKit (3.23.0):
+    - PlayKit/Core (= 3.23.0)
+  - PlayKit/Core (3.23.0):
     - KalturaNetKit (~> 1.5.1)
     - PlayKitUtils (~> 0.5)
     - SwiftyJSON (= 5.0.0)
@@ -39,11 +39,11 @@ SPEC CHECKSUMS:
   KalturaNetKit: 8774fdc2e73d3d013c3df88aa49376dd922d3606
   Mux-Stats-Core: b92c5fa07eab73564fe43f3b2dc1d3d4e74791c4
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PlayKit: 0d16ddb30d5a50e609154a34ce49991cbbae5275
+  PlayKit: a40a446d1968269c27dcefb31e9d0db7034eaa57
   PlayKitUtils: 8edb43515c8b91d9aa9a47ae8b5af1e7dd58f6f3
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: d806dd0d776c09552413bbbc78bafb0361624545
+PODFILE CHECKSUM: a559630c4bee19587b7bf0399709a29cf4062205
 
 COCOAPODS: 1.11.2

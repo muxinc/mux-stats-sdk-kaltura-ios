@@ -17,10 +17,11 @@ class PlayerViewController: UIViewController {
     let kalturaPlayerContainer = PlayerView()
     let playButton = UIButton()
     let closeButton = UIButton()
-    let playheadSlider = UISlider()
+    let playheadSlider = UIProgressView()
     let positionLabel = UILabel()
     let durationLabel = UILabel()
     let airplayButton = MPVolumeView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+    var duration: TimeInterval = 0.0
     
     // MUX
     let playerName = "iOS KalturaPlayer"
@@ -98,7 +99,7 @@ class PlayerViewController: UIViewController {
                     return
                 }
                 
-                self.playheadSlider.maximumValue = Float(duration)
+                self.duration = duration
                 self.durationLabel.text = duration.formattedTimeDisplay
             default:
                 break
@@ -110,8 +111,9 @@ class PlayerViewController: UIViewController {
             interval: 0.2,
             observeOn: DispatchQueue.main,
             using: { [weak self] currentPosition in
-                self?.playheadSlider.value = Float(currentPosition)
-                self?.positionLabel.text = currentPosition.formattedTimeDisplay
+                guard let self = self else { return }
+                self.playheadSlider.setProgress(Float(currentPosition/self.duration), animated: true)
+                self.positionLabel.text = currentPosition.formattedTimeDisplay
             }
         )
     }
@@ -318,28 +320,55 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    @objc func seekForward() {
+        let newPosition = (self.kalturaPlayer?.currentTime ?? 0).advanced(by: 15)
+        let position = newPosition <= self.duration ? newPosition : self.duration
+        self.kalturaPlayer?.seek(to: position)
+        
+        if self.playerState == .ended && self.playheadSlider.progress < 1 {
+            self.playerState = .paused
+        }
+    }
+    
+    @objc func seekBackward() {
+        let newPosition = (self.kalturaPlayer?.currentTime ?? 0).advanced(by: -15)
+        let position = newPosition >= 0 ? newPosition : 0
+        self.kalturaPlayer?.seek(to: position)
+    }
+    
     @objc func closeButtonPressed() {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc func playheadValueChanged() {
+    @objc func playheadValueChanged(gestureRecognizer: UIPanGestureRecognizer) {
         guard let player = self.kalturaPlayer else {
             return
         }
         
-        if self.playerState == .ended && self.playheadSlider.value < self.playheadSlider.maximumValue {
-            self.playerState = .paused
+        let gesturePoint = gestureRecognizer.location(in: self.playheadSlider)
+        switch gestureRecognizer.state {
+        case .changed:
+            let progress = gesturePoint.x/self.playheadSlider.frame.width
+            self.playheadSlider.setProgress(Float(progress), animated: true)
+            
+            if self.playerState == .ended && self.playheadSlider.progress < 1 {
+                self.playerState = .paused
+            }
+            
+            player.seek(to: Double(self.playheadSlider.progress) * self.duration)
+        default:
+            return
         }
-        
-        player.currentTime = TimeInterval(self.playheadSlider.value)
     }
     
     // MARK: Orientation Changes
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-
+        
+        #if os(iOS)
         let orientation = UIDevice.current.orientation.isLandscape ? MUXSDKViewOrientation.landscape : MUXSDKViewOrientation.portrait
         MUXSDKStats.orientationChangeForPlayer(name: self.playerName, orientation: orientation)
+        #endif
     }
 }
 
@@ -394,6 +423,7 @@ extension PlayerViewController {
         
         let actionsRowStack = UIStackView()
         actionsRowStack.axis = .horizontal
+        actionsRowStack.alignment = .center
         actionsRowStack.spacing = 6.0
         actionsContainer.addArrangedSubview(actionsRowStack)
         NSLayoutConstraint.activate([
@@ -401,7 +431,7 @@ extension PlayerViewController {
         ])
         
         // Add play/pause button
-        self.playButton.addTarget(self, action: #selector(self.playButtonPressed), for: .touchUpInside)
+        self.playButton.addTarget(self, action: #selector(self.playButtonPressed), for: .primaryActionTriggered)
         self.playButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 4, bottom: 10, right: 4)
         self.playButton.contentHorizontalAlignment = .fill
         self.playButton.contentVerticalAlignment = .fill
@@ -410,29 +440,63 @@ extension PlayerViewController {
             self.playButton.widthAnchor.constraint(equalToConstant: 28.0)
         ])
         
-        self.positionLabel.textColor = .lightText
+        self.positionLabel.textColor = .lightGray
         self.positionLabel.text = TimeInterval.zero.formattedTimeDisplay
         actionsRowStack.addArrangedSubview(self.positionLabel)
         
-        self.playheadSlider.addTarget(self, action: #selector(self.playheadValueChanged), for: .valueChanged)
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.playheadValueChanged))
+        self.playheadSlider.addGestureRecognizer(panGesture)
         actionsRowStack.addArrangedSubview(self.playheadSlider)
+        NSLayoutConstraint.activate([
+            self.playheadSlider.heightAnchor.constraint(equalToConstant: 16.0)
+        ])
         
-        self.durationLabel.textColor = .lightText
+        self.durationLabel.textColor = .lightGray
         self.durationLabel.text = TimeInterval.zero.formattedTimeDisplay
         actionsRowStack.addArrangedSubview(self.durationLabel)
         
-        // Add close button
-        self.closeButton.translatesAutoresizingMaskIntoConstraints = false
-        self.closeButton.addTarget(self, action: #selector(self.closeButtonPressed), for: .touchUpInside)
-        self.closeButton.setImage(UIImage(systemName: "xmark.square"), for: .normal)
-        self.closeButton.contentVerticalAlignment = .fill
-        self.closeButton.contentHorizontalAlignment = .fill
-        self.kalturaPlayerContainer.addSubview(self.closeButton)
-        NSLayoutConstraint.activate([
-            self.closeButton.heightAnchor.constraint(equalToConstant: 32.0),
-            self.closeButton.widthAnchor.constraint(equalToConstant: 32.0),
-            self.closeButton.trailingAnchor.constraint(equalTo: self.kalturaPlayerContainer.trailingAnchor, constant: -24.0),
-            self.closeButton.topAnchor.constraint(equalTo: self.kalturaPlayerContainer.topAnchor, constant: 24.0)
-        ])
+        guard UIDevice.current.userInterfaceIdiom == .tv else {
+            // Add close button
+            self.closeButton.translatesAutoresizingMaskIntoConstraints = false
+            self.closeButton.addTarget(self, action: #selector(self.closeButtonPressed), for: .primaryActionTriggered)
+            self.closeButton.setImage(UIImage(systemName: "xmark.square"), for: .normal)
+            self.closeButton.contentVerticalAlignment = .fill
+            self.closeButton.contentHorizontalAlignment = .fill
+            self.kalturaPlayerContainer.addSubview(self.closeButton)
+            NSLayoutConstraint.activate([
+                self.closeButton.heightAnchor.constraint(equalToConstant: 32.0),
+                self.closeButton.widthAnchor.constraint(equalToConstant: 32.0),
+                self.closeButton.trailingAnchor.constraint(equalTo: self.kalturaPlayerContainer.trailingAnchor, constant: -24.0),
+                self.closeButton.topAnchor.constraint(equalTo: self.kalturaPlayerContainer.topAnchor, constant: 24.0)
+            ])
+            return
+        }
+        
+        // Apple tv remote gestures
+        
+        // Handle Play/Pause tap
+        let playPauseRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.playButtonPressed))
+        playPauseRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)];
+        self.view.addGestureRecognizer(playPauseRecognizer)
+        
+        // Handle Right tap
+        let rightTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.seekForward))
+        rightTapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.rightArrow.rawValue)];
+        self.view.addGestureRecognizer(rightTapRecognizer)
+        
+        // Handle Left tap
+        let leftTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.seekBackward))
+        leftTapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.leftArrow.rawValue)];
+        self.view.addGestureRecognizer(leftTapRecognizer)
+        
+        // Handle right swipe
+        let swipeRightRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.seekForward))
+        swipeRightRecognizer.direction = .right
+        self.view.addGestureRecognizer(swipeRightRecognizer)
+        
+        // Handle left swipe
+        let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.seekBackward))
+        swipeLeftRecognizer.direction = .left
+        self.view.addGestureRecognizer(swipeLeftRecognizer)
     }
 }

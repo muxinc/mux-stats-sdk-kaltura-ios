@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		35WQjn2ZdhQ1jR/tRb58fqjLnTA=
+		x996UNjsgg1PWylUPo4dyfEKw9g=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9t+X/K0tPVHCJF6BPJ+cDsILhRo=
+		M/Fpe+T08Fww9gBHLvTlipykFKo=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		9t+X/K0tPVHCJF6BPJ+cDsILhRo=
+		M/Fpe+T08Fww9gBHLvTlipykFKo=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		sNuVIFCnWzTI0ZC/3BqOn7AaCMs=
+		dmxkTVhUpZ3LPLrnYdfaqQhkjY0=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,11 +58,15 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		sNuVIFCnWzTI0ZC/3BqOn7AaCMs=
+		dmxkTVhUpZ3LPLrnYdfaqQhkjY0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		hpiC804aLOCVQDS4Hlq5jl45S04=
+		</data>
+		<key>README.md</key>
+		<data>
+		XG8Qrq4LdZ+PRnw6Thw/u6WzgqE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -92,7 +96,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y7+m+Q6zZQjOkbbO78s7WAtrAKo/QjE6HcIPwn/FH30=
+			2pcSJfroBNqmQGvGk1Xtos0jd9Wa8HDbmWHu1NW/g/M=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
@@ -113,7 +117,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y7+m+Q6zZQjOkbbO78s7WAtrAKo/QjE6HcIPwn/FH30=
+			2pcSJfroBNqmQGvGk1Xtos0jd9Wa8HDbmWHu1NW/g/M=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -134,7 +138,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2FxtVZ69OY/Q6G7S7mMWB6Qx+Ge0oR8issww89iwuzc=
+			DSlBI/Ao9TD3Px/uhozVA0hF2/Be4Lnj8ePZ//4GSZ8=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
@@ -155,7 +159,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2FxtVZ69OY/Q6G7S7mMWB6Qx+Ge0oR8issww89iwuzc=
+			DSlBI/Ao9TD3Px/uhozVA0hF2/Be4Lnj8ePZ//4GSZ8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -163,6 +167,13 @@
 			<key>hash2</key>
 			<data>
 			BIr+8ElWeP41wodMFwhzLZ8qBCTgtPPd4G1jzey5YOU=
+			</data>
+		</dict>
+		<key>README.md</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			SpZdfYzyfk/sz5IUuFBonnpJEFntFF6U9l8EWEdXs+0=
 			</data>
 		</dict>
 	</dict>
