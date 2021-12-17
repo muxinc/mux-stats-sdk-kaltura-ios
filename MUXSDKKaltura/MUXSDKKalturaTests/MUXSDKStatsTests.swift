@@ -64,4 +64,54 @@ class MUXSDKStatsTests: XCTestCase {
 
         XCTAssertEqual(viewerData.viewerApplicationName, "MUX Kaltura Tests Version 2")
     }
+    
+    func testMonitorPlayer() {
+        guard let customerData = MockedData.customerData else {
+            XCTFail("Customer data not found")
+            return
+        }
+        
+        MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
+        let expectedEvents = [
+            MUXSDKPlaybackEventViewInitEventType,
+            MUXSDKDataEventType,
+            MUXSDKPlaybackEventPlayerReadyEventType
+        ]
+        
+        self.assertDispatchedEventTypesMatch(
+            expectedEventTypes: expectedEvents,
+            for: MockedData.playerName
+        )
+        
+        let expectedCustomerVideoData: [String : Any] = [
+            "vtt" : "Video Title",
+            "vid" : "videoId",
+            "vsr" : "series"
+        ]
+        
+        let expectedCustomerPlayerData: [String : Any] = [
+            "ake" : "ENV_KEY",
+            "pnm" : "Test Player"
+        ]
+        
+        let expectedCustomerViewData: [String : Any] = [
+            "xseid" : "session id"
+        ]
+        
+        let expectedCustomData: [String : Any] = [
+            "c1" : "Custom Data 1",
+            "c2" : "Custom Data 2"
+        ]
+        
+        let expectedViewerData = "MUX Kaltura Tests"
+        
+        self.assertDispatchedCustomerDataEventsMatch(
+            expectedCustomerVideoData: expectedCustomerVideoData,
+            expectedCustomerPlayerData: expectedCustomerPlayerData,
+            expectedCustomerViewData: expectedCustomerViewData,
+            expectedCustomData: expectedCustomData,
+            at: 1
+        )
+        self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 0, expectedCustomerViewerData: expectedViewerData)
+    }
 }
