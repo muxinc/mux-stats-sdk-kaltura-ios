@@ -96,7 +96,7 @@ class MUXSDKStatsTests: XCTestCase {
         self.assertDispatchedCustomerDataEventsMatch(
             expectedCustomerPlayerData: expectedCustomerPlayerData,
             expectedCustomerViewData: expectedCustomerViewData,
-            at: 3
+            at: 4
         )
         self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 1, expectedCustomerViewerData: expectedCustomerViewerData)
     }
