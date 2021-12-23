@@ -665,7 +665,10 @@ extension MUXSDKPlayerBinding {
     }
     
     private func dispatchRenditionChange() {
-        guard let player = self.player else {
+        guard
+            let player = self.player,
+            self.videoData.started
+        else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
