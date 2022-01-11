@@ -400,11 +400,13 @@ public class MUXSDKPlayerBinding: NSObject {
     private func handleRenditionChange(bitrate: Double, playbackStartDate: Date?) {
         guard
             self.videoData.lastAdvertisedBitrate != 0,
-            playbackStartDate != nil
+            self.videoData.started
         else {
             self.videoData.lastAdvertisedBitrate = bitrate
             return
         }
+        
+        guard playbackStartDate != nil else { return }
         print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(bitrate)")
         self.videoData.lastAdvertisedBitrate = bitrate
         guard self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate else {
