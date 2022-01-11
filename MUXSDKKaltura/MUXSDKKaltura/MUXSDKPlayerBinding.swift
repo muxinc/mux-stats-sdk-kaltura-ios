@@ -31,6 +31,7 @@ public class MUXSDKPlayerBinding: NSObject {
     private var lastTimeUpdate: TimeInterval = .zero
     private var timeObserver: UUID? = nil
     private var timeUpdateTimer: Timer? = nil
+    private var playbackStartDate: Date? = nil
     
     private var currentPlayheadTimeMs: Double {
         return self.player?.currentTime ?? 0.0 * 1000
@@ -104,7 +105,7 @@ public class MUXSDKPlayerBinding: NSObject {
         
         MUXSDKConnection.detectConnectionType()
         
-        // Reset bitrate and bandwidth properties for updatePlayer
+        // Reset bitrate and bandwidth properties for updatePlayer        
         self.videoData.lastTransferEventCount = 0
         self.videoData.lastTransferDuration = 0
         self.videoData.lastTransferredBytes = 0
@@ -183,7 +184,7 @@ public class MUXSDKPlayerBinding: NSObject {
             case is PlayerEvent.VideoTrackChanged:
                 // This event indicates a change in the property indicatedBitrate
                 if let bitrate = event.bitrate?.doubleValue {
-                    self.handleRenditionChange(bitrate: bitrate)
+                    self.handleRenditionChange(bitrate: bitrate, playbackStartDate: self.playbackStartDate)
                 }
             case is PlayerEvent.Seeking:
                 self.dispatchSeekingEvent()
@@ -240,6 +241,7 @@ public class MUXSDKPlayerBinding: NSObject {
         // AVPlayer custom notifications
         // Kaltura posts a playback info event for this notification, but it doesn't contain the data we require so we need to implement our own listener to get the full access log
         NotificationCenter.default.addObserver(self, selector: #selector(self.getBandwidthMetric), name: .AVPlayerItemNewAccessLogEntry, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getPlaybackStartDate), name: .AVPlayerItemNewAccessLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAVPlayerErrorLog), name: .AVPlayerItemNewErrorLogEntry, object: nil)
         
         // Connection notification
@@ -395,15 +397,15 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.hasUpdates = false
     }
     
-    private func handleRenditionChange(bitrate: Double) {
-        guard self.videoData.lastAdvertisedBitrate != 0 else {
-            // Starting Playback
+    private func handleRenditionChange(bitrate: Double, playbackStartDate: Date?) {
+        guard
+            self.videoData.lastAdvertisedBitrate != 0,
+            playbackStartDate != nil
+        else {
             self.videoData.lastAdvertisedBitrate = bitrate
             return
         }
-        
         print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(bitrate)")
-        
         self.videoData.lastAdvertisedBitrate = bitrate
         guard self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate else {
             return
@@ -494,6 +496,20 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.lastTransferDuration = event.transferDuration
     }
     
+    @objc
+    private func getPlaybackStartDate(notification: Notification) {
+        guard
+            let playerItem = notification.object as? AVPlayerItem,
+            playerItem == self.player?.currentItem, // Confirm notification is relevant to current player item
+            let accessLog = playerItem.accessLog(),
+            let event = accessLog.events.last
+        else {
+            return
+        }
+        
+        self.playbackStartDate = event.playbackStartDate
+    }
+    
     func buildBandwidthMetricData(
         requestCompletedTime: TimeInterval,
         requestStartSecs: Double,
@@ -564,6 +580,7 @@ extension MUXSDKPlayerBinding {
         
         let event = MUXSDKViewInitEvent()
         event.playerData = self.playerData
+        
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .viewInit
@@ -665,10 +682,7 @@ extension MUXSDKPlayerBinding {
     }
     
     private func dispatchRenditionChange() {
-        guard
-            let player = self.player,
-            self.videoData.started
-        else {
+        guard let player = self.player else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
