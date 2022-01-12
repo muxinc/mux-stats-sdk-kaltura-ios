@@ -31,7 +31,6 @@ public class MUXSDKPlayerBinding: NSObject {
     private var lastTimeUpdate: TimeInterval = .zero
     private var timeObserver: UUID? = nil
     private var timeUpdateTimer: Timer? = nil
-    private var playbackStartDate: Date? = nil
     
     private var currentPlayheadTimeMs: Double {
         return self.player?.currentTime ?? 0.0 * 1000
@@ -181,11 +180,6 @@ public class MUXSDKPlayerBinding: NSObject {
                     self.videoData.duration = duration
                     self.videoData.hasUpdates = true
                 }
-            case is PlayerEvent.VideoTrackChanged:
-                // This event indicates a change in the property indicatedBitrate
-                if let bitrate = event.bitrate?.doubleValue {
-                    self.handleRenditionChange(bitrate: bitrate, playbackStartDate: self.playbackStartDate)
-                }
             case is PlayerEvent.Seeking:
                 self.dispatchSeekingEvent()
             case is PlayerEvent.Seeked:
@@ -240,8 +234,7 @@ public class MUXSDKPlayerBinding: NSObject {
     private func addObservers() {
         // AVPlayer custom notifications
         // Kaltura posts a playback info event for this notification, but it doesn't contain the data we require so we need to implement our own listener to get the full access log
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getBandwidthMetric), name: .AVPlayerItemNewAccessLogEntry, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getPlaybackStartDate), name: .AVPlayerItemNewAccessLogEntry, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleAccessLogEntry), name: .AVPlayerItemNewAccessLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAVPlayerErrorLog), name: .AVPlayerItemNewErrorLogEntry, object: nil)
         
         // Connection notification
@@ -465,16 +458,21 @@ public class MUXSDKPlayerBinding: NSObject {
         return host ?? urlString
     }
     
-    @objc
-    private func getBandwidthMetric(notification: Notification) {
+    @objc func handleAccessLogEntry(notification: Notification) {
         guard
             let playerItem = notification.object as? AVPlayerItem,
             playerItem == self.player?.currentItem, // Confirm notification is relevant to current player item
-            let accessLog = playerItem.accessLog(),
-            let event = accessLog.events.last
+            let accessLog = playerItem.accessLog()
         else {
             return
         }
+        
+        self.getBandwidthMetric(accessLog: accessLog)
+        self.getPlaybackStartDate(accessLog: accessLog)
+    }
+    
+    private func getBandwidthMetric(accessLog: AVPlayerItemAccessLog) {
+        guard let event = accessLog.events.last else { return }
         
         if self.videoData.lastTransferEventCount != accessLog.events.count {
             self.videoData.lastTransferEventCount = accessLog.events.count
@@ -498,18 +496,10 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.lastTransferDuration = event.transferDuration
     }
     
-    @objc
-    private func getPlaybackStartDate(notification: Notification) {
-        guard
-            let playerItem = notification.object as? AVPlayerItem,
-            playerItem == self.player?.currentItem, // Confirm notification is relevant to current player item
-            let accessLog = playerItem.accessLog(),
-            let event = accessLog.events.last
-        else {
-            return
-        }
+    private func getPlaybackStartDate(accessLog: AVPlayerItemAccessLog) {
+        guard let event = accessLog.events.last else { return }
         
-        self.playbackStartDate = event.playbackStartDate
+        self.handleRenditionChange(bitrate: event.indicatedBitrate, playbackStartDate: event.playbackStartDate)
     }
     
     func buildBandwidthMetricData(
