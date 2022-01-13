@@ -104,7 +104,7 @@ public class MUXSDKPlayerBinding: NSObject {
         
         MUXSDKConnection.detectConnectionType()
         
-        // Reset bitrate and bandwidth properties for updatePlayer        
+        // Reset bitrate and bandwidth properties for updatePlayer
         self.videoData.lastTransferEventCount = 0
         self.videoData.lastTransferDuration = 0
         self.videoData.lastTransferredBytes = 0
@@ -122,7 +122,6 @@ public class MUXSDKPlayerBinding: NSObject {
             events: [
                 PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
-                PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
                 PlayerEvent.seeked,
                 PlayerEvent.playbackRate,
@@ -157,7 +156,6 @@ public class MUXSDKPlayerBinding: NSObject {
             events: [
                 PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
-                PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
                 PlayerEvent.seeked,
                 PlayerEvent.playbackRate,
@@ -390,18 +388,22 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.hasUpdates = false
     }
     
-    private func handleRenditionChange(bitrate: Double, playbackStartDate: Date?) {
+    private func handleRenditionChange(event: AVPlayerItemAccessLogEvent) {
         guard
             self.videoData.lastAdvertisedBitrate != 0,
             self.videoData.started
         else {
-            self.videoData.lastAdvertisedBitrate = bitrate
+            self.videoData.lastAdvertisedBitrate = event.indicatedBitrate
             return
         }
         
-        guard playbackStartDate != nil else { return }
-        print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(bitrate)")
-        self.videoData.lastAdvertisedBitrate = bitrate
+        //Dispatch rendition change event only when playback began
+        guard event.playbackStartDate != nil else {
+            return
+        }
+        
+        print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(event.indicatedBitrate)")
+        self.videoData.lastAdvertisedBitrate = event.indicatedBitrate
         guard self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate else {
             return
         }
@@ -462,17 +464,20 @@ public class MUXSDKPlayerBinding: NSObject {
         guard
             let playerItem = notification.object as? AVPlayerItem,
             playerItem == self.player?.currentItem, // Confirm notification is relevant to current player item
-            let accessLog = playerItem.accessLog()
+            let accessLog = playerItem.accessLog(),
+            let event = accessLog.events.last
         else {
             return
         }
         
         self.getBandwidthMetric(accessLog: accessLog)
-        self.getPlaybackStartDate(accessLog: accessLog)
+        self.handleRenditionChange(event: event)
     }
     
     private func getBandwidthMetric(accessLog: AVPlayerItemAccessLog) {
-        guard let event = accessLog.events.last else { return }
+        guard let event = accessLog.events.last else {
+            return
+        }
         
         if self.videoData.lastTransferEventCount != accessLog.events.count {
             self.videoData.lastTransferEventCount = accessLog.events.count
@@ -494,12 +499,6 @@ public class MUXSDKPlayerBinding: NSObject {
 
         self.videoData.lastTransferredBytes = event.numberOfBytesTransferred
         self.videoData.lastTransferDuration = event.transferDuration
-    }
-    
-    private func getPlaybackStartDate(accessLog: AVPlayerItemAccessLog) {
-        guard let event = accessLog.events.last else { return }
-        
-        self.handleRenditionChange(bitrate: event.indicatedBitrate, playbackStartDate: event.playbackStartDate)
     }
     
     func buildBandwidthMetricData(
@@ -572,7 +571,6 @@ extension MUXSDKPlayerBinding {
         
         let event = MUXSDKViewInitEvent()
         event.playerData = self.playerData
-        
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
         self.state = .viewInit
