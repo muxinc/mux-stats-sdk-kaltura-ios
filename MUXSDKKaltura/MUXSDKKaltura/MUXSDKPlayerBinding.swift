@@ -603,7 +603,7 @@ extension MUXSDKPlayerBinding {
             return
         }
         
-        guard self.state != .playing else {
+        guard self.state == .playing else {
             return
         }
         
