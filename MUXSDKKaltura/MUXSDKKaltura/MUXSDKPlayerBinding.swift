@@ -376,7 +376,7 @@ public class MUXSDKPlayerBinding: NSObject {
         
         eventVideoData.videoSourceUrl = videoData.url
         
-        if (self.videoData.lastAdvertisedBitrate > 0) {
+        if (self.videoData.lastAdvertisedBitrate > 0 && self.videoData.started) {
             eventVideoData.videoSourceAdvertisedBitrate = NSNumber(value: self.videoData.lastAdvertisedBitrate)
             self.videoData.lastDispatchedAdvertisedBitrate = self.videoData.lastAdvertisedBitrate
         }
@@ -393,6 +393,7 @@ public class MUXSDKPlayerBinding: NSObject {
             self.videoData.lastAdvertisedBitrate != 0,
             self.videoData.started
         else {
+            self.videoData.hasUpdates = true
             self.videoData.lastAdvertisedBitrate = event.indicatedBitrate
             return
         }
