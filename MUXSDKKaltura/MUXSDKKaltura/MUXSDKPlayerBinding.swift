@@ -342,6 +342,10 @@ public class MUXSDKPlayerBinding: NSObject {
         let currentVideoIsLive = player.isLive()
         let liveUpdates = videoData.isLive != currentVideoIsLive
         
+        if self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate {
+            self.videoData.hasUpdates = true
+        }
+        
         let videoDataUpdated = videoData.hasUpdates || liveUpdates
 
         if self.videoData.sourceDimensionsHaveChanged, self.videoData.size.equalTo(self.videoData.lastDispatchedVideoSize) {
@@ -378,11 +382,6 @@ public class MUXSDKPlayerBinding: NSObject {
         
         if (self.videoData.lastAdvertisedBitrate > 0 && self.videoData.started) {
             eventVideoData.videoSourceAdvertisedBitrate = NSNumber(value: self.videoData.lastAdvertisedBitrate)
-            
-            if self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate {
-                self.videoData.hasUpdates = true
-            }
-            
             self.videoData.lastDispatchedAdvertisedBitrate = self.videoData.lastAdvertisedBitrate
         }
         
@@ -414,7 +413,6 @@ public class MUXSDKPlayerBinding: NSObject {
         }
         
         self.videoData.sourceDimensionsHaveChanged = true
-        self.videoData.hasUpdates = true
         self.dispatchRenditionChange()
     }
     
