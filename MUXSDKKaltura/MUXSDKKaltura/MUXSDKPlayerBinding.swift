@@ -122,7 +122,6 @@ public class MUXSDKPlayerBinding: NSObject {
             events: [
                 PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
-                PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
                 PlayerEvent.seeked,
                 PlayerEvent.playbackRate,
@@ -157,7 +156,6 @@ public class MUXSDKPlayerBinding: NSObject {
             events: [
                 PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
-                PlayerEvent.videoTrackChanged,
                 PlayerEvent.seeking,
                 PlayerEvent.seeked,
                 PlayerEvent.playbackRate,
@@ -179,11 +177,6 @@ public class MUXSDKPlayerBinding: NSObject {
                 if let duration = event.duration as? TimeInterval {
                     self.videoData.duration = duration
                     self.videoData.hasUpdates = true
-                }
-            case is PlayerEvent.VideoTrackChanged:
-                // This event indicates a change in the property indicatedBitrate
-                if let bitrate = event.bitrate?.doubleValue {
-                    self.handleRenditionChange(bitrate: bitrate)
                 }
             case is PlayerEvent.Seeking:
                 self.dispatchSeekingEvent()
@@ -239,7 +232,7 @@ public class MUXSDKPlayerBinding: NSObject {
     private func addObservers() {
         // AVPlayer custom notifications
         // Kaltura posts a playback info event for this notification, but it doesn't contain the data we require so we need to implement our own listener to get the full access log
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getBandwidthMetric), name: .AVPlayerItemNewAccessLogEntry, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleAccessLogEntry), name: .AVPlayerItemNewAccessLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAVPlayerErrorLog), name: .AVPlayerItemNewErrorLogEntry, object: nil)
         
         // Connection notification
@@ -348,8 +341,9 @@ public class MUXSDKPlayerBinding: NSObject {
     private func updateVideoData(player: Player) {
         let currentVideoIsLive = player.isLive()
         let liveUpdates = videoData.isLive != currentVideoIsLive
+        let renditionUpdates = self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate
         
-        let videoDataUpdated = videoData.hasUpdates || liveUpdates
+        let videoDataUpdated = videoData.hasUpdates || liveUpdates || renditionUpdates
 
         if self.videoData.sourceDimensionsHaveChanged, self.videoData.size.equalTo(self.videoData.lastDispatchedVideoSize) {
             let sourceDimensions = player.sourceDimensions
@@ -383,7 +377,7 @@ public class MUXSDKPlayerBinding: NSObject {
         
         eventVideoData.videoSourceUrl = videoData.url
         
-        if (self.videoData.lastAdvertisedBitrate > 0) {
+        if (self.videoData.lastAdvertisedBitrate > 0 && self.videoData.started) {
             eventVideoData.videoSourceAdvertisedBitrate = NSNumber(value: self.videoData.lastAdvertisedBitrate)
             self.videoData.lastDispatchedAdvertisedBitrate = self.videoData.lastAdvertisedBitrate
         }
@@ -395,22 +389,27 @@ public class MUXSDKPlayerBinding: NSObject {
         self.videoData.hasUpdates = false
     }
     
-    private func handleRenditionChange(bitrate: Double) {
-        guard self.videoData.lastAdvertisedBitrate != 0 else {
-            // Starting Playback
-            self.videoData.lastAdvertisedBitrate = bitrate
+    private func handleRenditionChange(event: AVPlayerItemAccessLogEvent) {
+        guard
+            self.videoData.lastAdvertisedBitrate != 0,
+            self.videoData.started
+        else {
+            self.videoData.lastAdvertisedBitrate = event.indicatedBitrate
             return
         }
         
-        print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(bitrate)")
+        //Dispatch rendition change event only when playback began
+        guard event.playbackStartDate != nil else {
+            return
+        }
         
-        self.videoData.lastAdvertisedBitrate = bitrate
+        print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(event.indicatedBitrate)")
+        self.videoData.lastAdvertisedBitrate = event.indicatedBitrate
         guard self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate else {
             return
         }
         
         self.videoData.sourceDimensionsHaveChanged = true
-        self.videoData.hasUpdates = true
         self.dispatchRenditionChange()
     }
     
@@ -461,14 +460,22 @@ public class MUXSDKPlayerBinding: NSObject {
         return host ?? urlString
     }
     
-    @objc
-    private func getBandwidthMetric(notification: Notification) {
+    @objc private func handleAccessLogEntry(notification: Notification) {
         guard
             let playerItem = notification.object as? AVPlayerItem,
             playerItem == self.player?.currentItem, // Confirm notification is relevant to current player item
             let accessLog = playerItem.accessLog(),
             let event = accessLog.events.last
         else {
+            return
+        }
+        
+        self.getBandwidthMetric(accessLog: accessLog)
+        self.handleRenditionChange(event: event)
+    }
+    
+    private func getBandwidthMetric(accessLog: AVPlayerItemAccessLog) {
+        guard let event = accessLog.events.last else {
             return
         }
         
