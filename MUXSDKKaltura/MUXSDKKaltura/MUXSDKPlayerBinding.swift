@@ -460,7 +460,7 @@ public class MUXSDKPlayerBinding: NSObject {
         return host ?? urlString
     }
     
-    @objc func handleAccessLogEntry(notification: Notification) {
+    @objc private func handleAccessLogEntry(notification: Notification) {
         guard
             let playerItem = notification.object as? AVPlayerItem,
             playerItem == self.player?.currentItem, // Confirm notification is relevant to current player item
