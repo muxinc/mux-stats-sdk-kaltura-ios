@@ -341,12 +341,9 @@ public class MUXSDKPlayerBinding: NSObject {
     private func updateVideoData(player: Player) {
         let currentVideoIsLive = player.isLive()
         let liveUpdates = videoData.isLive != currentVideoIsLive
+        let renditionUpdates = self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate
         
-        if self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate {
-            self.videoData.hasUpdates = true
-        }
-        
-        let videoDataUpdated = videoData.hasUpdates || liveUpdates
+        let videoDataUpdated = videoData.hasUpdates || liveUpdates || renditionUpdates
 
         if self.videoData.sourceDimensionsHaveChanged, self.videoData.size.equalTo(self.videoData.lastDispatchedVideoSize) {
             let sourceDimensions = player.sourceDimensions
