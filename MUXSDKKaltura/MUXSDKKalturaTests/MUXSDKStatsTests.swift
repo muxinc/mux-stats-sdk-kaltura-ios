@@ -172,4 +172,118 @@ class MUXSDKStatsTests: XCTestCase {
         )
         self.assertDispatchedCustomerViewerDataEventsAtIndex(index: 0, expectedCustomerViewerData: expectedViewerData)
     }
+    
+    func testDestroyPlayer() {
+        guard
+            let customerData = MockedData.customerData
+        else {
+            XCTFail("Customer data not found")
+            return
+        }
+        
+        MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
+        MUXSDKStats.destroyPlayer(name: MockedData.playerName)
+        
+        let expectedEvents = [
+            MUXSDKPlaybackEventViewInitEventType,
+            MUXSDKDataEventType,
+            MUXSDKPlaybackEventPlayerReadyEventType,
+            MUXSDKPlaybackEventViewEndEventType
+        ]
+        
+        self.assertDispatchedEventTypesMatch(
+            expectedEventTypes: expectedEvents,
+            for: MockedData.playerName
+        )
+        
+        MUXSDKStats.destroyPlayer(name: MockedData.playerName)
+    }
+    
+    func testClearsCustomerMetadataOnDestroy() {
+        let videoData = MUXSDKCustomerVideoData()
+        videoData.videoTitle = "Video Title"
+        videoData.videoId = "videoId"
+        videoData.videoSeries = "series"
+        
+        let customData = MUXSDKCustomData()
+        customData.customData1 = "Custom Data 1"
+        customData.customData2 = "Custom Data 2"
+        
+        let updatedVideoData = MUXSDKCustomerVideoData()
+        updatedVideoData.videoTitle = "Video Title Version Clears Customer Metadata On Destroy"
+        updatedVideoData.videoId = "videoId Version Clears Customer Metadata On Destroy"
+        updatedVideoData.videoSeries = "series Version Clears Customer Metadata On Destroy"
+        
+        let baseCustomerData = MockedData.buildCustomerData(videoData: videoData, customData: customData)
+        let newCustomerData = MockedData.buildCustomerData(videoData: updatedVideoData)
+        guard
+            let customerData = baseCustomerData,
+            let customerDataUpdated = newCustomerData
+        else {
+            XCTFail("Customer data not found")
+            return
+        }
+        
+        MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
+        
+        var expectedEvents = [
+            MUXSDKPlaybackEventViewInitEventType,
+            MUXSDKDataEventType,
+            MUXSDKPlaybackEventPlayerReadyEventType
+        ]
+        let expectedCustomerVideoData: [String : Any] = [
+            "vtt" : "Video Title",
+            "vid" : "videoId",
+            "vsr" : "series"
+        ]
+        
+        let expectedCustomData: [String : Any] = [
+            "c1" : "Custom Data 1",
+            "c2" : "Custom Data 2"
+        ]
+        
+        self.assertDispatchedEventTypesMatch(
+            expectedEventTypes: expectedEvents,
+            for: MockedData.playerName
+        )
+
+        self.assertDispatchedCustomerDataEventsMatch(
+            expectedCustomerVideoData: expectedCustomerVideoData,
+            expectedCustomData: expectedCustomData,
+            at: 1
+        )
+        
+        MUXSDKStats.destroyPlayer(name: MockedData.playerName)
+        
+        MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerDataUpdated)
+        MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerDataUpdated)
+        
+        expectedEvents = [
+            MUXSDKPlaybackEventViewInitEventType,
+            MUXSDKDataEventType,
+            MUXSDKPlaybackEventPlayerReadyEventType,
+            MUXSDKPlaybackEventViewEndEventType,
+            MUXSDKDataEventType,
+            MUXSDKPlaybackEventViewInitEventType,
+            MUXSDKDataEventType,
+            MUXSDKPlaybackEventPlayerReadyEventType
+        ]
+        let expectedCustomerUpdatedVideoData = [
+            "vtt" : "Video Title Version Clears Customer Metadata On Destroy",
+            "vid" : "videoId Version Clears Customer Metadata On Destroy",
+            "vsr" : "series Version Clears Customer Metadata On Destroy"
+        ]
+        
+        self.assertDispatchedEventTypesMatch(
+            expectedEventTypes: expectedEvents,
+            for: MockedData.playerName
+        )
+
+        self.assertDispatchedCustomerDataEventsMatch(
+            expectedCustomerVideoData: expectedCustomerUpdatedVideoData,
+            at: 4
+        )
+        
+        MUXSDKStats.destroyPlayer(name: MockedData.playerName)
+    }
 }
