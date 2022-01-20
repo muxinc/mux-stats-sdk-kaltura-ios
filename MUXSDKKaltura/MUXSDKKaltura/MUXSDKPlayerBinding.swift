@@ -143,7 +143,7 @@ public class MUXSDKPlayerBinding: NSObject {
     
     @objc
     private func dispatchTimeUpdateFromTimer() {
-        guard self.state == .buffering || self.state == .play, let player = self.player else {
+        guard self.state != .buffering, self.state != .play, let player = self.player else {
             return
         }
         
