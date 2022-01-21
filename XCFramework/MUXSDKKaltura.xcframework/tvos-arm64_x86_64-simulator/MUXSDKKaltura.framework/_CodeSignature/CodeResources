@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		v8b+bvi+L2Ih/s2BTMpTQmcYR2k=
+		vW+HRZ9ZMg9snkNJo60t7nDjxPY=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		t433AmP1Wq0hKkxNcIPZ2MdYoVA=
+		/QqKcGY7TFZFVysMMnKyKjmil7E=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		t433AmP1Wq0hKkxNcIPZ2MdYoVA=
+		/QqKcGY7TFZFVysMMnKyKjmil7E=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		yoZH46hFPnj2sTgYL1I6gzlLBng=
+		09KKfDEa7gQO1f5O+7bAV3mYQes=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		yoZH46hFPnj2sTgYL1I6gzlLBng=
+		09KKfDEa7gQO1f5O+7bAV3mYQes=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -103,7 +103,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			51PDACmmKLUEPmhaj0FIWeYSABcS45dL7in4C9jG0p0=
+			CoL1aVa7XbS/ysuuSctQcPUEfKALe+FgYnCzdVkbNE8=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			51PDACmmKLUEPmhaj0FIWeYSABcS45dL7in4C9jG0p0=
+			CoL1aVa7XbS/ysuuSctQcPUEfKALe+FgYnCzdVkbNE8=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
@@ -145,7 +145,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X15vNTRRJvsr1uIkB4RVfPU1S02NG1F6wwY9s1iJdLQ=
+			QID2XVaH+nOtFz4mCcoY4XV0XrAjbJ2j2JtJYFbiebM=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
@@ -166,7 +166,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X15vNTRRJvsr1uIkB4RVfPU1S02NG1F6wwY9s1iJdLQ=
+			QID2XVaH+nOtFz4mCcoY4XV0XrAjbJ2j2JtJYFbiebM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

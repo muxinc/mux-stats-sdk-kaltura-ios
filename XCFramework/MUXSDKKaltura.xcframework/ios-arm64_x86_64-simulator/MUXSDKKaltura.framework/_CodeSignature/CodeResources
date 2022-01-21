@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		x996UNjsgg1PWylUPo4dyfEKw9g=
+		jTPNEcGTxa4ZehvzKNfQ3aPAZhE=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		M/Fpe+T08Fww9gBHLvTlipykFKo=
+		EuXUnVfwo+jDuLp6r7zWNXVuM+Q=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		M/Fpe+T08Fww9gBHLvTlipykFKo=
+		EuXUnVfwo+jDuLp6r7zWNXVuM+Q=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		dmxkTVhUpZ3LPLrnYdfaqQhkjY0=
+		/5nTOaCF9YfP+kq+CebDMkWvyo4=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		dmxkTVhUpZ3LPLrnYdfaqQhkjY0=
+		/5nTOaCF9YfP+kq+CebDMkWvyo4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -96,7 +96,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2pcSJfroBNqmQGvGk1Xtos0jd9Wa8HDbmWHu1NW/g/M=
+			B8m2fa2TpFh8IVpjSKJ5C9VKPlbfAIhVd5kSk/4Ovmk=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
@@ -117,7 +117,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2pcSJfroBNqmQGvGk1Xtos0jd9Wa8HDbmWHu1NW/g/M=
+			B8m2fa2TpFh8IVpjSKJ5C9VKPlbfAIhVd5kSk/4Ovmk=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -138,7 +138,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DSlBI/Ao9TD3Px/uhozVA0hF2/Be4Lnj8ePZ//4GSZ8=
+			5TfxfohmTlnqDKWJ01MlzKKhmhoC81YVq8p104ycv2Y=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
@@ -159,7 +159,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DSlBI/Ao9TD3Px/uhozVA0hF2/Be4Lnj8ePZ//4GSZ8=
+			5TfxfohmTlnqDKWJ01MlzKKhmhoC81YVq8p104ycv2Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

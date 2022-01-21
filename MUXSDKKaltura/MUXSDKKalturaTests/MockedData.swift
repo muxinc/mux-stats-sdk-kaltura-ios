@@ -44,20 +44,18 @@ enum MockedData {
         )
     }
     
-    static var customerData2: MUXSDKCustomerData? {
-        let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Video Title Version 2"
-        videoData.videoId = "videoId Version 2"
-        videoData.videoSeries = "series Version 2"
-        
-        let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "MUX Kaltura Tests Version 2"
-        
+    static func buildCustomerData(
+        playerData: MUXSDKCustomerPlayerData? = nil,
+        videoData: MUXSDKCustomerVideoData? = nil,
+        viewData: MUXSDKCustomerViewData? = nil,
+        customData: MUXSDKCustomData? = nil,
+        viewerData: MUXSDKCustomerViewerData? = nil
+    ) -> MUXSDKCustomerData? {
         return MUXSDKCustomerData(
-            customerPlayerData: nil,
+            customerPlayerData: playerData,
             videoData: videoData,
-            viewData: nil,
-            customData: nil,
+            viewData: viewData,
+            customData: customData ,
             viewerData: viewerData
         )
     }
