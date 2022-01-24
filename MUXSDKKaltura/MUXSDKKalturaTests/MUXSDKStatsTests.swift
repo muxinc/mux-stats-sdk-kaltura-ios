@@ -181,7 +181,10 @@ class MUXSDKStatsTests: XCTestCase {
             return
         }
         
+        // Start monitor player to emit events
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
+        
+        // Remove observers on the player
         MUXSDKStats.destroyPlayer(name: MockedData.playerName)
         
         let expectedEvents = [
@@ -191,11 +194,13 @@ class MUXSDKStatsTests: XCTestCase {
             MUXSDKPlaybackEventViewEndEventType
         ]
         
+        // Assert expected events
         self.assertDispatchedEventTypesMatch(
             expectedEventTypes: expectedEvents,
             for: MockedData.playerName
         )
         
+        // Clean player instance after test
         MUXSDKStats.destroyPlayer(name: MockedData.playerName)
     }
     
@@ -224,6 +229,7 @@ class MUXSDKStatsTests: XCTestCase {
             return
         }
         
+        // Start monitor player to emit events
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerData)
         
         var expectedEvents = [
@@ -242,20 +248,26 @@ class MUXSDKStatsTests: XCTestCase {
             "c2" : "Custom Data 2"
         ]
         
+        // Assert expected events
         self.assertDispatchedEventTypesMatch(
             expectedEventTypes: expectedEvents,
             for: MockedData.playerName
         )
 
+        // Assert expected data
         self.assertDispatchedCustomerDataEventsMatch(
             expectedCustomerVideoData: expectedCustomerVideoData,
             expectedCustomData: expectedCustomData,
             at: 1
         )
         
+        // Remove observers on the player
         MUXSDKStats.destroyPlayer(name: MockedData.playerName)
         
+        // Update customer data
         MUXSDKStats.setCustomerDataForPlayer(name: MockedData.playerName, customerData: customerDataUpdated)
+        
+        // Start monitor player to emit events
         MUXSDKStats.monitorPlayer(player: MockedData.player, playerName: MockedData.playerName, customerData: customerDataUpdated)
         
         expectedEvents = [
@@ -274,16 +286,19 @@ class MUXSDKStatsTests: XCTestCase {
             "vsr" : "series Version Clears Customer Metadata On Destroy"
         ]
         
+        // Assert expected events
         self.assertDispatchedEventTypesMatch(
             expectedEventTypes: expectedEvents,
             for: MockedData.playerName
         )
 
+        // Assert expected updated data
         self.assertDispatchedCustomerDataEventsMatch(
             expectedCustomerVideoData: expectedCustomerUpdatedVideoData,
             at: 4
         )
         
+        // Clean player instance after test
         MUXSDKStats.destroyPlayer(name: MockedData.playerName)
     }
 }
