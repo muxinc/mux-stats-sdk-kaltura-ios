@@ -11,6 +11,7 @@
 		B3D9CF3531F9AFFB478BD271 /* Pods_MUXSDKKaltura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA1BFF5A2C15093426E0D66 /* Pods_MUXSDKKaltura.framework */; };
 		CFDC861B274D59D900B0C7C4 /* MUXSDKStatsTests+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDC861A274D59D900B0C7C4 /* MUXSDKStatsTests+Utilities.swift */; };
 		B46F7A0084B7864445A6875D /* Pods_MUXSDKKalturaTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2062CF50F762BDB20E318C /* Pods_MUXSDKKalturaTv.framework */; };
+		CFDC861B274D59D900B0C7C4 /* MUXSDKStatsTests+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDC861A274D59D900B0C7C4 /* MUXSDKStatsTests+Utilities.swift */; };
 		E917C7CD270CF4BB00BE9EFB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E917C7CB270CF4BB00BE9EFB /* Error.swift */; };
 		E917C7CE270CF4BB00BE9EFB /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E917C7CC270CF4BB00BE9EFB /* VideoData.swift */; };
 		E91E074727349211009E5117 /* MUXSDKViewOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E074627349211009E5117 /* MUXSDKViewOrientation.swift */; };
@@ -672,7 +673,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.ios.MUXSDKKaltura;
@@ -713,7 +714,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.ios.MUXSDKKaltura;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -806,7 +807,7 @@
 				INFOPLIST_FILE = MUXSDKKalturaTv/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.tvos.MUXSDKKalturaTv;
@@ -844,7 +845,7 @@
 				INFOPLIST_FILE = MUXSDKKalturaTv/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mux.stats.tvos.MUXSDKKalturaTv;
 				PRODUCT_NAME = MUXSDKKaltura;

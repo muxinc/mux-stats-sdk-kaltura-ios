@@ -3,7 +3,7 @@ PODS:
     - KalturaNetKit/Core (= 1.5.1)
   - KalturaNetKit/Core (1.5.1):
     - SwiftyJSON (= 5.0.0)
-  - Mux-Stats-Core (3.5.0)
+  - Mux-Stats-Core (3.8.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -37,7 +37,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   KalturaNetKit: 8774fdc2e73d3d013c3df88aa49376dd922d3606
-  Mux-Stats-Core: b92c5fa07eab73564fe43f3b2dc1d3d4e74791c4
+  Mux-Stats-Core: cb72e59db58a12f04a54a7634567f20f16b9453a
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   PlayKit: a40a446d1968269c27dcefb31e9d0db7034eaa57
   PlayKitUtils: 8edb43515c8b91d9aa9a47ae8b5af1e7dd58f6f3
