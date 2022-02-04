@@ -773,6 +773,18 @@ extension MUXSDKPlayerBinding {
         self.state = .error
     }
     
+    public func dispatch(event: MUXSDKPlaybackEvent) {
+        guard let player = self.player else {
+            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            return
+        }
+        
+        self.updateVideoData(player: player)
+        event.playerData = self.playerData
+        
+        self.dispatcher.dispatchEvent(event, forPlayer: self.name)
+    }
+    
     func dispatchViewEnd() {
         guard let player = self.player else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
