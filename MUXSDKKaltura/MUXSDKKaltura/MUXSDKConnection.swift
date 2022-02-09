@@ -18,7 +18,7 @@ enum MUXSDKConnection {
     static func detectConnectionType() {
         let queue = DispatchQueue.global(qos: .background)
         
-        if #available(iOS 12.0, *) {
+        if #available(iOS 12.0, tvOS 12.0, *) {
             guard !Self.isMonitoring else {
                 return
             }

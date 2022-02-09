@@ -291,7 +291,7 @@ public class MUXSDKPlayerBinding: NSObject {
                 
                 var safeAreaBounds = CGSize.zero
                 // Remove conditional when we drop support for iOS < 11.0
-                if #available(iOS 11.0, *) {
+                if #available(iOS 11.0, tvOS 11.0, *) {
                     safeAreaBounds = rootViewController.view.safeAreaLayoutGuide.layoutFrame.size
                 } else {
                     // Fallback on earlier versions
@@ -416,7 +416,7 @@ public class MUXSDKPlayerBinding: NSObject {
     // FIXME: test if needed and if it works as expected
     func handleRebufferingInAirplayMode() {
         guard
-            #available(iOS 10.0, *),
+            #available(iOS 10.0, tvOS 10.0, *),
             let playerLayer = player?.view?.layer as? AVPlayerLayer,
             let player = playerLayer.player,
             player.timeControlStatus != .playing,
