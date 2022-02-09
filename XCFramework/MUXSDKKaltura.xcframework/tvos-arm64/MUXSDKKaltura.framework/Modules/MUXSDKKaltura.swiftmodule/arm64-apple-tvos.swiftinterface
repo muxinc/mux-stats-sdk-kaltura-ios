@@ -25,6 +25,7 @@ public enum MUXSDKViewOrientation {
 }
 extension MUXSDKPlayerBinding {
   public func dispatchError(code: Swift.String, message: Swift.String)
+  public func dispatch(event: MuxCore.MUXSDKPlaybackEvent)
 }
 @_inheritsConvenienceInitializers @objc public class MUXSDKStats : ObjectiveC.NSObject {
   @discardableResult

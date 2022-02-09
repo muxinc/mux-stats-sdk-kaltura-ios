@@ -16,6 +16,7 @@ import UIKit
 }
 extension MUXSDKPlayerBinding {
   public func dispatchError(code: Swift.String, message: Swift.String)
+  public func dispatch(event: MuxCore.MUXSDKPlaybackEvent)
 }
 public enum MUXSDKViewOrientation {
   case portrait
