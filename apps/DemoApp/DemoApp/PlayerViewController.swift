@@ -28,6 +28,7 @@ class PlayerViewController: UIViewController {
     var duration: TimeInterval = 0.0
     var pictureInPictureController: AVPictureInPictureController?
     var pipPossibleObservation: NSKeyValueObservation?
+    let testScenario = "TESTPIP"
     
     // MUX
     let playerName = "iOS KalturaPlayer"
@@ -57,14 +58,18 @@ class PlayerViewController: UIViewController {
         // Load PlayKit player
         self.kalturaPlayer = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
         self.setupKalturaPlayer()
-        
-        // Setup Picture in Picture
-        self.setupPictureInPicture()
-        
+
         // Setup MUX
         self.setupMUX()
-//        self.testProgramChange()
-//        self.testUpdateCustomerData()
+        
+        if self.testScenario == "TESTPIP" {
+            // Setup picture in picture
+            self.setupPictureInPicture()
+        } else if self.testScenario == "PROGRAM_CHANGE" {
+            self.testProgramChange()
+        } else if self.testScenario == "UPDATE_CUSTOMER_DATA" {
+            self.testUpdateCustomerData()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -469,10 +474,13 @@ extension PlayerViewController {
         self.pipButton.addTarget(self, action: #selector(self.togglePictureInPictureMode), for: .primaryActionTriggered)
         pipButton.setImage(startImage, for: .normal)
         pipButton.setImage(stopImage, for: .selected)
-        airplayRowStack.addArrangedSubview(self.pipButton)
-        NSLayoutConstraint.activate([
-            self.pipButton.widthAnchor.constraint(equalToConstant: 28.0)
-        ])
+        
+        if self.testScenario == "TESTPIP" {
+            airplayRowStack.addArrangedSubview(self.pipButton)
+            NSLayoutConstraint.activate([
+                self.pipButton.widthAnchor.constraint(equalToConstant: 28.0)
+            ])
+        }
         
         actionsRowStack.axis = .horizontal
         actionsRowStack.alignment = .center
