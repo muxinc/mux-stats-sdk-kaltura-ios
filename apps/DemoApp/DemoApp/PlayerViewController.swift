@@ -570,16 +570,12 @@ extension PlayerViewController: AVPictureInPictureControllerDelegate {
     }
     
     func pictureInPictureControllerWillStartPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
-        // hide playback controls
-        // show placeholder artwork
-        self.actionsRowStack.isHidden = true
+        // hide airplay controls
         self.airplayRowStack.isHidden = true
     }
     
     func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
-        // hide placeholder artwork
-        // show playback controls
-        self.actionsRowStack.isHidden = false
+        // show airplay controls
         self.airplayRowStack.isHidden = false
     }
     
