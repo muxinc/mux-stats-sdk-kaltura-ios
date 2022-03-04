@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		F+esI0C4y1b4jUvkD+iDnzshOiQ=
+		AX/G1KGzR6DoY2/tqJiluzo1E6M=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		laDS61Y2w8WbUievherBXp/Drz0=
+		yYB4VJlEPpxxBwUrJ9ZwqsFNKU8=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		laDS61Y2w8WbUievherBXp/Drz0=
+		yYB4VJlEPpxxBwUrJ9ZwqsFNKU8=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		RgAeWfJhBT/zhwDLJ5thDiGpTTA=
+		a79sJ4wE5WL8uq0ZTZvwfFSgS0Q=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		RgAeWfJhBT/zhwDLJ5thDiGpTTA=
+		a79sJ4wE5WL8uq0ZTZvwfFSgS0Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -119,11 +119,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			laDS61Y2w8WbUievherBXp/Drz0=
+			yYB4VJlEPpxxBwUrJ9ZwqsFNKU8=
 			</data>
 			<key>hash2</key>
 			<data>
-			p9+FLqpcnfqIhbPMkCshXiqUiO6VwuteejUk9eVOO8Y=
+			6ygmtu3EwO/OjCWbYGf7vsm0qQJazhNrFBk/GPkkByI=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64.swiftdoc</key>
@@ -152,11 +152,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			laDS61Y2w8WbUievherBXp/Drz0=
+			yYB4VJlEPpxxBwUrJ9ZwqsFNKU8=
 			</data>
 			<key>hash2</key>
 			<data>
-			p9+FLqpcnfqIhbPMkCshXiqUiO6VwuteejUk9eVOO8Y=
+			6ygmtu3EwO/OjCWbYGf7vsm0qQJazhNrFBk/GPkkByI=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
@@ -185,11 +185,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RgAeWfJhBT/zhwDLJ5thDiGpTTA=
+			a79sJ4wE5WL8uq0ZTZvwfFSgS0Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			1cJQzHKOEWcC6ch2hPTVjRYdkE2XLuZCAIRmmS3x7XU=
+			wv0VZVLqdhBt8VhzkW0y8TMwHQ6sJbKN+9lDx8CmqhY=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64.swiftdoc</key>
@@ -218,11 +218,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RgAeWfJhBT/zhwDLJ5thDiGpTTA=
+			a79sJ4wE5WL8uq0ZTZvwfFSgS0Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			1cJQzHKOEWcC6ch2hPTVjRYdkE2XLuZCAIRmmS3x7XU=
+			wv0VZVLqdhBt8VhzkW0y8TMwHQ6sJbKN+9lDx8CmqhY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
