@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Mux-Stats-Kaltura'
 
-  s.version          = '1.1.1'
+  s.version          = '1.2.0'
   s.source           = { :git => 'https://github.com/muxinc/mux-stats-sdk-kaltura.git',
                          :tag => "v#{s.version}" }
 
