@@ -4,13 +4,13 @@ target 'MUXSDKKaltura' do
   use_frameworks!
   
   # Pods for MUXSDKKaltura
-  pod 'Mux-Stats-Core'
+  pod 'Mux-Stats-Core', '~>3.11'
   pod 'PlayKit'
 
   target 'MUXSDKKalturaTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Mux-Stats-Core'
+    pod 'Mux-Stats-Core', '~>3.11'
     pod 'PlayKit'
   end
 end
@@ -20,7 +20,7 @@ target 'MUXSDKKalturaTv' do
   use_frameworks!
   
   # Pods for MUXSDKKalturaTv
-  pod 'Mux-Stats-Core'
+  pod 'Mux-Stats-Core', '~>3.11'
   pod 'PlayKit'
 end
 
