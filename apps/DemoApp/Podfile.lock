@@ -3,16 +3,16 @@ PODS:
     - KalturaNetKit/Core (= 1.5.1)
   - KalturaNetKit/Core (1.5.1):
     - SwiftyJSON (= 5.0.0)
-  - Mux-Stats-Core (3.5.0)
+  - Mux-Stats-Core (3.9.0)
   - Mux-Stats-Kaltura (1.1.1):
     - Mux-Stats-Core (~> 3.5)
     - PlayKit (~> 3.21)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - PlayKit (3.23.0):
-    - PlayKit/Core (= 3.23.0)
-  - PlayKit/Core (3.23.0):
+  - PlayKit (3.24.0):
+    - PlayKit/Core (= 3.24.0)
+  - PlayKit/Core (3.24.0):
     - KalturaNetKit (~> 1.5.1)
     - PlayKitUtils (~> 0.5)
     - SwiftyJSON (= 5.0.0)
@@ -25,12 +25,12 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - Mux-Stats-Core (from `https://github.com/muxinc/stats-sdk-objc.git`, branch `release/3.10.0`)
   - Mux-Stats-Kaltura (from `../../`)
 
 SPEC REPOS:
   trunk:
     - KalturaNetKit
-    - Mux-Stats-Core
     - ObjcExceptionBridging
     - PlayKit
     - PlayKitUtils
@@ -38,19 +38,27 @@ SPEC REPOS:
     - XCGLogger
 
 EXTERNAL SOURCES:
+  Mux-Stats-Core:
+    :branch: release/3.10.0
+    :git: https://github.com/muxinc/stats-sdk-objc.git
   Mux-Stats-Kaltura:
     :path: "../../"
 
+CHECKOUT OPTIONS:
+  Mux-Stats-Core:
+    :commit: 9ffabbd045900b5a8224d20c1177a5e07735d181
+    :git: https://github.com/muxinc/stats-sdk-objc.git
+
 SPEC CHECKSUMS:
   KalturaNetKit: 8774fdc2e73d3d013c3df88aa49376dd922d3606
-  Mux-Stats-Core: b92c5fa07eab73564fe43f3b2dc1d3d4e74791c4
+  Mux-Stats-Core: 20253aa5f188fec036f19337a9072343daf05ebe
   Mux-Stats-Kaltura: 9c6c02a6482af2272dc6c5984062c5ad1b652301
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PlayKit: a40a446d1968269c27dcefb31e9d0db7034eaa57
+  PlayKit: ccb50808c5ddbf416d309b42a000b9086ef69149
   PlayKitUtils: 8edb43515c8b91d9aa9a47ae8b5af1e7dd58f6f3
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 4b7d658a85de0568569783fbc020e76deeb98b63
+PODFILE CHECKSUM: efde622f62302ea83806563c58b9bd3f4887a55c
 
 COCOAPODS: 1.11.2

@@ -120,7 +120,6 @@ public class MUXSDKPlayerBinding: NSObject {
         self.player?.removeObserver(
             self,
             events: [
-                PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
                 PlayerEvent.seeking,
                 PlayerEvent.seeked,
@@ -154,7 +153,6 @@ public class MUXSDKPlayerBinding: NSObject {
         self.player?.addObserver(
             self,
             events: [
-                PlayerEvent.sourceSelected,
                 PlayerEvent.durationChanged,
                 PlayerEvent.seeking,
                 PlayerEvent.seeked,
@@ -168,11 +166,6 @@ public class MUXSDKPlayerBinding: NSObject {
             guard let self = self else { return }
             
             switch event {
-            case is PlayerEvent.SourceSelected:
-                if let source = event.mediaSource {
-                    self.videoData.url = source.contentUrl?.absoluteString
-                    self.videoData.hasUpdates = true
-                }
             case is PlayerEvent.DurationChanged:
                 if let duration = event.duration as? TimeInterval {
                     self.videoData.duration = duration
@@ -342,6 +335,14 @@ public class MUXSDKPlayerBinding: NSObject {
         let currentVideoIsLive = player.isLive()
         let liveUpdates = videoData.isLive != currentVideoIsLive
         let renditionUpdates = self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate
+        
+        if
+            let currentPlayerAssetURL = (player.currentItem?.asset as? AVURLAsset)?.url.absoluteString,
+            currentPlayerAssetURL != videoData.url
+        {
+            videoData.url = currentPlayerAssetURL
+            videoData.hasUpdates = true
+        }
         
         let videoDataUpdated = videoData.hasUpdates || liveUpdates || renditionUpdates
 

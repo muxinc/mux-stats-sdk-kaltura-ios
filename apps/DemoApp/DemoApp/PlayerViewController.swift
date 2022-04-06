@@ -158,8 +158,8 @@ class PlayerViewController: UIViewController {
     
     func loadMediaKalturaPlayer() {
         let mediaConfig = createKalturaMediaConfig(
-            contentURL: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-            entryId: "sintel"
+            contentURL: "https://stream.mux.com/aSg00jAAgR4VCG8px005wyWvFJxZf6hJH01ZSeywtix3C00.m3u8",
+            entryId: "Jh00ZEPF009yt10100VAKaVBo025gYKpnDa2o1tbG6R01101gU"
         )
         
         // Prepare PlayKit player
@@ -199,11 +199,11 @@ class PlayerViewController: UIViewController {
     }
     
     func setupMUX() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
-        playerData?.playerName = self.playerName
+        let playerData = MUXSDKCustomerPlayerData()
+        playerData.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Title Video Kaltura"
+        videoData.videoTitle = "INFERRED Video Kaltura"
         videoData.videoId = "sintel"
         
         let viewData = MUXSDKCustomerViewData()
