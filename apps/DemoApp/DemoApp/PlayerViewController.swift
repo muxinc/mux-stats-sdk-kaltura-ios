@@ -11,17 +11,24 @@ import PlayKit
 import MUXSDKKaltura
 import MuxCore
 import MediaPlayer
+import AVKit
 
 class PlayerViewController: UIViewController {
     var kalturaPlayer: Player?
     let kalturaPlayerContainer = PlayerView()
+    let actionsRowStack = UIStackView()
+    let airplayRowStack = UIStackView()
     let playButton = UIButton()
     let closeButton = UIButton()
+    let pipButton = UIButton()
     let playheadSlider = UIProgressView()
     let positionLabel = UILabel()
     let durationLabel = UILabel()
     let airplayButton = MPVolumeView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
     var duration: TimeInterval = 0.0
+    var pictureInPictureController: AVPictureInPictureController?
+    var pipPossibleObservation: NSKeyValueObservation?
+    let testScenario = "TESTPIP"
     
     // MUX
     let playerName = "iOS KalturaPlayer"
@@ -51,11 +58,18 @@ class PlayerViewController: UIViewController {
         // Load PlayKit player
         self.kalturaPlayer = PlayKitManager.shared.loadPlayer(pluginConfig: nil)
         self.setupKalturaPlayer()
-        
+
         // Setup MUX
         self.setupMUX()
-//        self.testProgramChange()
-//        self.testUpdateCustomerData()
+        
+        if self.testScenario == "TESTPIP" {
+            // Setup picture in picture
+            self.setupPictureInPicture()
+        } else if self.testScenario == "PROGRAM_CHANGE" {
+            self.testProgramChange()
+        } else if self.testScenario == "UPDATE_CUSTOMER_DATA" {
+            self.testUpdateCustomerData()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,6 +77,30 @@ class PlayerViewController: UIViewController {
         
         MUXSDKStats.destroyPlayer(name: self.playerName)
         self.kalturaPlayer?.destroy()
+    }
+    
+    func setupPictureInPicture() {
+            
+        guard let playerLayer = self.kalturaPlayer?.view?.layer as? AVPlayerLayer else { return }
+            
+        // Ensure PiP is supported by current device.
+        if AVPictureInPictureController.isPictureInPictureSupported() {
+            // Create a new controller, passing the reference to the AVPlayerLayer.
+            pictureInPictureController = AVPictureInPictureController(playerLayer: playerLayer)
+            pictureInPictureController?.delegate = self
+
+            pipPossibleObservation = pictureInPictureController?.observe(\AVPictureInPictureController.isPictureInPicturePossible,
+            options: [.initial, .new]) { [weak self] _, change in
+            
+            // Update the PiP button's enabled state.
+            guard let sself = self else { return }
+            sself.pipButton.isEnabled = change.newValue ?? false
+            }
+            
+        } else {
+            // PiP isn't supported by the current device. Disable the PiP button.
+            pipButton.isEnabled = false
+        }
     }
     
     func setupKalturaPlayer() {
@@ -120,8 +158,8 @@ class PlayerViewController: UIViewController {
     
     func loadMediaKalturaPlayer() {
         let mediaConfig = createKalturaMediaConfig(
-            contentURL: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-            entryId: "sintel"
+            contentURL: "https://stream.mux.com/aSg00jAAgR4VCG8px005wyWvFJxZf6hJH01ZSeywtix3C00.m3u8",
+            entryId: "Jh00ZEPF009yt10100VAKaVBo025gYKpnDa2o1tbG6R01101gU"
         )
         
         // Prepare PlayKit player
@@ -161,11 +199,11 @@ class PlayerViewController: UIViewController {
     }
     
     func setupMUX() {
-        let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
-        playerData?.playerName = self.playerName
+        let playerData = MUXSDKCustomerPlayerData()
+        playerData.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "Title Video Kaltura"
+        videoData.videoTitle = "INFERRED Video Kaltura"
         videoData.videoId = "sintel"
         
         let viewData = MUXSDKCustomerViewData()
@@ -340,6 +378,15 @@ class PlayerViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    @objc func togglePictureInPictureMode() {
+        if let pipcontroller = self.pictureInPictureController,
+        pipcontroller.isPictureInPictureActive {
+            self.pictureInPictureController?.stopPictureInPicture()
+        } else {
+            self.pictureInPictureController?.startPictureInPicture()
+        }
+    }
+    
     @objc func playheadValueChanged(gestureRecognizer: UIPanGestureRecognizer) {
         guard let player = self.kalturaPlayer else {
             return
@@ -415,13 +462,26 @@ extension PlayerViewController {
             self.airplayButton.heightAnchor.constraint(equalToConstant: 44.0)
         ])
         
-        let airplayRowStack = UIStackView()
         airplayRowStack.axis = .horizontal
         airplayRowStack.addArrangedSubview(UIView())
         airplayRowStack.addArrangedSubview(airplayButton)
         actionsContainer.addArrangedSubview(airplayRowStack)
         
-        let actionsRowStack = UIStackView()
+        
+        let startImage = AVPictureInPictureController.pictureInPictureButtonStartImage.withTintColor(.white, renderingMode: .alwaysTemplate)
+        let stopImage = AVPictureInPictureController.pictureInPictureButtonStopImage.withTintColor(.white, renderingMode: .alwaysTemplate)
+        pipButton.isUserInteractionEnabled = true
+        self.pipButton.addTarget(self, action: #selector(self.togglePictureInPictureMode), for: .primaryActionTriggered)
+        pipButton.setImage(startImage, for: .normal)
+        pipButton.setImage(stopImage, for: .selected)
+        
+        if self.testScenario == "TESTPIP" {
+            airplayRowStack.addArrangedSubview(self.pipButton)
+            NSLayoutConstraint.activate([
+                self.pipButton.widthAnchor.constraint(equalToConstant: 28.0)
+            ])
+        }
+        
         actionsRowStack.axis = .horizontal
         actionsRowStack.alignment = .center
         actionsRowStack.spacing = 6.0
@@ -499,4 +559,24 @@ extension PlayerViewController {
         swipeLeftRecognizer.direction = .left
         self.view.addGestureRecognizer(swipeLeftRecognizer)
     }
+}
+
+extension PlayerViewController: AVPictureInPictureControllerDelegate {
+    
+    func pictureInPictureController(_ pictureInPictureController: AVPictureInPictureController,
+                                    restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void) {
+        // Restore user interface
+        completionHandler(true)
+    }
+    
+    func pictureInPictureControllerWillStartPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        // hide airplay controls
+        self.airplayRowStack.isHidden = true
+    }
+    
+    func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        // show airplay controls
+        self.airplayRowStack.isHidden = false
+    }
+    
 }

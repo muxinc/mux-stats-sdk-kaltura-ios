@@ -13,6 +13,5 @@ end
 target 'DemoAppTvOS' do
   platform :tvos, '9.0'
   use_frameworks!
-  
   pod 'Mux-Stats-Kaltura', :path => '../../'
 end
