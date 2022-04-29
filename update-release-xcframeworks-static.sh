@@ -11,25 +11,34 @@ mkdir -p $BUILD_DIR
 # Make the target directory                                                                                                                                                                    
 mkdir -p $TARGET_DIR
 
-################ Build MuxCore SDK                                                                                                                                                             
+# Clean up on error
+clean_up_error () {
+    rm -Rf $BUILD_DIR
+    exit 1
+}
 
-xcodebuild archive -scheme MUXSDKKalturaTv -workspace $PROJECT -destination "generic/platform=tvOS" -archivePath "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DIS\
-TRIBUTION=YES CLANG_ENABLE_MODULES=NO MACH_O_TYPE=staticlib
- xcodebuild archive -scheme MUXSDKKalturaTv -workspace $PROJECT -destination "generic/platform=tvOS Simulator" -archivePath "$BUILD_DIR/MUXSDKKalturaTv.tvOS-simulator.xcarchive" SKIP_INSTALL=NO \
-BUILD_LIBRARY_FOR_DISTRIBUTION=YES CLANG_ENABLE_MODULES=NO MACH_O_TYPE=staticlib
- xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=iOS" -archivePath "$BUILD_DIR/MUXSDKKaltura.iOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIB\
-UTION=YES CLANG_ENABLE_MODULES=NO MACH_O_TYPE=staticlib
- xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=iOS Simulator" -archivePath "$BUILD_DIR/MUXSDKKaltura.iOS-simulator.xcarchive" SKIP_INSTALL=NO BUILD\
-_LIBRARY_FOR_DISTRIBUTION=YES CLANG_ENABLE_MODULES=NO MACH_O_TYPE=staticlib
+# Build and clean up on error
+build () {
+  scheme=$1
+  destination="$2"
+  path="$3"
+  
+  xcodebuild archive -scheme $scheme -workspace $PROJECT -destination "$destination" -archivePath "$path" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES CLANG_ENABLE_MODULES=NO MACH_O_TYPE=staticlib || clean_up_error
+}
 
-  xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=macOS,variant=Mac Catalyst" -archivePath "$BUILD_DIR/MUXSDKKaltura.macOS.xcarchive" SKIP_INSTALL=NO\
- BUILD_LIBRARY_FOR_DISTRIBUTION=YES CLANG_ENABLE_MODULES=NO MACH_O_TYPE=staticlib
+################ Build MUXSDKKaltura                                                                                                                                                           
+
+build MUXSDKKalturaTv "generic/platform=tvOS" "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive"
+build MUXSDKKalturaTv "generic/platform=tvOS Simulator" "$BUILD_DIR/MUXSDKKalturaTv.tvOS-simulator.xcarchive"
+build MUXSDKKaltura "generic/platform=iOS" "$BUILD_DIR/MUXSDKKaltura.iOS.xcarchive"
+build MUXSDKKaltura "generic/platform=iOS Simulator" "$BUILD_DIR/MUXSDKKaltura.iOS-simulator.xcarchive"
+build MUXSDKKaltura "generic/platform=macOS,variant=Mac Catalyst" "$BUILD_DIR/MUXSDKKaltura.macOS.xcarchive"
 
  xcodebuild -create-xcframework -framework "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKalturaTv.tvOS-simulator.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKaltura.iOS.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKaltura.iOS-simulator.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKaltura.macOS.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
-                                -output "$TARGET_DIR/MUXSDKKaltura.xcframework"
+                                -output "$TARGET_DIR/MUXSDKKaltura.xcframework" || clean_up_error
 
 rm -Rf $BUILD_DIR
