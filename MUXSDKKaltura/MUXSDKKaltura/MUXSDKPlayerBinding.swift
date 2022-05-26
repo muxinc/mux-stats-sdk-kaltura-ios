@@ -347,12 +347,13 @@ public class MUXSDKPlayerBinding: NSObject {
         let videoDataUpdated = videoData.hasUpdates || liveUpdates || renditionUpdates
 
         if self.videoData.sourceDimensionsHaveChanged, self.videoData.size.equalTo(self.videoData.lastDispatchedVideoSize) {
-            let sourceDimensions = player.sourceDimensions
-            if !self.videoData.size.equalTo(sourceDimensions) {
-                self.videoData.size = sourceDimensions
-                
-                if sourceDimensions.width > 0, sourceDimensions.height > 0 {
-                    self.videoData.sourceDimensionsHaveChanged = false
+            if let sourceDimensions = player.currentItem?.sourceDimensions {
+                if !self.videoData.size.equalTo(sourceDimensions) {
+                    self.videoData.size = sourceDimensions
+                    
+                    if sourceDimensions.width > 0, sourceDimensions.height > 0 {
+                        self.videoData.sourceDimensionsHaveChanged = false
+                    }
                 }
             }
         }

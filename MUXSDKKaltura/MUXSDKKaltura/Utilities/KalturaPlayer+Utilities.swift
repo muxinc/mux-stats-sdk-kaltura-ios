@@ -22,44 +22,4 @@ extension PlayKit.Player {
         
         return currentItem
     }
-    
-    var sourceDimensions: CGSize {
-        guard
-            let currentItem = self.currentItem
-        else {
-            return .zero
-        }
-        
-        for track in currentItem.tracks {
-            // loop until first track with video description
-            if let formatDescriptions = track.assetTrack?.formatDescriptions as? [CMFormatDescription] {
-                for description in formatDescriptions {
-                    var isVideoDescription: Bool {
-                        // Remove the conditional if we drop support for iOS < 13.0
-                        if #available(iOS 13.0, tvOS 13.0, *) {
-                            return description.mediaType == .video
-                        } else {
-                            return CMFormatDescriptionGetMediaType(description) == kCMMediaType_Video
-                        }
-                    }
-                    
-                    if isVideoDescription {
-                        // Map video dimensions in pixels
-                        var dimensions: CMVideoDimensions {
-                            // Remove the conditional if we drop support for iOS < 13.0
-                            if #available(iOS 13.0, tvOS 13.0, *) {
-                                return description.dimensions
-                            } else {
-                                return CMVideoFormatDescriptionGetDimensions(description)
-                            }
-                        }
-                        
-                        return CGSize(width: Int(dimensions.width), height: Int(dimensions.height))
-                    }
-                }
-            }
-        }
-        
-        return .zero
-    }
 }

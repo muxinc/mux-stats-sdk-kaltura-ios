@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-tvos9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MUXSDKKaltura
 import AVFoundation
 import CoreMedia
@@ -10,20 +10,20 @@ import PlayKit
 import Swift
 import SystemConfiguration
 import UIKit
+import _Concurrency
 public enum MUXSDKViewOrientation {
   case portrait
   case landscape
   public static func == (a: MUXSDKKaltura.MUXSDKViewOrientation, b: MUXSDKKaltura.MUXSDKViewOrientation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @_hasMissingDesignatedInitializers @objc public class MUXSDKPlayerBinding : ObjectiveC.NSObject {
   @objc deinit
-  @objc override dynamic public init()
 }
-extension MUXSDKPlayerBinding {
+extension MUXSDKKaltura.MUXSDKPlayerBinding {
   public func dispatchError(code: Swift.String, message: Swift.String)
   public func dispatch(event: MuxCore.MUXSDKPlaybackEvent)
 }
@@ -36,8 +36,8 @@ extension MUXSDKPlayerBinding {
   public static func destroyPlayer(name: Swift.String)
   public static func dispatchErrorForPlayer(name: Swift.String, code: Swift.String, message: Swift.String)
   public static func setCustomerDataForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension MUXSDKKaltura.MUXSDKViewOrientation : Swift.Equatable {}
 extension MUXSDKKaltura.MUXSDKViewOrientation : Swift.Hashable {}
