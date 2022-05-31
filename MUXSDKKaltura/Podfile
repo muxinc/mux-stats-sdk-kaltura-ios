@@ -4,13 +4,13 @@ target 'MUXSDKKaltura' do
   use_frameworks!
   
   # Pods for MUXSDKKaltura
-  pod 'Mux-Stats-Core', '~>3.11'
+  pod 'MUXSDKStatsShared'
   pod 'PlayKit'
-
+  
   target 'MUXSDKKalturaTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Mux-Stats-Core', '~>3.11'
+    pod 'MUXSDKStatsShared'
     pod 'PlayKit'
   end
 end
@@ -20,14 +20,47 @@ target 'MUXSDKKalturaTv' do
   use_frameworks!
   
   # Pods for MUXSDKKalturaTv
-  pod 'Mux-Stats-Core', '~>3.11'
+  pod 'MUXSDKStatsShared'
   pod 'PlayKit'
+end
+
+def updateBuildSettings(target)
+  puts "Updating #{target.name} OTHER_LDFLAGS HEADER_SEARCH_PATHS FRAMEWORK_SEARCH_PATHS"
+  target.build_configurations.each do |config|
+    xcconfig_path = config.base_configuration_reference.real_path
+    
+    # read from xcconfig to build_settings dictionary
+    build_settings = Hash[*File.read(xcconfig_path).lines.map{|x| x.split(/\s*=\s*/, 2)}.flatten]
+    
+    # Modify build settings, we don't want any references to MUXSDKStatsShared on the final product
+    if target.name == "Pods-MUXSDKKaltura" || target.name == "Pods-MUXSDKKalturaTests"
+      build_settings['OTHER_LDFLAGS'].slice! '-framework "MUXSDKStatsShared" '
+      build_settings['HEADER_SEARCH_PATHS'].slice! '"${PODS_CONFIGURATION_BUILD_DIR}/MUXSDKStatsShared-iOS/MUXSDKStatsShared.framework/Headers" '
+      build_settings['FRAMEWORK_SEARCH_PATHS'].slice! '"${PODS_CONFIGURATION_BUILD_DIR}/MUXSDKStatsShared-iOS" '
+    elsif target.name == "Pods-MUXSDKKalturaTv"
+      build_settings['OTHER_LDFLAGS'].slice! '-framework "MUXSDKStatsShared" '
+      build_settings['HEADER_SEARCH_PATHS'].slice! '"${PODS_CONFIGURATION_BUILD_DIR}/MUXSDKStatsShared-tvOS/MUXSDKStatsShared.framework/Headers" '
+      build_settings['FRAMEWORK_SEARCH_PATHS'].slice! '"${PODS_CONFIGURATION_BUILD_DIR}/MUXSDKStatsShared-tvOS" '
+    end
+    
+    # write build_settings dictionary to xcconfig
+    File.open(xcconfig_path, "a") do |file|
+      # Replace contents with updated build settings
+      file.truncate(0)
+      build_settings.each do |key,value|
+        file.puts key + ' = ' + value
+      end
+    end
+  end
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
+    
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
     end
+    
+    updateBuildSettings(target)
   end
 end
