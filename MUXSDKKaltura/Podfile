@@ -41,8 +41,6 @@ def updateBuildSettings(target)
       build_settings['OTHER_LDFLAGS'].slice! '-framework "MUXSDKStatsShared" '
       build_settings['HEADER_SEARCH_PATHS'].slice! '"${PODS_CONFIGURATION_BUILD_DIR}/MUXSDKStatsShared-tvOS/MUXSDKStatsShared.framework/Headers" '
       build_settings['FRAMEWORK_SEARCH_PATHS'].slice! '"${PODS_CONFIGURATION_BUILD_DIR}/MUXSDKStatsShared-tvOS" '
-    else
-      
     end
     
     # write build_settings dictionary to xcconfig
