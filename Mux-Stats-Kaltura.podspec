@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Mux-Stats-Kaltura'
 
-  s.version          = '1.2.0'
+  s.version          = '2.0.0'
   s.source           = { :git => 'https://github.com/muxinc/mux-stats-sdk-kaltura.git',
                          :tag => "v#{s.version}" }
 
@@ -15,15 +15,15 @@ Pod::Spec.new do |s|
   s.author           = { 'Mux' => 'ios-sdk@mux.com' }
   s.swift_version = '5.0'
 
-  s.dependency 'Mux-Stats-Core', '~>3.11'
+  s.dependency 'Mux-Stats-Core', '~>4.4'
   s.dependency 'PlayKit', '~>3.21'
 
   s.frameworks = 'AVFoundation', 'Network', 'SystemConfiguration'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
   s.ios.vendored_frameworks = 'XCFramework/MUXSDKKaltura.xcframework'
 
-  s.tvos.deployment_target = '9.0'
+  s.tvos.deployment_target = '11.0'
   s.tvos.vendored_frameworks = 'XCFramework/MUXSDKKaltura.xcframework'
 
   s.pod_target_xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
