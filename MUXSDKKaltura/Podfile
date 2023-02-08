@@ -1,6 +1,6 @@
 
 target 'MUXSDKKaltura' do
-  platform :ios, '9.0'
+  platform :ios, '11.0'
   use_frameworks!
   
   # Pods for MUXSDKKaltura
@@ -16,7 +16,7 @@ target 'MUXSDKKaltura' do
 end
 
 target 'MUXSDKKalturaTv' do
-  platform :tvos, '9.0'
+  platform :tvos, '11.0'
   use_frameworks!
   
   # Pods for MUXSDKKalturaTv
