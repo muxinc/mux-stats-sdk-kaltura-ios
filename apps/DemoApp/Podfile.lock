@@ -44,7 +44,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   KalturaNetKit: 2af6c3c2a1abbd8936b5acde45f33f5195125f4a
   Mux-Stats-Core: 27b28bc277a891190753869600c5e01e2188125c
-  Mux-Stats-Kaltura: d2b5256c8ef7fa4628aa60d08334de63faace0c0
+  Mux-Stats-Kaltura: 7b1230ca1396ebf86e71686de3ff8e8d99219738
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   PlayKit: 4e2c81a6495b2266cc523f767e6e36eb78305ac0
   PlayKitUtils: 4a11aef6488e778d10b774702ba79dd0cfa0ef11
