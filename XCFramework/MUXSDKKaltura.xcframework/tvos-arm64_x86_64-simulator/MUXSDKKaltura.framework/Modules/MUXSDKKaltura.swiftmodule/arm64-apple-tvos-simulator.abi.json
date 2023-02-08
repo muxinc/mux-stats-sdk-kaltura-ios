@@ -1,0 +1,1213 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Network",
+        "printedName": "Network",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "SystemConfiguration",
+        "printedName": "SystemConfiguration",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MUXSDKViewOrientation",
+        "printedName": "MUXSDKViewOrientation",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "portrait",
+            "printedName": "portrait",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MUXSDKKaltura.MUXSDKViewOrientation.Type) -> MUXSDKKaltura.MUXSDKViewOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MUXSDKViewOrientation",
+                    "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                    "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MUXSDKKaltura.MUXSDKViewOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MUXSDKViewOrientation",
+                        "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                        "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO8portraityA2CmF",
+            "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO8portraityA2CmF",
+            "moduleName": "MUXSDKKaltura"
+          },
+          {
+            "kind": "Var",
+            "name": "landscape",
+            "printedName": "landscape",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MUXSDKKaltura.MUXSDKViewOrientation.Type) -> MUXSDKKaltura.MUXSDKViewOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MUXSDKViewOrientation",
+                    "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                    "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MUXSDKKaltura.MUXSDKViewOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MUXSDKViewOrientation",
+                        "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                        "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO9landscapeyA2CmF",
+            "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO9landscapeyA2CmF",
+            "moduleName": "MUXSDKKaltura"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKViewOrientation",
+                "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKViewOrientation",
+                "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO2eeoiySbAC_ACtFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO9hashValueSivp",
+            "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO9hashValueSivp",
+            "moduleName": "MUXSDKKaltura",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO9hashValueSivg",
+                "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO9hashValueSivg",
+                "moduleName": "MUXSDKKaltura",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO4hash4intoys6HasherVz_tF",
+            "moduleName": "MUXSDKKaltura",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO",
+        "mangledName": "$s13MUXSDKKaltura21MUXSDKViewOrientationO",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PlayKit",
+        "printedName": "PlayKit",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PlayKit",
+        "printedName": "PlayKit",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MUXSDKPlayerBinding",
+        "printedName": "MUXSDKPlayerBinding",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKPlayerBinding",
+                "printedName": "MUXSDKKaltura.MUXSDKPlayerBinding",
+                "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKPlayerBinding"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKPlayerBinding(im)init",
+            "mangledName": "$s13MUXSDKKaltura19MUXSDKPlayerBindingCACycfc",
+            "moduleName": "MUXSDKKaltura",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "dispatchError",
+            "printedName": "dispatchError(code:message:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura19MUXSDKPlayerBindingC13dispatchError4code7messageySS_SStF",
+            "mangledName": "$s13MUXSDKKaltura19MUXSDKPlayerBindingC13dispatchError4code7messageySS_SStF",
+            "moduleName": "MUXSDKKaltura",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dispatch",
+            "printedName": "dispatch(event:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKPlaybackEvent",
+                "printedName": "MuxCore.MUXSDKPlaybackEvent",
+                "usr": "c:objc(cs)MUXSDKPlaybackEvent"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura19MUXSDKPlayerBindingC8dispatch5eventySo19MUXSDKPlaybackEventC_tF",
+            "mangledName": "$s13MUXSDKKaltura19MUXSDKPlayerBindingC8dispatch5eventySo19MUXSDKPlaybackEventC_tF",
+            "moduleName": "MUXSDKKaltura",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKPlayerBinding",
+        "mangledName": "$s13MUXSDKKaltura19MUXSDKPlayerBindingC",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PlayKit",
+        "printedName": "PlayKit",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MUXSDKStats",
+        "printedName": "MUXSDKStats",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "monitorPlayer",
+            "printedName": "monitorPlayer(player:playerName:customerData:automaticErrorTracking:beaconDomain:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKPlayerBinding",
+                "printedName": "MUXSDKKaltura.MUXSDKPlayerBinding",
+                "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKPlayerBinding"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Player",
+                "printedName": "PlayKit.Player",
+                "usr": "c:@M@PlayKit@objc(pl)Player"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKCustomerData",
+                "printedName": "MuxCore.MUXSDKCustomerData",
+                "usr": "c:objc(cs)MUXSDKCustomerData"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKStats(cm)monitorPlayerWithPlayer:playerName:customerData:automaticErrorTracking:beaconDomain:",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC13monitorPlayer6player0E4Name12customerData22automaticErrorTracking12beaconDomainAA19MUXSDKPlayerBindingC7PlayKit0D0_p_SSSo014MUXSDKCustomerH0CSbSSSgtFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "objc_name": "monitorPlayerWithPlayer:playerName:customerData:automaticErrorTracking:beaconDomain:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "videoChangeForPlayer",
+            "printedName": "videoChangeForPlayer(name:customerData:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKCustomerData",
+                "printedName": "MuxCore.MUXSDKCustomerData",
+                "usr": "c:objc(cs)MUXSDKCustomerData"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura11MUXSDKStatsC20videoChangeForPlayer4name12customerDataySS_So014MUXSDKCustomerI0CtFZ",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC20videoChangeForPlayer4name12customerDataySS_So014MUXSDKCustomerI0CtFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "orientationChangeForPlayer",
+            "printedName": "orientationChangeForPlayer(name:orientation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKViewOrientation",
+                "printedName": "MUXSDKKaltura.MUXSDKViewOrientation",
+                "usr": "s:13MUXSDKKaltura21MUXSDKViewOrientationO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura11MUXSDKStatsC26orientationChangeForPlayer4name0C0ySS_AA21MUXSDKViewOrientationOtFZ",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC26orientationChangeForPlayer4name0C0ySS_AA21MUXSDKViewOrientationOtFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "programChangeForPlayer",
+            "printedName": "programChangeForPlayer(name:customerData:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKCustomerData",
+                "printedName": "MuxCore.MUXSDKCustomerData",
+                "usr": "c:objc(cs)MUXSDKCustomerData"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura11MUXSDKStatsC22programChangeForPlayer4name12customerDataySS_So014MUXSDKCustomerI0CtFZ",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC22programChangeForPlayer4name12customerDataySS_So014MUXSDKCustomerI0CtFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "destroyPlayer",
+            "printedName": "destroyPlayer(name:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura11MUXSDKStatsC13destroyPlayer4nameySS_tFZ",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC13destroyPlayer4nameySS_tFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dispatchErrorForPlayer",
+            "printedName": "dispatchErrorForPlayer(name:code:message:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura11MUXSDKStatsC22dispatchErrorForPlayer4name4code7messageySS_S2StFZ",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC22dispatchErrorForPlayer4name4code7messageySS_S2StFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setCustomerDataForPlayer",
+            "printedName": "setCustomerDataForPlayer(name:customerData:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKCustomerData",
+                "printedName": "MuxCore.MUXSDKCustomerData",
+                "usr": "c:objc(cs)MUXSDKCustomerData"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13MUXSDKKaltura11MUXSDKStatsC24setCustomerDataForPlayer4name08customerE0ySS_So014MUXSDKCustomerE0CtFZ",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC24setCustomerDataForPlayer4name08customerE0ySS_So014MUXSDKCustomerE0CtFZ",
+            "moduleName": "MUXSDKKaltura",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MUXSDKStats",
+                "printedName": "MUXSDKKaltura.MUXSDKStats",
+                "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKStats"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKStats(im)init",
+            "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsCACycfc",
+            "moduleName": "MUXSDKKaltura",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MUXSDKKaltura@objc(cs)MUXSDKStats",
+        "mangledName": "$s13MUXSDKKaltura11MUXSDKStatsC",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreMedia",
+        "printedName": "CoreMedia",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MuxCore",
+        "printedName": "MuxCore",
+        "declKind": "Import",
+        "moduleName": "MUXSDKKaltura"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 550,
+      "length": 3,
+      "value": "\"p\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 573,
+      "length": 3,
+      "value": "\"l\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 550,
+      "length": 3,
+      "value": "\"p\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 573,
+      "length": 3,
+      "value": "\"l\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 659,
+      "length": 3,
+      "value": "\"l\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 685,
+      "length": 3,
+      "value": "\"d\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 709,
+      "length": 3,
+      "value": "\"c\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 736,
+      "length": 3,
+      "value": "\"m\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 659,
+      "length": 3,
+      "value": "\"l\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 685,
+      "length": 3,
+      "value": "\"d\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 709,
+      "length": 3,
+      "value": "\"c\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 736,
+      "length": 3,
+      "value": "\"m\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 324,
+      "length": 34,
+      "value": "\"com.mux.connection-type-detected\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "BooleanLiteral",
+      "offset": 404,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "kind": "Dictionary",
+      "offset": 282,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 311,
+      "length": 19,
+      "value": "\"apple-kaltura-mux\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 397,
+      "length": 17,
+      "value": "\"CFBundleVersion\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "FloatLiteral",
+      "offset": 545,
+      "length": 3,
+      "value": "0.1"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 244,
+      "length": 19,
+      "value": "\"MUXSDKKaltura.MUXSDKPlayerBinding\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 296,
+      "length": 15,
+      "value": "\"KalturaPlayer\""
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1949,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "BooleanLiteral",
+      "offset": 282,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "BooleanLiteral",
+      "offset": 333,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "BooleanLiteral",
+      "offset": 357,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "FloatLiteral",
+      "offset": 403,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "FloatLiteral",
+      "offset": 457,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "FloatLiteral",
+      "offset": 505,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "BooleanLiteral",
+      "offset": 547,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "FloatLiteral",
+      "offset": 676,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 718,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "FloatLiteral",
+      "offset": 759,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "IntegerLiteral",
+      "offset": 801,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "kind": "BooleanLiteral",
+      "offset": 824,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKCustomerDataStore.swift",
+      "kind": "Dictionary",
+      "offset": 280,
+      "length": 3,
+      "value": "[]"
+    }
+  ]
+}
