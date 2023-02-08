@@ -1,23 +1,23 @@
 PODS:
-  - KalturaNetKit (1.5.1):
-    - KalturaNetKit/Core (= 1.5.1)
-  - KalturaNetKit/Core (1.5.1):
+  - KalturaNetKit (1.6.1):
+    - KalturaNetKit/Core (= 1.6.1)
+  - KalturaNetKit/Core (1.6.1):
     - SwiftyJSON (= 5.0.0)
-  - Mux-Stats-Core (3.11.0)
-  - Mux-Stats-Kaltura (1.2.0):
-    - Mux-Stats-Core (~> 3.11)
+  - Mux-Stats-Core (4.4.0)
+  - Mux-Stats-Kaltura (2.0.0):
+    - Mux-Stats-Core (~> 4.4)
     - PlayKit (~> 3.21)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - PlayKit (3.24.0):
-    - PlayKit/Core (= 3.24.0)
-  - PlayKit/Core (3.24.0):
-    - KalturaNetKit (~> 1.5.1)
+  - PlayKit (3.27.2):
+    - PlayKit/Core (= 3.27.2)
+  - PlayKit/Core (3.27.2):
+    - KalturaNetKit (~> 1.6.1)
     - PlayKitUtils (~> 0.5)
     - SwiftyJSON (= 5.0.0)
     - XCGLogger (= 7.0.0)
-  - PlayKitUtils (0.5.0)
+  - PlayKitUtils (0.5.1)
   - SwiftyJSON (5.0.0)
   - XCGLogger (7.0.0):
     - XCGLogger/Core (= 7.0.0)
@@ -42,15 +42,15 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  KalturaNetKit: 8774fdc2e73d3d013c3df88aa49376dd922d3606
-  Mux-Stats-Core: 0415ae94508651e151f0e82e2d954955059d5b67
-  Mux-Stats-Kaltura: 337ede9a326195269ba03f904818fe43ae12f273
+  KalturaNetKit: 2af6c3c2a1abbd8936b5acde45f33f5195125f4a
+  Mux-Stats-Core: 27b28bc277a891190753869600c5e01e2188125c
+  Mux-Stats-Kaltura: 7b1230ca1396ebf86e71686de3ff8e8d99219738
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PlayKit: ccb50808c5ddbf416d309b42a000b9086ef69149
-  PlayKitUtils: 8edb43515c8b91d9aa9a47ae8b5af1e7dd58f6f3
+  PlayKit: 4e2c81a6495b2266cc523f767e6e36eb78305ac0
+  PlayKitUtils: 4a11aef6488e778d10b774702ba79dd0cfa0ef11
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 23a9501d770572f224e7b442b76b9c45c21bc549
+PODFILE CHECKSUM: 4e4e88d67c5b9251d11bac709b02e271ba884c2e
 
 COCOAPODS: 1.11.3

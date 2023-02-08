@@ -26,7 +26,6 @@
 		E9A326822744330700AE926B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94138C1271E0EDD00B3EFB8 /* HomeViewController.swift */; };
 		E9A326832744330A00AE926B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920D3A226F9183400088146 /* PlayerViewController.swift */; };
 		E9A326852744363300AE926B /* TimeInterval+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98DD70426FBBCA500FF6172 /* TimeInterval+Format.swift */; };
-		E9A32694274451B600AE926B /* InfoTvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9A326922744517000AE926B /* InfoTvOS.plist */; };
 		EE58DE7E9E9742BBE484819A /* Pods_DemoApp_DemoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFA1F998A79756EC87FC3CD /* Pods_DemoApp_DemoAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -249,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Mux, Inc.";
 				TargetAttributes = {
 					E920D39A26F9183400088146 = {
@@ -310,7 +309,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9601A1A2745B28E00D3741B /* Assets.xcassets in Resources */,
-				E9A32694274451B600AE926B /* InfoTvOS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+export LANG=en_US.UTF-8
+
 cd MUXSDKKaltura
 pod repo update
 pod deintegrate && pod install
@@ -10,4 +12,4 @@ PROJECT=MUXSDKKaltura/MUXSDKKaltura.xcworkspace
 xcodebuild clean test \
   -workspace $PROJECT \
   -scheme MUXSDKKaltura \
-  -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.1' \
+  -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' \

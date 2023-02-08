@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.license          = 'Apache 2.0'
   s.author           = { 'Mux' => 'ios-sdk@mux.com' }
-  s.swift_version = '5.0'
+  s.swift_version = '5.7'
 
   s.dependency 'Mux-Stats-Core', '~>4.4'
   s.dependency 'PlayKit', '~>3.21'
