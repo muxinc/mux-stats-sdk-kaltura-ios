@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-cd MUXSDKKaltura
+#cd MUXSDKKaltura
 #pod repo update
 #pod deintegrate && pod install
-cd ..
+#cd ..
 PROJECT=MUXSDKKaltura/MUXSDKKaltura.xcworkspace
 
 xcodebuild clean test \
