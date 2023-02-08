@@ -7,6 +7,9 @@ set -euo pipefail
 #cd ..
 PROJECT=MUXSDKKaltura/MUXSDKKaltura.xcworkspace
 
+echo " PRINTING WORKING DIR ------------"
+pwd
+
 xcodebuild clean test \
   -workspace $PROJECT \
   -scheme MUXSDKKaltura \
