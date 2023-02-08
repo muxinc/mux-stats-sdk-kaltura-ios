@@ -13,5 +13,5 @@ end
 target 'DemoAppTvOS' do
   platform :tvos, '11.0'
   use_frameworks!
-  pod 'Mux-Stats-Kaltura', :path => '../../'
+  pod 'Mux-Stats-Kaltura', :git => 'https://github.com/muxinc/mux-stats-sdk-kaltura.git', :branch => "
 end
