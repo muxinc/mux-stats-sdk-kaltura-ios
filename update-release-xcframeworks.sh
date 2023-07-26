@@ -13,14 +13,13 @@ mkdir -p $TARGET_DIR
 
 ################ Build MuxCore SDK
 
-xcodebuild archive -scheme MUXSDKKalturaTv -workspace $PROJECT -destination "generic/platform=tvOS" -archivePath "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
- xcodebuild archive -scheme MUXSDKKalturaTv -workspace $PROJECT -destination "generic/platform=tvOS Simulator" -archivePath "$BUILD_DIR/MUXSDKKalturaTv.tvOS-simulator.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
- xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=iOS" -archivePath "$BUILD_DIR/MUXSDKKaltura.iOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
- xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=iOS Simulator" -archivePath "$BUILD_DIR/MUXSDKKaltura.iOS-simulator.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
- 
-  xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=macOS,variant=Mac Catalyst" -archivePath "$BUILD_DIR/MUXSDKKaltura.macOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+xcodebuild archive -scheme MUXSDKKalturaTv -workspace $PROJECT -destination "generic/platform=tvOS" -archivePath "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES  | xcbeautify
+xcodebuild archive -scheme MUXSDKKalturaTv -workspace $PROJECT -destination "generic/platform=tvOS Simulator" -archivePath "$BUILD_DIR/MUXSDKKalturaTv.tvOS-simulator.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES  | xcbeautify
+xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=iOS" -archivePath "$BUILD_DIR/MUXSDKKaltura.iOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES  | xcbeautify
+xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=iOS Simulator" -archivePath "$BUILD_DIR/MUXSDKKaltura.iOS-simulator.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES  | xcbeautify 
+xcodebuild archive -scheme MUXSDKKaltura -workspace $PROJECT  -destination "generic/platform=macOS,variant=Mac Catalyst" -archivePath "$BUILD_DIR/MUXSDKKaltura.macOS.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcbeautify
   
- xcodebuild -create-xcframework -framework "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
+xcodebuild -create-xcframework -framework "$BUILD_DIR/MUXSDKKalturaTv.tvOS.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKalturaTv.tvOS-simulator.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKaltura.iOS.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \
                                 -framework "$BUILD_DIR/MUXSDKKaltura.iOS-simulator.xcarchive/Products/Library/Frameworks/MUXSDKKaltura.framework" \

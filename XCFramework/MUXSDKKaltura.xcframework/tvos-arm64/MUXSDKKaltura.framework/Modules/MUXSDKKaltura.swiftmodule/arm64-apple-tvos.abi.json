@@ -972,242 +972,1047 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 433,
+      "length": 9,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 441,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 477,
+      "length": 5,
+      "value": "\"n\/a\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 550,
       "length": 3,
       "value": "\"p\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 573,
       "length": 3,
       "value": "\"l\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 550,
       "length": 3,
       "value": "\"p\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 573,
       "length": 3,
       "value": "\"l\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 659,
       "length": 3,
       "value": "\"l\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 685,
       "length": 3,
       "value": "\"d\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 709,
       "length": 3,
       "value": "\"c\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 736,
       "length": 3,
       "value": "\"m\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 659,
       "length": 3,
       "value": "\"l\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 685,
       "length": 3,
       "value": "\"d\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 709,
       "length": 3,
       "value": "\"c\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/Error.swift",
       "kind": "StringLiteral",
       "offset": 736,
       "length": 3,
       "value": "\"m\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
       "kind": "StringLiteral",
       "offset": 324,
       "length": 34,
       "value": "\"com.mux.connection-type-detected\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
       "kind": "BooleanLiteral",
       "offset": 404,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 926,
+      "length": 6,
+      "value": "\"wifi\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 1032,
+      "length": 10,
+      "value": "\"cellular\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 1147,
+      "length": 7,
+      "value": "\"wired\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1403,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 1987,
+      "length": 9,
+      "value": "\"8.8.8.8\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 2556,
+      "length": 10,
+      "value": "\"cellular\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 2621,
+      "length": 6,
+      "value": "\"wifi\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Utilities\/KalturaPlayer+Utilities.swift",
+      "kind": "StringLiteral",
+      "offset": 454,
+      "length": 76,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item.\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
       "kind": "Dictionary",
       "offset": 282,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "kind": "StringLiteral",
+      "offset": 606,
+      "length": 69,
+      "value": "\"MUXSDK-WARNING - Player binding not found for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "kind": "StringLiteral",
+      "offset": 673,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1338,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "kind": "StringLiteral",
+      "offset": 2545,
+      "length": 71,
+      "value": "\"MUXSDK-WARNING - Detected SDK initialized after playback has started.\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBindingManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3103,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
       "offset": 311,
       "length": 19,
       "value": "\"apple-kaltura-mux\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
       "offset": 397,
       "length": 17,
       "value": "\"CFBundleVersion\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "FloatLiteral",
       "offset": 545,
       "length": 3,
       "value": "0.1"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "FloatLiteral",
+      "offset": 1123,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1129,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1765,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1807,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1933,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2100,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "FloatLiteral",
+      "offset": 3128,
+      "length": 4,
+      "value": "0.05"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3275,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3508,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3556,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3604,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3653,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3712,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5562,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9664,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9839,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 10389,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "FloatLiteral",
+      "offset": 12303,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12395,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 13151,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13627,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13656,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 13725,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13953,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13985,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 14466,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 14567,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 14707,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 15158,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15317,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 15653,
+      "length": 117,
+      "value": "\"MUXSDK-INFO - Switch advertised bitrate from: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 15739,
+      "length": 2,
+      "value": "\" to: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 15769,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 16041,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 16907,
+      "length": 105,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 17011,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 17089,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 18496,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 18548,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 19582,
+      "length": 7,
+      "value": "\"media\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19653,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19736,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 20507,
+      "length": 7,
+      "value": "\"media\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
       "offset": 244,
       "length": 19,
       "value": "\"MUXSDKKaltura.MUXSDKPlayerBinding\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 21639,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 21730,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 22139,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 22230,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 22575,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 22666,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 23086,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 23177,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 24111,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 24202,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 24354,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 25110,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 25450,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 25541,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 25913,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 26004,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "BooleanLiteral",
+      "offset": 26158,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 26520,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 26611,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 27103,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 27194,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 27717,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 27808,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 28269,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 28360,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 28939,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 29030,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 29339,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 29430,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 29854,
+      "length": 92,
+      "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "StringLiteral",
+      "offset": 29945,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "FloatLiteral",
+      "offset": 30235,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
+      "kind": "FloatLiteral",
+      "offset": 30329,
+      "length": 4,
+      "value": "90.0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
       "kind": "StringLiteral",
       "offset": 296,
       "length": 15,
       "value": "\"KalturaPlayer\""
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 661,
+      "length": 13,
+      "value": "\"MUXDeviceId\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
       "kind": "BooleanLiteral",
       "offset": 1949,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4544,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 6391,
+      "length": 69,
+      "value": "\"MUXSDK-WARNING - Player binding not found for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 6458,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 7548,
+      "length": 69,
+      "value": "\"MUXSDK-WARNING - Player binding not found for player name: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 7615,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8377,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 8950,
+      "length": 28,
+      "value": "\"CFBundleShortVersionString\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 9047,
+      "length": 17,
+      "value": "\"CFBundleVersion\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 9263,
+      "length": 30,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 9279,
+      "length": 1,
+      "value": "\" (\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 9291,
+      "length": 1,
+      "value": "\")\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 9575,
+      "length": 7,
+      "value": "\"Apple\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 10450,
+      "length": 6,
+      "value": "\"TEST\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "StringLiteral",
+      "offset": 11390,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKStats.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11482,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "BooleanLiteral",
       "offset": 282,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "BooleanLiteral",
       "offset": 333,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "BooleanLiteral",
       "offset": 357,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "FloatLiteral",
       "offset": 403,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "FloatLiteral",
       "offset": 457,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "FloatLiteral",
       "offset": 505,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "BooleanLiteral",
       "offset": 547,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "FloatLiteral",
       "offset": 676,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "IntegerLiteral",
       "offset": 718,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "FloatLiteral",
       "offset": 759,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "IntegerLiteral",
       "offset": 801,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Models\/VideoData.swift",
       "kind": "BooleanLiteral",
       "offset": 824,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/edixon\/repos\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKCustomerDataStore.swift",
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKCustomerDataStore.swift",
       "kind": "Dictionary",
       "offset": 280,
       "length": 3,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 532,
+      "length": 38,
+      "value": "\"dispatch global data event: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 569,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 732,
+      "length": 50,
+      "value": "\"dispatch event: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 757,
+      "length": 3,
+      "value": "\" for player: \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 781,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 938,
+      "length": 28,
+      "value": "\"destroy player \""
+    },
+    {
+      "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/Services\/MockedDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 965,
+      "length": 2,
+      "value": "\"\""
     }
   ]
 }

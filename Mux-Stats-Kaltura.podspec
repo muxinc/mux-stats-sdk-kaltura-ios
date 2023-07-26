@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Mux-Stats-Kaltura'
 
-  s.version          = '2.0.1'
+  s.version          = '2.1.0'
   s.source           = { :git => 'https://github.com/muxinc/mux-stats-sdk-kaltura.git',
                          :tag => "v#{s.version}" }
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.7'
 
   s.dependency 'Mux-Stats-Core', '~>4.4'
-  s.dependency 'PlayKit', '~>3.21'
+  s.dependency 'PlayKit', '~>3.27'
 
   s.frameworks = 'AVFoundation', 'Network', 'SystemConfiguration'
 

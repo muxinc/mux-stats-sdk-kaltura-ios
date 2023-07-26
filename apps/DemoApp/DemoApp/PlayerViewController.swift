@@ -28,11 +28,13 @@ class PlayerViewController: UIViewController {
     var duration: TimeInterval = 0.0
     var pictureInPictureController: AVPictureInPictureController?
     var pipPossibleObservation: NSKeyValueObservation?
-    let testScenario = "TESTPIP"
+    let testScenario = "PROGRAM_CHANGE"
     
     // MUX
     let playerName = "iOS KalturaPlayer"
-    let environmentKey = "YOUR_ENV_KEY_HERE"
+    let environmentKey = "qr9665qr78dac0hqld9bjofps"
+
+    let testStreamURL = "https://stream.mux.com/qxb01i6T202018GFS02vp9RIe01icTcDCjVzQpmaB00CUisJ4.m3u8"
     
     private var playerState: PlayerState = .idle {
         didSet {
@@ -158,7 +160,7 @@ class PlayerViewController: UIViewController {
     
     func loadMediaKalturaPlayer() {
         let mediaConfig = createKalturaMediaConfig(
-            contentURL: "https://stream.mux.com/aSg00jAAgR4VCG8px005wyWvFJxZf6hJH01ZSeywtix3C00.m3u8",
+            contentURL: testStreamURL,
             entryId: "Jh00ZEPF009yt10100VAKaVBo025gYKpnDa2o1tbG6R01101gU"
         )
         
@@ -168,7 +170,7 @@ class PlayerViewController: UIViewController {
     
     func changeMediaKalturaPlayer() {
         let mediaConfig = createKalturaMediaConfig(
-            contentURL: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8",
+            contentURL: testStreamURL,
             entryId: "bipbop_16x9"
         )
         
