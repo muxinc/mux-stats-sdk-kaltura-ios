@@ -12,4 +12,4 @@ PROJECT=MUXSDKKaltura/MUXSDKKaltura.xcworkspace
 xcodebuild clean test \
   -workspace $PROJECT \
   -scheme MUXSDKKaltura \
-  -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' \
+  -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
