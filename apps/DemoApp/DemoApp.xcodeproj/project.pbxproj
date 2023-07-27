@@ -586,6 +586,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -599,6 +600,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/DemoApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XX95P4Y787;
 				INFOPLIST_FILE = DemoApp/Info.plist;
@@ -651,7 +653,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F482D1CDCC9C8D1334AE25E9 /* Pods-DemoApp-DemoAppUITests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XX95P4Y787;
 				INFOPLIST_FILE = DemoAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -674,6 +678,7 @@
 			baseConfigurationReference = 07FD36BF1FE05BEC88502306 /* Pods-DemoApp-DemoAppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XX95P4Y787;
 				INFOPLIST_FILE = DemoAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,7 +703,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UH7BDR2X9D;
+				DEVELOPMENT_TEAM = XX95P4Y787;
 				INFOPLIST_FILE = DemoApp/InfoTvOS.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -720,7 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UH7BDR2X9D;
+				DEVELOPMENT_TEAM = XX95P4Y787;
 				INFOPLIST_FILE = DemoApp/InfoTvOS.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
