@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target x86_64-apple-tvos11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MUXSDKKaltura
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -31,7 +31,7 @@ extension MUXSDKKaltura.MUXSDKPlayerBinding {
 }
 @_inheritsConvenienceInitializers @objc public class MUXSDKStats : ObjectiveC.NSObject {
   @discardableResult
-  @objc public static func monitorPlayer(player: PlayKit.Player, playerName: Swift.String, customerData: MuxCore.MUXSDKCustomerData, automaticErrorTracking: Swift.Bool = true, beaconDomain: Swift.String? = nil) -> MUXSDKKaltura.MUXSDKPlayerBinding
+  @objc public static func monitorPlayer(player: any PlayKit.Player, playerName: Swift.String, customerData: MuxCore.MUXSDKCustomerData, automaticErrorTracking: Swift.Bool = true, beaconDomain: Swift.String? = nil) -> MUXSDKKaltura.MUXSDKPlayerBinding
   public static func videoChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
   public static func orientationChangeForPlayer(name: Swift.String, orientation: MUXSDKKaltura.MUXSDKViewOrientation)
   public static func programChangeForPlayer(name: Swift.String, customerData: MuxCore.MUXSDKCustomerData)
