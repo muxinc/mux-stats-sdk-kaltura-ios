@@ -18,7 +18,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		e8/fPVjfk7p0KKVj7LyujK23tto=
+		SCw0bISaFBZzbAu8D9yXiWRCm+c=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		e8/fPVjfk7p0KKVj7LyujK23tto=
+		SCw0bISaFBZzbAu8D9yXiWRCm+c=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -81,7 +81,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iRcSqV9kvJvPP7scGyagDs+a0PICmFmATBDBxK4Keds=
+			wwYNv7TF5XfnVvR5+OS7IA6ngXtdXWBluDIVNzrV4BA=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -116,7 +116,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iRcSqV9kvJvPP7scGyagDs+a0PICmFmATBDBxK4Keds=
+			wwYNv7TF5XfnVvR5+OS7IA6ngXtdXWBluDIVNzrV4BA=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>

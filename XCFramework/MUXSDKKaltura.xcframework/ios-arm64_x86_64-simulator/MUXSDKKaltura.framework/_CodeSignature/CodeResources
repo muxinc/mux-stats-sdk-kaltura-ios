@@ -14,7 +14,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Zf+PiwYNqhrKwpv0T8xGHdlErf0=
+		YQt+XaicN/AcbKEmY37c9kMB7Pk=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Zf+PiwYNqhrKwpv0T8xGHdlErf0=
+		YQt+XaicN/AcbKEmY37c9kMB7Pk=
 		</data>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -74,7 +74,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WMkNpE5M2Zukac4KNMP4qnwscgMbSXGk9HJqofGUAuI=
+			3ViBNrGHZhFvhTjliQBdtas3qRPlxRzHvaMwuXLYrF0=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -109,7 +109,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WMkNpE5M2Zukac4KNMP4qnwscgMbSXGk9HJqofGUAuI=
+			3ViBNrGHZhFvhTjliQBdtas3qRPlxRzHvaMwuXLYrF0=
 			</data>
 		</dict>
 		<key>Modules/MUXSDKKaltura.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>

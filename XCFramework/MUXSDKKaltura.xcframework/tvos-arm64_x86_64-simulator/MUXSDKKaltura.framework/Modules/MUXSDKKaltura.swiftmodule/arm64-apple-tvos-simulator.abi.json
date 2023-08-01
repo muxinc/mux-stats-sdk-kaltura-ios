@@ -1681,70 +1681,70 @@
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 28269,
+      "offset": 28227,
       "length": 92,
       "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 28360,
+      "offset": 28318,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 28939,
+      "offset": 28855,
       "length": 92,
       "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 29030,
+      "offset": 28946,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 29339,
+      "offset": 29255,
       "length": 92,
       "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 29430,
+      "offset": 29346,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 29854,
+      "offset": 29770,
       "length": 92,
       "value": "\"MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "StringLiteral",
-      "offset": 29945,
+      "offset": 29861,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "FloatLiteral",
-      "offset": 30235,
+      "offset": 30151,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/abarinov\/Environment\/mux-stats-sdk-kaltura-ios\/MUXSDKKaltura\/MUXSDKKaltura\/MUXSDKPlayerBinding.swift",
       "kind": "FloatLiteral",
-      "offset": 30329,
+      "offset": 30245,
       "length": 4,
       "value": "90.0"
     },

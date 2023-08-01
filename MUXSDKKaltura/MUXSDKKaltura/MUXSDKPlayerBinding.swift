@@ -749,9 +749,7 @@ extension MUXSDKPlayerBinding {
         
         self.updateVideoData(player: player)
         
-        guard let event = MUXSDKErrorEvent() else {
-            return
-        }
+        let event = MUXSDKErrorEvent()
         event.playerData = self.playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
@@ -769,9 +767,7 @@ extension MUXSDKPlayerBinding {
         playerData.playerErrorCode = code
         playerData.playerErrorMessage = message
         
-        guard let event = MUXSDKErrorEvent() else {
-            return
-        }
+        let event = MUXSDKErrorEvent()
         event.playerData = playerData
         self.dispatcher.dispatchEvent(event, forPlayer: self.name)
         
