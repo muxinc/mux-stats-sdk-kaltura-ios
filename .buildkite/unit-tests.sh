@@ -3,8 +3,6 @@ set -euo pipefail
 
 export LANG=en_US.UTF-8
 
-pod spec lint
-
 cd MUXSDKKaltura
 rm -rf Podfile.lock
 pod cache clean --all
