@@ -8,7 +8,7 @@
 
 import UIKit
 import PlayKit
-import MUXSDKKaltura
+import MUXSDKStatsKaltura
 import MuxCore
 import MediaPlayer
 import AVKit
