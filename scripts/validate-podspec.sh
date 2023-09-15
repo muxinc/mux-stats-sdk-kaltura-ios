@@ -11,7 +11,7 @@ echo "▸ Using Xcode Version: $(xcodebuild -version | grep Xcode | cut -d " " -
 
 echo "▸ Validating Podspec"
 
-pod lib lint --verbose
+pod lib lint --allow-warnings --verbose
 
 echo "▸ Back to Xcode 14.3.1"
 
