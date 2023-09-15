@@ -40,7 +40,11 @@ public class MUXSDKPlayerBinding: NSObject {
     
     // Binding is considered initialized once it has dispatched the viewInit, customer player & video data, & playerReady events to MUXCore
     private (set) var initialized: Bool
-    private var state: MUXSDKPlayerState
+    private var state: MUXSDKPlayerState {
+        didSet {
+            print("MUXSDK-INFO - State Change: \(oldValue) -> \(state) for Player Name: \(name)")
+        }
+    }
     private var videoData = VideoData()
     
     init(
@@ -615,6 +619,7 @@ extension MUXSDKPlayerBinding {
         }
         
         guard self.state == .playing else {
+            print("MUXSDK-WARNING - Attempting to dispatch time update when no media is playing for player name: \(self.name)")
             return
         }
         
