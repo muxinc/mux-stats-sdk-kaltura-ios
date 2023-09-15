@@ -25,12 +25,12 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - Mux-Stats-Core (from `~/Environment/stats-sdk-objc`)
   - Mux-Stats-Kaltura (from `../../`)
 
 SPEC REPOS:
   trunk:
     - KalturaNetKit
-    - Mux-Stats-Core
     - ObjcExceptionBridging
     - PlayKit
     - PlayKitUtils
@@ -38,19 +38,21 @@ SPEC REPOS:
     - XCGLogger
 
 EXTERNAL SOURCES:
+  Mux-Stats-Core:
+    :path: "~/Environment/stats-sdk-objc"
   Mux-Stats-Kaltura:
     :path: "../../"
 
 SPEC CHECKSUMS:
   KalturaNetKit: 2af6c3c2a1abbd8936b5acde45f33f5195125f4a
   Mux-Stats-Core: b747ca415f883e2b2d9475d8cc0ac3079167bf6b
-  Mux-Stats-Kaltura: bc4bf3c46fb7949b4a4ba1e228cdd9cda68ee52b
+  Mux-Stats-Kaltura: 01327228a92d44d9b335eb204f2e00c21085539c
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   PlayKit: 4e2c81a6495b2266cc523f767e6e36eb78305ac0
   PlayKitUtils: 4a11aef6488e778d10b774702ba79dd0cfa0ef11
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: e3e654bf3d46e59929f7f83b18044bf553c76597
+PODFILE CHECKSUM: 2c14d017002976aececb4fffd7dd66b67b00b40d
 
 COCOAPODS: 1.12.1

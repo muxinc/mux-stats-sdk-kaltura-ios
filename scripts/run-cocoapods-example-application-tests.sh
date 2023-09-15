@@ -23,6 +23,7 @@ pod cache clean --all
 echo "▸ Reset Cocoapod Installation"
 pod deintegrate && pod install --clean-install
 
+echo "▸ Run Applicatin Tests"
 xcodebuild -workspace $WORKSPACE \
            -scheme $SCHEME \
            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
