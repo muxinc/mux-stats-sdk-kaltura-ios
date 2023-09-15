@@ -8,6 +8,10 @@
 7. Github UI - Make a new release with the new version. Attach the XCFramework artifacts from the automated build to the release.
 8. Update the release notes in the [Kaltura Integration Guide](https://docs.mux.com/guides/data/monitor-kaltura-ios)
 
+Note:
+
+Pushing to Cocoapods Trunk requires use of Xcode 14.2
+
 After release:
 
 * Try the new version to the sample app in this repo.
