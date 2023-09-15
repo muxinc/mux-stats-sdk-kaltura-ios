@@ -1,5 +1,5 @@
 target 'DemoApp' do
-  platform :ios, '11.0'
+  platform :ios, '13.0'
   use_frameworks!
 
   # Pods for DemoApp
@@ -11,7 +11,7 @@ target 'DemoApp' do
 end
 
 target 'DemoAppTvOS' do
-  platform :tvos, '11.0'
+  platform :tvos, '13.0'
   use_frameworks!
   pod 'Mux-Stats-Kaltura', :path => '../../'
 end
@@ -20,11 +20,11 @@ post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
       target.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       end
     end
     project.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
     end
   end
 end

@@ -3,15 +3,9 @@ set -euo pipefail
 
 export LANG=en_US.UTF-8
 
-cd MUXSDKKaltura
-rm -rf Podfile.lock
-pod cache clean --all
-pod repo update
-pod deintegrate && pod install --clean-install --repo-update
-cd ..
-PROJECT=MUXSDKKaltura/MUXSDKKaltura.xcworkspace
+xcodebuild -showsdks
 
 xcodebuild clean test \
-  -workspace $PROJECT \
-  -scheme MUXSDKKaltura \
+  -scheme "mux-stats-sdk-kaltura-ios" \
+  -sdk iphonesimulator16.4 \
   -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' | xcbeautify
