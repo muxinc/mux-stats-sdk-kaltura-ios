@@ -434,14 +434,16 @@ public class MUXSDKPlayerBinding: NSObject {
     }
     
     private func monitorPlayerItem() {
-        guard
-            manualVideoChangeTriggered,
-            self.player?.currentItem != nil
-        else {
+        guard self.player?.currentItem != nil else {
             print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \(self.name)")
             return
         }
-        
+
+        guard manualVideoChangeTriggered else {
+            print("MUXSDK-INFO - Kaltura Player State Change without a manual video change for player name: \(self.name), ignoring")
+            return
+        }
+
         manualVideoChangeTriggered = false
         self.dispatcher.destroyPlayer(self.name)
         self.playDispatchDelegate.videoChangedForPlayer(name: self.name)
