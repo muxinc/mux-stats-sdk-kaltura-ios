@@ -42,7 +42,7 @@ public class MUXSDKPlayerBinding: NSObject {
     private (set) var initialized: Bool
     private var state: MUXSDKPlayerState {
         didSet {
-            print("MUXSDK-INFO - State Change: \(oldValue) -> \(state) for Player Name: \(name)")
+            SDKLogger.log("MUXSDK-INFO - State Change: \(oldValue) -> \(state) for Player Name: \(name)")
         }
     }
     private var videoData = VideoData()
@@ -410,7 +410,7 @@ public class MUXSDKPlayerBinding: NSObject {
             return
         }
         
-        print("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(event.indicatedBitrate)")
+        SDKLogger.log("MUXSDK-INFO - Switch advertised bitrate from: \(self.videoData.lastAdvertisedBitrate) to: \(event.indicatedBitrate)")
         self.videoData.lastAdvertisedBitrate = event.indicatedBitrate
         guard self.videoData.lastDispatchedAdvertisedBitrate != self.videoData.lastAdvertisedBitrate else {
             return
@@ -439,12 +439,12 @@ public class MUXSDKPlayerBinding: NSObject {
     
     private func monitorPlayerItem() {
         guard self.player?.currentItem != nil else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player current item for player name: \(self.name)")
             return
         }
 
         guard manualVideoChangeTriggered else {
-            print("MUXSDK-INFO - Kaltura Player State Change without a manual video change for player name: \(self.name), ignoring")
+            SDKLogger.log("MUXSDK-INFO - Kaltura Player State Change without a manual video change for player name: \(self.name), ignoring")
             return
         }
 
@@ -570,7 +570,7 @@ public class MUXSDKPlayerBinding: NSObject {
 extension MUXSDKPlayerBinding {
     func dispatchViewInit() {
         guard self.player != nil else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -586,7 +586,7 @@ extension MUXSDKPlayerBinding {
     
     func dispatchPlayerReady() {
         guard self.player != nil else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -599,7 +599,7 @@ extension MUXSDKPlayerBinding {
     
     private func dispatchPlaying() {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -614,12 +614,12 @@ extension MUXSDKPlayerBinding {
     
     private func dispatchTimeUpdate(_ time: TimeInterval) {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
         guard self.state == .playing else {
-            print("MUXSDK-WARNING - Attempting to dispatch time update when no media is playing for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-WARNING - Attempting to dispatch time update when no media is playing for player name: \(self.name)")
             return
         }
         
@@ -644,7 +644,7 @@ extension MUXSDKPlayerBinding {
         }
         
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -682,7 +682,7 @@ extension MUXSDKPlayerBinding {
     
     private func dispatchRenditionChange() {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -696,7 +696,7 @@ extension MUXSDKPlayerBinding {
     
     private func dispatchPlay() {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -715,7 +715,7 @@ extension MUXSDKPlayerBinding {
     
     private func dispatchPause() {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -731,7 +731,7 @@ extension MUXSDKPlayerBinding {
     
     private func dispatchBandwidthMetric(data: MUXSDKBandwidthMetricData, type: String) {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -751,7 +751,7 @@ extension MUXSDKPlayerBinding {
         }
         
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -766,7 +766,7 @@ extension MUXSDKPlayerBinding {
     
     public func dispatchError(code: String, message: String) {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -784,7 +784,7 @@ extension MUXSDKPlayerBinding {
     
     public func dispatch(event: MUXSDKPlaybackEvent) {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -796,7 +796,7 @@ extension MUXSDKPlayerBinding {
     
     func dispatchViewEnd() {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         
@@ -810,7 +810,7 @@ extension MUXSDKPlayerBinding {
     
     func dispatchOrientationChange(orientation: MUXSDKViewOrientation) {
         guard let player = self.player else {
-            print("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
+            SDKLogger.log("MUXSDK-ERROR - Mux failed to find the Kaltura Playkit Player for player name: \(self.name)")
             return
         }
         

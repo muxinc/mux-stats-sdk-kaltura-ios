@@ -22,7 +22,7 @@ class MUXSDKPlayerBindingManager {
     
     func destroyPlayer(name: String) {
         guard let binding = bindings[name] else {
-            print("MUXSDK-WARNING - Player binding not found for player name: \(name).")
+            SDKLogger.log("MUXSDK-WARNING - Player binding not found for player name: \(name).")
             return
         }
         
@@ -81,7 +81,7 @@ extension MUXSDKPlayerBindingManager: PlayDispatchDelegate {
     func playbackStartedForPlayer(name: String) {
         // Confirm binding has been initialized
         guard let binding = self.bindings[name], binding.initialized else {
-            print("MUXSDK-WARNING - Detected SDK initialized after playback has started.")
+            SDKLogger.log("MUXSDK-WARNING - Detected SDK initialized after playback has started.")
             self.createNewViewForPlayer(name: name)
             return
         }

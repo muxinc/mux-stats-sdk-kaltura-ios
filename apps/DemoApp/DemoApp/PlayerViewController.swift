@@ -207,18 +207,18 @@ class PlayerViewController: UIViewController {
         playerData.playerName = self.playerName
         
         let videoData = MUXSDKCustomerVideoData()
-        videoData.videoTitle = "INFERRED Video Kaltura"
-        videoData.videoId = "sintel"
+        videoData.videoTitle = "Video Kaltura"
+        videoData.videoId = "VideoBehindTheScenes"
         
         let viewData = MUXSDKCustomerViewData()
-        viewData.viewSessionId = "my session id"
+        viewData.viewSessionId = UUID().uuidString
         
         let customData = MUXSDKCustomData()
-        customData.customData1 = "Kaltura test"
-        customData.customData2 = "Custom Data 2"
+        customData.customData1 = "Kaltura Test"
+        customData.customData2 = "Video Behind the Scenes"
         
         let viewerData = MUXSDKCustomerViewerData()
-        viewerData.viewerApplicationName = "MUX Kaltura DemoApp"
+        viewerData.viewerApplicationName = "MUX Kaltura Example Application"
         
         let customerData = MUXSDKCustomerData(
             customerPlayerData: playerData,

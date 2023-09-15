@@ -152,7 +152,7 @@ public class MUXSDKStats: NSObject {
      */
     public static func programChangeForPlayer(name: String, customerData: MUXSDKCustomerData) {
         guard let binding = bindingsManager.bindings[name] else {
-            print("MUXSDK-WARNING - Player binding not found for player name: \(name).")
+            SDKLogger.log("MUXSDK-WARNING - Player binding not found for player name: \(name).")
             return
         }
         
@@ -182,7 +182,7 @@ public class MUXSDKStats: NSObject {
      */
     public static func dispatchErrorForPlayer(name: String, code: String, message: String) {
         guard let binding = bindingsManager.bindings[name] else {
-            print("MUXSDK-WARNING - Player binding not found for player name: \(name).")
+            SDKLogger.log("MUXSDK-WARNING - Player binding not found for player name: \(name).")
             return
         }
         
