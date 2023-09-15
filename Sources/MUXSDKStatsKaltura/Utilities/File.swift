@@ -9,7 +9,7 @@ enum SDKLogger {
     static func log(
         _ message: String
     ) {
-//        print(message)
+        print(message)
     }
 
 }
