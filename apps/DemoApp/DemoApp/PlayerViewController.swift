@@ -16,6 +16,15 @@ import MuxCore
 import PlayKit
 
 class PlayerViewController: UIViewController {
+
+    enum TestScenario: String {
+        case none
+        case pictureInPicture
+        case videoChange
+        case programChange
+        case updateCustomerData
+    }
+
     var kalturaPlayer: Player?
     let kalturaPlayerContainer = PlayerView()
     let actionsRowStack = UIStackView()
@@ -30,7 +39,7 @@ class PlayerViewController: UIViewController {
     var duration: TimeInterval = 0.0
     var pictureInPictureController: AVPictureInPictureController?
     var pipPossibleObservation: NSKeyValueObservation?
-    let testScenario = ""
+    let testScenario: TestScenario = .none
     
     // MUX
     let playerName = "iOS KalturaPlayer"
@@ -65,14 +74,18 @@ class PlayerViewController: UIViewController {
 
         // Setup MUX
         self.setupMUX()
-        
-        if self.testScenario == "TESTPIP" {
-            // Setup picture in picture
+
+        switch testScenario {
+        case .pictureInPicture:
             self.setupPictureInPicture()
-        } else if self.testScenario == "PROGRAM_CHANGE" {
-            self.testProgramChange()
-        } else if self.testScenario == "UPDATE_CUSTOMER_DATA" {
+        case .videoChange:
+            self.triggerVideoChange()
+        case .programChange:
+            self.triggerProgramChange()
+        case .updateCustomerData:
             self.testUpdateCustomerData()
+        default:
+            break
         }
     }
     
@@ -177,7 +190,7 @@ class PlayerViewController: UIViewController {
         )
         
         // Call MUX videoChange before stop, because playkit stop will replace current item for nil
-        self.MUXVideoChange()
+        self.triggerVideoChange()
         
         // Resets The Player And Prepares for Change Media
         self.kalturaPlayer?.stop()
@@ -239,7 +252,7 @@ class PlayerViewController: UIViewController {
         )
     }
     
-    func MUXVideoChange() {
+    func triggerVideoChange() {
         let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
@@ -270,7 +283,7 @@ class PlayerViewController: UIViewController {
         MUXSDKStats.videoChangeForPlayer(name: self.playerName, customerData: customerData)
     }
     
-    @objc func MUXProgramChange() {
+    @objc func triggerProgramChange() {
         let playerData = MUXSDKCustomerPlayerData(environmentKey: self.environmentKey)
         playerData?.playerName = self.playerName
         
@@ -308,7 +321,7 @@ class PlayerViewController: UIViewController {
         Timer.scheduledTimer(
             timeInterval: 30.0,
             target: self,
-            selector: #selector(self.MUXProgramChange),
+            selector: #selector(self.triggerProgramChange),
             userInfo: nil,
             repeats: false
         )
@@ -479,7 +492,7 @@ extension PlayerViewController {
         pipButton.setImage(startImage, for: .normal)
         pipButton.setImage(stopImage, for: .selected)
         
-        if self.testScenario == "TESTPIP" {
+        if self.testScenario == .pictureInPicture {
             airplayRowStack.addArrangedSubview(self.pipButton)
             NSLayoutConstraint.activate([
                 self.pipButton.widthAnchor.constraint(equalToConstant: 28.0)
