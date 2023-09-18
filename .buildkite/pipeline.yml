@@ -1,5 +1,5 @@
 steps:
   - command: ".buildkite/unit-tests.sh"
-    label: "Unit Tests"
+    label: "iOS 17 Unit Tests"
     agents:
       queue: "macOS-Monterey-12-4"

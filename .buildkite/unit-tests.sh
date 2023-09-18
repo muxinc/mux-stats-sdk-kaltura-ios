@@ -3,9 +3,22 @@ set -euo pipefail
 
 export LANG=en_US.UTF-8
 
+echo "▸ Current Xcode: $(xcode-select -p)"
+
+echo "▸ Available Xcode SDKs"
+
 xcodebuild -showsdks
+
+echo "▸ Testing SDK on iOS 17"
 
 xcodebuild clean test \
   -scheme "mux-stats-sdk-kaltura-ios" \
-  -sdk iphonesimulator16.4 \
-  -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' | xcbeautify
+  -sdk iphonesimulator17 \
+  -destination 'platform=iOS Simulator,name=iPhone 14,OS=17' | xcbeautify
+
+echo "▸ Testing SDK on tvOS 17"
+
+xcodebuild clean test \
+  -scheme "mux-stats-sdk-kaltura-ios" \
+  -sdk appletvsimulator17.0 \
+  -destination 'platform=tvOS Simulator,name=Apple TV,OS=17' | xcbeautify
