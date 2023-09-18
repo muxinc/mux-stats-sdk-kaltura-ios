@@ -1,5 +1,0 @@
-steps:
-  - command: "scripts/run-unit-tests-using-xcode-rc.sh"
-    label: "iOS 17 Unit Tests"
-    agents:
-      queue: "macOS-Monterey-12-4"
