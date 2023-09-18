@@ -14,7 +14,7 @@ echo "▸ Testing SDK on iOS 17"
 xcodebuild clean test \
   -scheme "mux-stats-sdk-kaltura-ios" \
   -sdk iphonesimulator17.0 \
-  -destination 'platform=iOS Simulator,name=iPhone 14,OS=17' | xcbeautify
+  -destination 'platform=iOS Simulator,name=iPhone 15,OS=17' | xcbeautify
 
 echo "▸ Testing SDK on tvOS 17"
 
