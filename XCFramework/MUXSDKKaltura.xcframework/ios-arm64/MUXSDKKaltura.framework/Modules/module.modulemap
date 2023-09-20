@@ -1,4 +1,0 @@
-framework module MUXSDKKaltura {
-  header "MUXSDKKaltura-Swift.h"
-  requires objc
-}

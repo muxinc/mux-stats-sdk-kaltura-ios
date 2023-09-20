@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+
+jobs:
+  run-unit-tests:
+    name: Run unit tests
+    runs-on: macos-13
+    steps:
+      - name: Install xcbeautify
+        run: brew install xcbeautify
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: "Run Unit Tests"
+        run: "scripts/run-unit-tests.sh"
+  run-cocoapods-example-application-tests:
+    name: Run Cocoapods Example Application Tests
+    runs-on: macos-13
+    steps:
+      - name: Install xcbeautify
+        run: brew install xcbeautify
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: "Run Cocoapods Example Application Tests"
+        run: "scripts/run-cocoapods-example-application-tests.sh"
+  validate-cocoapods:
+    name: Validate Podspec
+    runs-on: macos-13
+    steps:
+      - name: Install xcbeautify
+        run: brew install xcbeautify
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: "Validate Podspec"
+        run: "scripts/validate-podspec.sh"

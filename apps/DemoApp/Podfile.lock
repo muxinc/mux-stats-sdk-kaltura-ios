@@ -4,7 +4,7 @@ PODS:
   - KalturaNetKit/Core (1.6.1):
     - SwiftyJSON (= 5.0.0)
   - Mux-Stats-Core (4.5.2)
-  - Mux-Stats-Kaltura (2.1.0):
+  - Mux-Stats-Kaltura (3.0.0):
     - Mux-Stats-Core (~> 4.5.2)
     - PlayKit (~> 3.27.2)
   - ObjcExceptionBridging (1.0.1):
@@ -44,13 +44,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   KalturaNetKit: 2af6c3c2a1abbd8936b5acde45f33f5195125f4a
   Mux-Stats-Core: b747ca415f883e2b2d9475d8cc0ac3079167bf6b
-  Mux-Stats-Kaltura: 650e3a2f2332e0d10d44d510517f0b66708b32f7
+  Mux-Stats-Kaltura: 01327228a92d44d9b335eb204f2e00c21085539c
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   PlayKit: 4e2c81a6495b2266cc523f767e6e36eb78305ac0
   PlayKitUtils: 4a11aef6488e778d10b774702ba79dd0cfa0ef11
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 96e54475764c6f79cb0da58666c4187005e4d7ad
+PODFILE CHECKSUM: e3e654bf3d46e59929f7f83b18044bf553c76597
 
 COCOAPODS: 1.12.1
