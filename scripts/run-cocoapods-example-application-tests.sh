@@ -24,7 +24,7 @@ echo "▸ Reset Cocoapod Installation"
 pod deintegrate && pod install --clean-install
 
 echo "▸ Run Application Tests"
-xcodebuild -workspace $WORKSPACE \
-           -scheme $SCHEME \
-           -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-           test | xcbeautify
+xcodebuild clean test \
+    -workspace $WORKSPACE \
+    -scheme $SCHEME \
+    -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' | xcbeautify
