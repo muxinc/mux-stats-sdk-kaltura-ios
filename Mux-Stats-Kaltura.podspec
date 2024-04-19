@@ -24,5 +24,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
   s.tvos.deployment_target = '13.0'
 
+  s.resource_bundles = {'MUXSDKStatsKaltura' => ['Sources/MUXSDKStatsKaltura/PrivacyInfo.xcprivacy']}
+
   s.source_files = 'Sources/MUXSDKStatsKaltura/**/*'
 end
