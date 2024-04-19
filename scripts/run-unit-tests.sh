@@ -16,5 +16,5 @@ echo "▸ xcodebuild clean test -scheme "mux-stats-sdk-kaltura-ios" -sdk iphones
 
 xcodebuild clean test \
   -scheme "mux-stats-sdk-kaltura-ios" \
-  -sdk iphonesimulator16.4 \
-  -destination 'name=iPhone 14,OS=16.4' | xcbeautify
+  -sdk iphonesimulator17.4 \
+  -destination 'name=iPhone 15,OS=17.4' | xcbeautify
