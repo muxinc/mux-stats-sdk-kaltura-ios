@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Mux' => 'ios-sdk@mux.com' }
   s.swift_version    = '5.9'
 
-  s.dependency 'Mux-Stats-Core', '~>5.0.2'
+  s.dependency 'Mux-Stats-Core', '~>5.0.1'
   s.dependency 'PlayKit', '~>3.28.0'
 
   s.frameworks = 'AVFoundation', 'Network', 'CoreMedia'
