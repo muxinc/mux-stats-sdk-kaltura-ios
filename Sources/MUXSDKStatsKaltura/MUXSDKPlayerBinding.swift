@@ -16,7 +16,7 @@ import PlayKit
 @objc
 public class MUXSDKPlayerBinding: NSObject {
     private let MUXSDKPluginName = "apple-kaltura-mux"
-    private let MUXSDKPluginVersion = "3.0.0"
+    private let MUXSDKPluginVersion = "4.0.0"
 
     // Min number of seconds between timeupdate events. (100ms)
     private let MUXSDKMinSecsBetweenTimeUpdate = 0.1
