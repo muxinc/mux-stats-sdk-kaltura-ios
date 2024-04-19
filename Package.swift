@@ -17,11 +17,11 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/muxinc/stats-sdk-objc.git",
-            from: "4.5.2"
+            from: "5.0.1"
         ),
         .package(
             url: "https://github.com/kaltura/playkit-ios.git",
-            from: "3.27.2"
+            from: "3.28.0"
         )
     ],
     targets: [
@@ -36,6 +36,9 @@ let package = Package(
                     name: "PlayKit",
                     package: "playkit-ios"
                 ),
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy")
             ]
         ),
         .testTarget(
