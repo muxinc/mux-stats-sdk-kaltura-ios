@@ -16,7 +16,7 @@ jobs:
         run: ./scripts/version-check.sh Mux-Stats-Kaltura.podspec
   validate-cocoapods:
     name: Validate Podspec
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - name: Install xcbeautify
         run: brew install xcbeautify
