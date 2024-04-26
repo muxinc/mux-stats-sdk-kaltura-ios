@@ -3,22 +3,23 @@ name: Validate release
 on:
   push:
     branches:
-      - 'releases/**'
+##      - 'releases/**'
+     push:
 
 jobs:
   version-check:
     name: Validate Versions
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
-      - name: Use Xcode 15.3
-        run: sudo xcode-select -s /Applications/Xcode_15.3.app
+##      - name: Use Xcode 15.3
+##        run: sudo xcode-select -s /Applications/Xcode_15.3.app
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: Run Version Check Script
         run: ./scripts/version-check.sh Mux-Stats-Kaltura.podspec
   validate-cocoapods:
     name: Validate Podspec
-    runs-on: macos-14
+    runs-on: macos-13
     steps:
       - name: Install xcbeautify
         run: brew install xcbeautify
