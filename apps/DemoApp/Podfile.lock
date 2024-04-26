@@ -3,16 +3,16 @@ PODS:
     - KalturaNetKit/Core (= 1.6.1)
   - KalturaNetKit/Core (1.6.1):
     - SwiftyJSON (= 5.0.0)
-  - Mux-Stats-Core (4.5.2)
-  - Mux-Stats-Kaltura (3.0.0):
-    - Mux-Stats-Core (~> 4.5.2)
-    - PlayKit (~> 3.27.2)
+  - Mux-Stats-Core (5.0.1)
+  - Mux-Stats-Kaltura (4.0.0):
+    - Mux-Stats-Core (~> 5.0.1)
+    - PlayKit (~> 3.28.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - PlayKit (3.27.2):
-    - PlayKit/Core (= 3.27.2)
-  - PlayKit/Core (3.27.2):
+  - PlayKit (3.28.0):
+    - PlayKit/Core (= 3.28.0)
+  - PlayKit/Core (3.28.0):
     - KalturaNetKit (~> 1.6.1)
     - PlayKitUtils (~> 0.5)
     - SwiftyJSON (= 5.0.0)
@@ -43,14 +43,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   KalturaNetKit: 2af6c3c2a1abbd8936b5acde45f33f5195125f4a
-  Mux-Stats-Core: b747ca415f883e2b2d9475d8cc0ac3079167bf6b
-  Mux-Stats-Kaltura: 01327228a92d44d9b335eb204f2e00c21085539c
+  Mux-Stats-Core: bc63e756dc70ca8624c5d513382798bd5da13b2d
+  Mux-Stats-Kaltura: 9b65dd939001aa88e2129a66ff6d892fd674bb96
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PlayKit: 4e2c81a6495b2266cc523f767e6e36eb78305ac0
+  PlayKit: 91b18b80ca59331722ce3738c14b8f469279686d
   PlayKitUtils: 4a11aef6488e778d10b774702ba79dd0cfa0ef11
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
 PODFILE CHECKSUM: e3e654bf3d46e59929f7f83b18044bf553c76597
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.15.2

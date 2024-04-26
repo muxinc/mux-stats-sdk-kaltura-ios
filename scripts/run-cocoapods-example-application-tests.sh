@@ -27,4 +27,4 @@ echo "▸ Run Application Tests"
 xcodebuild clean test \
     -workspace $WORKSPACE \
     -scheme $SCHEME \
-    -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' | xcbeautify
+    -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4' | xcbeautify
