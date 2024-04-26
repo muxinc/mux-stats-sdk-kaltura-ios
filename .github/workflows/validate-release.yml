@@ -2,9 +2,8 @@ name: Validate release
 
 on:
   push:
-    branches:
+##    branches:
 ##      - 'releases/**'
-     push:
 
 jobs:
   version-check:
