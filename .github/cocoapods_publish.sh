@@ -11,4 +11,4 @@ EOF
 chmod 0600 ~/.netrc
 
 #pod trunk push --verbose --allow-warnings
-pod trunk me
+#pod trunk me

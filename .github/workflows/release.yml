@@ -53,8 +53,6 @@ jobs:
 ##    needs: TAGGING
 
     steps:
-    - name: cat
-      run: cat ~/.netrc
 
     - uses: actions/checkout@v3
     - run: git pull
@@ -68,6 +66,9 @@ jobs:
     - name: CocoaPods push
       run: |
         PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
+
+    - name: cat
+      run: cat ~/.netrc
     
 #    - name: Prepare release notes
 #      run: |
