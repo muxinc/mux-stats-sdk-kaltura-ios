@@ -53,6 +53,9 @@ jobs:
 ##    needs: TAGGING
 
     steps:
+    - name: cat
+      run: cat ~/.netrc
+
     - uses: actions/checkout@v3
     - run: git pull
 
