@@ -30,7 +30,7 @@ jobs:
         run: "scripts/run-cocoapods-example-application-tests.sh"
   validate-cocoapods:
     name: Validate Podspec
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - name: Install xcbeautify
         run: brew install xcbeautify
