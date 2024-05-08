@@ -4,7 +4,7 @@ set -u
 
 cat << EOF > ~/.netrc
 machine trunk.cocoapods.org
-  login $PODS_USER
+  login $PODS_LOGIN
   password $PODS_PASS
 EOF
 
