@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - 'releases/**'
+
+jobs:
+  PODS_PUSH:
+    name: "CocoaPods push"
+    runs-on: macOS-12
+    environment: CocoaPods
+    steps:
+    - uses: actions/checkout@v3
+    - run: git pull
+
+    - name: Updating Cocoapods
+      run: gem install cocoapods
+    
+    - name: Updating CocoaPods repo
+      run: pod repo update
+      
+    - name: CocoaPods push
+      run: |
+        PODS_LOGIN=${{ secrets.PODS_LOGIN }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
