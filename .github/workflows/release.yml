@@ -64,7 +64,7 @@ jobs:
       
     - name: CocoaPods push
       run: |
-        PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
+        PODS_LOGIN=${{ secrets.PODS_LOGIN }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
     
 #    - name: Prepare release notes
 #      run: |
